@@ -1,0 +1,2166 @@
+@extends('layouts.main')
+
+@section('content')
+    <section class="s-line s-index-slider sm-pt-20 pt-0">
+        <div class="owl-carousel owl-index-slider dots-center">
+            <div class="slide">
+                <div class="container">
+                    
+                    <!-- <div class="slider-image" style="background-image: url('https://place-hold.it/1200x312');"> -->
+                        <div class="slider-image" style="background-image: url('assets/content/index-slider001.png');">
+                            <div class="slider-image mobile" style="background-image: url('https://place-hold.it/545x700/319d7a/fff');">
+                                <div class="row row-content align-items-sm-center align-items-start">
+                                    <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
+                                        <div class="content-offset color-white align-sm-left align-center">
+                                            <div class="_h1 bold title">Для тех кто создает</div>
+                                            <div class="description _h6 mt-15">
+                                                <div>Получи изделия за очень короткий срок и отличного качества. </div>
+                                                <div>Используем новейшие технологии. </div>
+                                            </div>
+                                            <div class="row justify-content-sm-start justify-content-center mt-15">
+                                                <div class="col-auto"><a href="" class="button block">Подробнее</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="container">
+                        <div class="slider-image" style="background-image: url('https://place-hold.it/1200x312');">
+                            <div class="slider-image mobile" style="background-image: url('https://place-hold.it/545x700/319d7a/fff');">
+                                <div class="row row-content align-items-sm-center align-items-start">
+                                    <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
+                                        <div class="content-offset color-white align-sm-left align-center">
+                                            <div class="_h1 bold title">Заголовок</div>
+                                            <div class="description _h6 mt-15">
+                                                <div>Описание 1</div>
+                                                <div>Описание 2</div>
+                                            </div>
+                                            <div class="row justify-content-sm-start justify-content-center mt-15">
+                                                <div class="col-auto"><a href="" class="button block">Подробнее</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="s-line s-index-category-slider s-items-slider">
+            <div class="container pt-30 pb-0">
+                <div class="w-category-list">
+                <!-- <div class="row row-category-list lg-md-gutters sm-gutters">
+                    <div class="col-xxl-20 col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link">
+                                <div class="frame">
+                                    <div class="w-title">
+                                        <div class="title _h6 semibold">
+                                            Оснастка для бензоинструмента
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="owl-carousel owl-categorys-list-slider">
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Оснастка для бензоинструмента
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="assets/content/category-image001.png" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-category-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-title mb-5">
+                                        <div class="title _h6 semibold">
+                                            Электроинструмент
+                                        </div>
+                                    </div>
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-line s-index-catalog-slider s-items-slider">
+        <div class="container pt-30 pb-60">
+            <div class="row align-items-end mb-20">
+                <div class="col-sm-auto col-12 mb-5">
+                    <div class="s-name _h2 bold align-center">Новинки</div>
+                </div>
+                <div class="col-sm-auto col-12 mb-10">
+                    <div class="_h6 upper align-center">
+                        <a href="" class="color-orange nul"><span class="dashed dash">посмотреть все</span></a>
+                    </div>
+                </div>
+            </div>				
+            <div class="w-catalog-list">
+                <div class="owl-carousel owl-catalog-list-slider">
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="assets/content/product-image001.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters _active">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзине</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row row-catalog-list lg-md-gutters sm-gutters">
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="assets/content/product-image001.jpg" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters _active">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзине</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="s-line s-index-catalog-slider s-items-slider">
+        <div class="container">
+            <div class="w-index-benefits-list-frame">
+                <div class="frame">
+                    <div class="row md-sm-gutters md-gutters">
+                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
+                            <div class="w-index-benefit-list-item w-icon-left">
+                                <div class="icon">
+                                    <img src="assets/content/index-benefit-icon001.svg" alt="" class="img block">
+                                </div>
+                                <div class="text">
+                                    <div class="_h6 bold">Цены от импортера</div>
+                                    <div class="description mt-5 color-gray">Гарантированное качество за разумные деньги</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
+                            <div class="w-index-benefit-list-item w-icon-left">
+                                <div class="icon">
+                                    <img src="assets/content/index-benefit-icon002.svg" alt="" class="img block">
+                                </div>
+                                <div class="text">
+                                    <div class="_h6 bold">Быстрый кредит</div>
+                                    <div class="description mt-5 color-gray">Помощь в получении и оформлении</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
+                            <div class="w-index-benefit-list-item w-icon-left">
+                                <div class="icon">
+                                    <img src="assets/content/index-benefit-icon003.svg" alt="" class="img block">
+                                </div>
+                                <div class="text">
+                                    <div class="_h6 bold">Бесплатная доставка РБ</div>
+                                    <div class="description mt-5 color-gray">Собственный автопарк для оперативной доставки</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
+                            <div class="w-index-benefit-list-item w-icon-left">
+                                <div class="icon">
+                                    <img src="assets/content/index-benefit-icon004.svg" alt="" class="img block">
+                                </div>
+                                <div class="text">
+                                    <div class="_h6 bold">Гарантия на продукцию</div>
+                                    <div class="description mt-5 color-gray">Гарантийные и сервисные обязательства</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-line s-index-catalog-slider s-items-slider">
+        <div class="container pt-30 pb-60">
+            <div class="row align-items-end mb-20">
+                <div class="col-sm-auto col-12 mb-5">
+                    <div class="s-name _h2 bold align-center">Популярные товары</div>
+                </div>
+                <div class="col-sm-auto col-12 mb-10">
+                    <div class="_h6 upper align-center">
+                        <a href="" class="color-orange nul"><span class="dashed dash">посмотреть все</span></a>
+                    </div>
+                </div>
+            </div>				
+            <div class="w-catalog-list">
+                <div class="owl-carousel owl-catalog-list-slider">
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="assets/content/product-image001.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    <div class="col-auto col">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 1.60786C19.8242 2.66108 21.3391 4.17593 22.3923 6.00016C23.4455 7.8244 24 9.89373 24 12.0002C24 14.1066 23.4455 16.1759 22.3922 18.0001C21.339 19.8244 19.8241 21.3392 17.9999 22.3924C16.1756 23.4456 14.1063 24 11.9998 24C9.89336 24 7.82402 23.4455 5.9998 22.3922C4.17558 21.339 2.66075 19.8241 1.60756 17.9998C0.554376 16.1756 -5.35076e-05 14.1062 3.87318e-09 11.9998L0.00600014 11.611C0.0732039 9.53859 0.676257 7.51897 1.75637 5.74902C2.83648 3.97907 4.35678 2.51919 6.16907 1.51172C7.98136 0.504243 10.0238 -0.0164528 12.0972 0.000396292C14.1706 0.0172454 16.2043 0.571064 18 1.60786ZM15 13.1998C14.5226 13.1998 14.0648 13.3894 13.7272 13.727C13.3896 14.0645 13.2 14.5224 13.2 14.9998C13.2 15.4771 13.3896 15.935 13.7272 16.2725C14.0648 16.6101 14.5226 16.7997 15 16.7997C15.4774 16.7997 15.9352 16.6101 16.2728 16.2725C16.6104 15.935 16.8 15.4771 16.8 14.9998C16.8 14.5224 16.6104 14.0645 16.2728 13.727C15.9352 13.3894 15.4774 13.1998 15 13.1998ZM16.4484 7.55142C16.2234 7.32645 15.9182 7.20008 15.6 7.20008C15.2818 7.20008 14.9766 7.32645 14.7516 7.55142L7.5516 14.7514C7.33301 14.9777 7.21206 15.2808 7.21479 15.5954C7.21753 15.9101 7.34373 16.211 7.56622 16.4335C7.78871 16.656 8.08968 16.7822 8.40432 16.785C8.71896 16.7877 9.02208 16.6667 9.2484 16.4482L12.8484 12.8482L16.4484 9.2482C16.6734 9.02317 16.7997 8.718 16.7997 8.39981C16.7997 8.08162 16.6734 7.77645 16.4484 7.55142ZM9 7.19982C8.52261 7.19982 8.06477 7.38946 7.72721 7.72702C7.38964 8.06459 7.2 8.52242 7.2 8.99981C7.2 9.47719 7.38964 9.93502 7.72721 10.2726C8.06477 10.6102 8.52261 10.7998 9 10.7998C9.47739 10.7998 9.93523 10.6102 10.2728 10.2726C10.6104 9.93502 10.8 9.47719 10.8 8.99981C10.8 8.52242 10.6104 8.06459 10.2728 7.72702C9.93523 7.38946 9.47739 7.19982 9 7.19982Z" fill="#FF5F00"/></svg>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color001">
+                                                            NEW
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto col">
+                                                        <div class="product-color-sticker color002">
+                                                            ХИТ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-old-price">
+                                                        <div class="row align-items-center sm-gutters">
+                                                            <div class="col-auto">
+                                                                <div class="color-orange semibold old-price">140,57 BYN</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="old-price-sticker">-10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters _active">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзине</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-catalog-list-item">
+                            <div class="frame">
+                                <div class="row flex-column justify-content-between">
+                                    <div class="col-auto col">
+                                        <div class="w-image">
+                                            <div class="w-stickers">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="image">
+                                                <a href="" class="block__link">
+                                                    <img src="https://place-hold.it/330x330" class="img block" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="w-name md-pt-10 pt-5 pb-10">
+                                            <div class="w-price-group">
+                                                <div class="w-price">
+                                                    <div class="w-price">
+                                                        <div class="_h5 bold">120,57 <span class="_h7">BYN/шт.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="name bold mt-5">
+                                                <a href="" class="name__link block color-black nul">
+                                                    Электрический конвектор с  термостатом, 1 кВт, Стич Rexant
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto col">
+                                        <div class="w-controlls pb-5">
+                                            <div class="row row-controlls sm-gutters">
+                                                <div class="col-pcs col-12 col pb-5">
+                                                    <div class="_js-pcscontrolls pcscontrolls">
+                                                        <a class="btn fcm left minus _js-b-minus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 5" xmlns="http://www.w3.org/2000/svg"><path d="M0.333496 2.75008C0.333496 2.19755 0.55299 1.66764 0.943691 1.27694C1.33439 0.886241 1.8643 0.666748 2.41683 0.666748H31.5835C32.136 0.666748 32.6659 0.886241 33.0566 1.27694C33.4473 1.66764 33.6668 2.19755 33.6668 2.75008C33.6668 3.30262 33.4473 3.83252 33.0566 4.22322C32.6659 4.61392 32.136 4.83341 31.5835 4.83341H2.41683C1.8643 4.83341 1.33439 4.61392 0.943691 4.22322C0.55299 3.83252 0.333496 3.30262 0.333496 2.75008Z"></path></svg>
+                                                        </a>
+                                                        <input type="text" value="1" class="input__default">
+                                                        <a class="btn fcm right plus _js-b-plus">
+                                                            <svg width="15" height="15" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M0 17.0833C0 16.5308 0.219494 16.0009 0.610195 15.6102C1.0009 15.2195 1.5308 15 2.08333 15H31.25C31.8025 15 32.3324 15.2195 32.7231 15.6102C33.1138 16.0009 33.3333 16.5308 33.3333 17.0833C33.3333 17.6359 33.1138 18.1658 32.7231 18.5565C32.3324 18.9472 31.8025 19.1667 31.25 19.1667H2.08333C1.5308 19.1667 1.0009 18.9472 0.610195 18.5565C0.219494 18.1658 0 17.6359 0 17.0833Z"></path><path d="M17.0833 0C17.6359 0 18.1658 0.219493 18.5565 0.610194C18.9472 1.00089 19.1667 1.5308 19.1667 2.08333V31.25C19.1667 31.8025 18.9472 32.3324 18.5565 32.7231C18.1658 33.1138 17.6359 33.3333 17.0833 33.3333C16.5308 33.3333 16.0009 33.1138 15.6102 32.7231C15.2195 32.3324 15 31.8025 15 31.25V2.08333C15 1.5308 15.2195 1.00089 15.6102 0.610194C16.0009 0.219493 16.5308 0 17.0833 0Z"></path></svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-btn col-12 col pb-5">
+                                                    <button class="button to-cart-btn block row align-items-center justify-content-center sm-gutters">
+                                                        <div class="col-auto col">
+                                                            <svg viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H3C3.47158 0 3.87907 0.329457 3.97783 0.790578L4.87936 5H21.04C21.3433 5 21.6302 5.13765 21.82 5.37422C22.0098 5.61079 22.082 5.92071 22.0162 6.21679L20.3666 13.645C20.3666 13.6453 20.3667 13.6447 20.3666 13.645C20.2197 14.3115 19.8498 14.9087 19.3182 15.3368C18.7863 15.7649 18.1244 15.9989 17.4416 16L7.67003 16C6.97666 16.0126 6.30018 15.7846 5.75581 15.3545C5.20825 14.922 4.82861 14.312 4.68225 13.6298L3.10272 6.25468C3.09506 6.22552 3.08869 6.19584 3.08367 6.16571L2.19149 2H1C0.447715 2 0 1.55228 0 1ZM5.3077 7L6.63775 13.2102C6.63778 13.2104 6.63773 13.2101 6.63775 13.2102C6.6866 13.4375 6.81318 13.6411 6.99561 13.7852C7.17813 13.9294 7.40521 14.0054 7.63775 14.0002L7.66 14L17.4384 14C17.4386 14 17.4382 14 17.4384 14C17.6658 13.9995 17.8868 13.9215 18.0639 13.7789C18.2412 13.6362 18.3645 13.4373 18.4134 13.215L19.7936 7H5.3077Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.95 19.95C15.95 18.8454 16.8454 17.95 17.95 17.95C19.0545 17.95 19.95 18.8454 19.95 19.95C19.95 21.0546 19.0545 21.95 17.95 21.95C16.8454 21.95 15.95 21.0546 15.95 19.95Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.94995 19.95C4.94995 18.8454 5.84538 17.95 6.94995 17.95C8.05452 17.95 8.94995 18.8454 8.94995 19.95C8.94995 21.0546 8.05452 21.95 6.94995 21.95C5.84538 21.95 4.94995 21.0546 4.94995 19.95Z"></path></svg>
+                                                        </div>
+                                                        <div class="col-auto col">В корзину</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-line s-index-offer-image-link">
+        <div class="container pb-60">
+            <a href="" class="block__link"><img src="assets/content/aljkhsfdgajhsgdjasgd.jpg" class="img block" alt=""></a>
+        </div>
+    </section>
+
+    <section class="s-line s-index-brands-slider s-items-slider">
+        <div class="container pb-60">
+            <div class="s-name _h2 bold align-sm-left align-center mb-30">Наши бренды</div>
+            <div class="w-category-list">
+                <div class="owl-carousel owl-brands-list-slider">
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="assets/content/brand-logo-image001.png" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-brands-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <img src="https://place-hold.it/300x100" alt="" class="img block">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="s-line s-index-callback-frame">
+        <div class="container xl-pt-0 xl-pb-30 md-pt-0 md-pb-0 pt-0 pb-0">
+            <div class="w-index-callback-frame color-white">
+                <div class="row row-index-callback-frame align-items-center no-gutters">
+                    <div class="col-decorated-image col">
+                        <div class="image">
+                            <img src="assets/i/index-callback-image.svg" alt="" class="img block">
+                        </div>
+                    </div>
+                    <div class="col-aside-content col">
+                        <div class="decorated-frame">
+                            <svg viewBox="0 0 769 430" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.59022 14.4169C-1.39401 7.67752 3.5504 0 10.921 0H759C764.523 0 769 4.47715 769 10V420C769 425.523 764.523 430 759 430H11.1246C3.70425 430 -1.23397 422.216 1.85034 415.467C17.6965 380.793 55.6681 291.215 57.4024 225.5C59.3298 152.469 18.0165 51.5129 1.59022 14.4169Z" fill="url(#index-callback-content-frame-gradient)"/><defs><linearGradient id="index-callback-content-frame-gradient" x1="382" y1="0" x2="382" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5F00"/><stop offset="1" stop-color="#FF5F00"/></linearGradient></defs></svg>
+                        </div>
+                        <div class="content">
+                            <div class="s-name _h3 semibold lg-mb-15 mb-10 align-md-left align-center">У вас есть вопрос?</div>
+                            <div class="s-name description _h6 lg-mb-10 mb-10">Заполни форму и погрузись в уникальную атмосферу  приключений. Впечатляющая игра актеров, большие локации и увлекательные сюжеты никого не оставят равнодушным.</div>
+                            <div class="row lg-lg-gutters sm-gutters">
+                                <div class="col-sm-6 col-12 col">
+                                    <div class="input input-icon-left person lg-mt-15 mt-10">
+                                        <div class="icon"><svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6982 0.666748C9.83226 0.666748 6.69824 3.80076 6.69824 7.66675C6.69824 11.5327 9.83226 14.6667 13.6982 14.6667C17.5642 14.6667 20.6982 11.5327 20.6982 7.66675C20.6982 3.80076 17.5642 0.666748 13.6982 0.666748Z" fill="#FF985B"/><path d="M25.5252 19.8191C18.1303 15.8894 9.26626 15.8894 1.87133 19.8191C1.14949 20.2027 0.698303 20.9534 0.698303 21.7709V26.6666C0.698303 27.9553 1.74297 28.9999 3.03164 28.9999H24.365C25.6536 28.9999 26.6983 27.9553 26.6983 26.6666V21.7709C26.6983 20.9534 26.2471 20.2027 25.5252 19.8191Z" fill="#FF985B"/></svg></div>
+                                        <input type="text" class="input__default orange" placeholder="Ваше имя *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-12 col">
+                                    <div class="input input-icon-left phone lg-mt-15 mt-10">
+                                        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.83333 10.3933C6.75333 14.1667 9.84 17.2533 13.62 19.1733L16.5533 16.2333C16.92 15.8667 17.4467 15.76 17.9067 15.9067C19.4 16.4 21.0067 16.6667 22.6667 16.6667C23.4067 16.6667 24 17.26 24 18V22.6667C24 23.4067 23.4067 24 22.6667 24C10.1467 24 0 13.8533 0 1.33333C0 0.593333 0.6 0 1.33333 0H6C6.74 0 7.33333 0.593333 7.33333 1.33333C7.33333 2.99333 7.6 4.6 8.09333 6.09333C8.24 6.55333 8.13333 7.08 7.76667 7.44667L4.83333 10.3933Z" fill="#FF985B"/></svg></div>
+                                        <input type="text" class="input__default orange" placeholder="Номер телефона *">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="custom-selector check xl-mt-25 mt-10">
+                                <label class="label block pointer">
+                                    <div class="input">
+                                        <input type="checkbox" name="checkbox001" class="selector hidden">
+                                        <div class="styled-figure">
+                                            <div class="border">
+                                                <div class="inset-figure"></div>
+                                            </div>
+                                        </div>
+                                        <div class="label label-inner">Согласен на <a href="" class="color-white">обработку персональных данных</a></div>
+                                    </div> 
+                                </label>
+                            </div>
+                            <div class="xl-mt-15 mt-10"><span class="color-red">*</span> поля обязательные для заполнения</div>
+                            <div class="row justify-content-md-end justify-content-center mt-20">
+                                <div class="col-lg-6 col-md-8 col-sm-7 col-12">
+                                    <button class="button transparent white block">Перезвоните мне</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>				
+        </div>
+    </section>
+
+    <section class="s-line s-index-catalog-slider s-items-slider">
+        <div class="container pt-30 pb-60">
+            <div class="row align-items-end mb-20">
+                <div class="col-sm-auto col-12 mb-5">
+                    <div class="s-name _h2 bold align-center">Наши новости</div>
+                </div>
+                <div class="col-sm-auto col-12 mb-10">
+                    <div class="_h6 upper align-center">
+                        <a href="" class="color-orange nul"><span class="dashed dash">посмотреть все</span></a>
+                    </div>
+                </div>
+            </div>				
+            <div class="w-news-list">
+                <div class="owl-carousel owl-news-list-slider">
+                    <div class="slide">
+                        <div class="w-news-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-image">
+                                        <div class="image"><img src="assets/content/article-image001.jpg" alt="" class="img block"></div>
+                                    </div>
+                                    <div class="w-bottom">
+                                        <div class="date color-gray">24.01.2025</div>
+                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
+                                        <div class="w-more-link mt-10">
+                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-news-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
+                                    </div>
+                                    <div class="w-bottom">
+                                        <div class="date color-gray">24.01.2025</div>
+                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
+                                        <div class="w-more-link mt-10">
+                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-news-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
+                                    </div>
+                                    <div class="w-bottom">
+                                        <div class="date color-gray">24.01.2025</div>
+                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
+                                        <div class="w-more-link mt-10">
+                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-news-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
+                                    </div>
+                                    <div class="w-bottom">
+                                        <div class="date color-gray">24.01.2025</div>
+                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
+                                        <div class="w-more-link mt-10">
+                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="w-news-list-item">
+                            <a href="" class="block__link color-black nul">
+                                <div class="frame">
+                                    <div class="w-image">
+                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
+                                    </div>
+                                    <div class="w-bottom">
+                                        <div class="date color-gray">24.01.2025</div>
+                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
+                                        <div class="w-more-link mt-10">
+                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

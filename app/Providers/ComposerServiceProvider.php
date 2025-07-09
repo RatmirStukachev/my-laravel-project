@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Providers;
+
+use Filament\Facades\Filament;
+use Illuminate\Support\Facades\DB;
+use App\ViewComposers\MenuComposer;
+use App\ViewComposers\MetricsComposer;
+use App\ViewComposers\ContactsComposer;
+use Illuminate\Support\ServiceProvider;
+use Filament\Navigation\NavigationGroup;
+use App\ViewComposers\MenuCategoriesComposer;
+
+class ComposerServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        view()->composer(
+            [
+                'general.header',
+                'general.menus.mobile-menu',
+                'general.footer',
+            ],
+            MenuComposer::class,
+        );
+
+        view()->composer(
+            [
+                'general.header',
+                'general.menus.mobile-menu',
+                'general.footer',
+            ],
+            MenuCategoriesComposer::class,
+        );
+
+        view()->composer(
+            ['*'], MetricsComposer::class,
+        );
+
+        view()->composer(
+            ['*'], ContactsComposer::class,
+        );
+    }
+}
