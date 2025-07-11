@@ -29,6 +29,11 @@ class ContactsService
         return 'tg://resolve?domain=' . $nicName;
     }
 
+    public static function getTelegramLinkViaPhone($phone): string
+    {
+        return 'tg://resolve?phone=' . preg_replace('/\D/', '', $phone);
+    }
+
     public static function getInstagramLink($username): string
     {
         return 'https://www.instagram.com/' . ltrim($username, '@');

@@ -12,21 +12,28 @@ use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class ContactsForm
 {
-    const NAME = 'Contacts';
+    const NAME = 'Контакты';
     const ICON = 'heroicon-o-document-text';
 
     public static function get(): array
     {
         return [            
             Section::make('')->schema([
-                TextInput::make('company_name')
-                    ->label('Название компании'),
+                // TextInput::make('company_name')
+                //     ->label('Название компании'),
                 TextInput::make('company_address')
-                    ->label('Юридический адрес'),
-            ])->columns(2),
-            TinyEditor::make('work_time')
+                    ->label('Адрес (страница контактов)'),
+                TextInput::make('company_address_pickup_header')
+                    ->label('Адрес самовывоза (header)'),
+                TextInput::make('company_address_pickup_footer')
+                    ->label('Адрес самовывоза (footer)'),
+            ])->columns(3),
+            TinyEditor::make('work_time_header')
                 ->columnSpanFull()
-                ->label('Время работы'),
+                ->label('Время работы (header)'),
+            TinyEditor::make('work_time_footer')
+                ->columnSpanFull()
+                ->label('Время работы (footer)'),
             TinyEditor::make('company_info')
                 ->columnSpanFull()
                 ->label('О компании (footer)'),
@@ -34,19 +41,15 @@ class ContactsForm
                     ->label('Почты для получения заказов (через запятую)'),
             TextInput::make('email_callback')
                     ->label('Почты для обратной связи (через запятую)'),
-            TinyEditor::make('company_info')
+            TinyEditor::make('company_creds')
                 ->columnSpanFull()
-                ->label('Инфо о компании'),
+                ->label('Реквизиты компании'),
             Repeater::make('contacts_phones')
                 ->label('Номера телефонов')
                 ->schema([                    
-                    FileUpload::make('phone_svg')
-                        ->columnSpanFull()
-                        ->acceptedFileTypes(['image/svg+xml'])
-                        ->label('Картинка (svg)'),
                     Section::make('')->schema([
-                        TextInput::make('service_name')
-                            ->label('Отдел'),
+                        TextInput::make('phone_name')
+                            ->label('Подпись телефона'),
                         TextInput::make('phone')
                                 ->label('Телефон'),
                     ])->columns(2),
@@ -54,6 +57,12 @@ class ContactsForm
                         ->label('Главный телефон'),
                     Checkbox::make('is_dropdown')
                         ->label('В выпадающем списке'),
+                    Checkbox::make('is_whatsapp')
+                        ->label('WhatsApp'),
+                    Checkbox::make('is_viber')
+                        ->label('Viber'),
+                    Checkbox::make('is_telegram')
+                        ->label('Telegram'),
                 ])->createItemButtonLabel('Добавить телефон'),
             Repeater::make('contacts_emails')
                 ->label('Email для контактов')
@@ -62,19 +71,11 @@ class ContactsForm
                         ->label('Email'),
                     Checkbox::make('is_main')
                         ->label('Главный email'),
-                    // Checkbox::make('is_dropdown')
-                    //     ->label('В выпадающем списке'),
                 ])->createItemButtonLabel('Добавить eamil'),
-            Section::make('Social networks')->schema([
-                TextInput::make('telegram')
+            Section::make('Социальные сети')->schema([
+                TextInput::make('instagram')
                     ->autofocus()
-                    ->label('Telegram (@nickname)'),
-                TextInput::make('whatsapp')
-                    ->autofocus()
-                    ->label('WhatsApp (номер телефона 375..)'),
-                TextInput::make('viber')
-                    ->autofocus()
-                    ->label('Viber (номер телефона 375..)'),
+                    ->label('Instagram'),
             ])->columns(3),
             Section::make('Карта')->schema([
                 TextInput::make('coords')

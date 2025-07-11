@@ -13,6 +13,7 @@ class MenuComposer
 
     public function __construct()
     {
+        Cache::forget('menus');
         $this->menus = Cache::flexible(
             key: 'menus',
             ttl: [
@@ -27,9 +28,8 @@ class MenuComposer
     public function compose(View $view): View
     {
         return $view->with([
-            'mainMenuItems' => $this->menus->where('main', true)->sortBy('pos'),
+            'mainMenuItems' => $this->menus->where('master', true)->sortBy('pos'),
             'slaveMenuItems' =>$this->menus->where('slave', true)->sortBy('pos'),
-            'linkMenuItems' =>$this->menus->where('slave_right', true)->sortBy('pos'),
         ]);
     }
 }

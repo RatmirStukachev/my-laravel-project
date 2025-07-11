@@ -15,6 +15,7 @@ class ContactsComposer
 
     public function __construct()
     {
+        Cache::forget('contacts');
         $this->contacts = Cache::flexible(
             key: 'contacts',
             ttl: [
