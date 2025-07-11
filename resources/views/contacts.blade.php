@@ -23,7 +23,7 @@
                                 <div class="row sm-gutters align-items-center mt-5">
                                     @if($phone['phone'])
                                         <div class="col-auto _h6 bold col">
-                                            <a ref="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="block nul color-black"><span class="dashed dash">{{ $phone['phone'] }}</span></a>
+                                            <a href="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="block nul color-black"><span class="dashed dash">{{ $phone['phone'] }}</span></a>
                                         </div>
                                         @if($phone['is_viber'] === true)
                                             <div class="col-auto col">
@@ -140,19 +140,19 @@
 @section('schema_org')
     <script type="application/ld+json">
         {
-          "@context": "http://schema.org",
-          "@type": "Organization",
+          "@@context": "http://schema.org",
+          "@@type": "Organization",
           "name": "{{ env('APP_NAME') }}",
           "url": "{{ env('APP_URL') }}",
           "logo": "{{ asset('assets/i/perf-by-logo.png') }}",
           "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "streetAddress": "{{ $contacts->company_address }}",
             "addressLocality": "Минск",
             "addressCountry": "Беларусь"
           },
           "contactPoint": [{
-            "@type" : "ContactPoint",
+            "@@type" : "ContactPoint",
             "telephone": "{{ isset($contacts->contacts_phones[0]['phone'] )
                 ? $contacts->contacts_phones[0]['phone'] 
                 : '' 
