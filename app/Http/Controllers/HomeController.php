@@ -18,7 +18,7 @@ class HomeController extends Controller
         $page = $this->pageService->getPage('/');
         $sliders = $this->itemService->getSliders();
         $categories = $this->itemService->getCategoriesForIndex();
-        $news = $this->itemService->getNewsForIndex();
+        // $news = $this->itemService->getNewsForIndex();
 
         return view('index', 
             compact('page', 'sliders', 'categories', 'news'));

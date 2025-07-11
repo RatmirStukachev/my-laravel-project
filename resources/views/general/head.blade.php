@@ -17,6 +17,9 @@
     <meta name="description" content="{{$seo->description}}"/>
     <meta name="title" content="{{$seo->title}}">
 @endisset
+@if(isset($_GET['page']))
+    <link rel="canonical" href="{{ url(Request::url()) }}" />
+@endif
 
     <link rel="shortcut icon" href="{{ asset('assets/i/favicon.png') }}" type="image/png"/>
     <link rel="shortcut icon" href="{{ asset('assets/i/favicon.svg') }}" type="image/svg+xml"/>
