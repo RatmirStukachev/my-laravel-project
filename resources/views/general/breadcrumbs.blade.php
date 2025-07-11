@@ -1,5 +1,5 @@
 @if(isset($breadcrumbs))
-    <div class="w-breadcrumbs xl-pt-0 xl-pb-15 pt-20 pb-10" itemscope
+    <div class="w-breadcrumbs pt-5 pb-5" itemscope
         itemtype="http://schema.org/BreadcrumbList">
         @foreach($breadcrumbs as $k => $v)
             @if(!$loop->last)
