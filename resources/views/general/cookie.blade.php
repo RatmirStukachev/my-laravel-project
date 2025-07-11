@@ -3,7 +3,7 @@
         <div class="frame">
             <div class="text">
                 Этот сайт использует cookies<br>
-                <a href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'privacy') ]) }}" class="__link">Политика в отношении обработки персональных данных</a>
+                {{-- <a href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'privacy') ]) }}" class="__link">Политика в отношении обработки персональных данных</a> --}}
             </div>
             <div class="w-button">
                 <a href="" class="button _js-b-cookie-alert">Принять</a>
