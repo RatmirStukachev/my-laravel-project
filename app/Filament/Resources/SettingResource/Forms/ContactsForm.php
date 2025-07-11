@@ -18,7 +18,7 @@ class ContactsForm
     public static function get(): array
     {
         return [            
-            Section::make('')->schema([
+            Section::make('Адреса')->schema([
                 // TextInput::make('company_name')
                 //     ->label('Название компании'),
                 TextInput::make('company_address')
@@ -28,12 +28,12 @@ class ContactsForm
                 TextInput::make('company_address_pickup_footer')
                     ->label('Адрес самовывоза (footer)'),
             ])->columns(3),
-            TinyEditor::make('work_time_header')
-                ->columnSpanFull()
-                ->label('Время работы (header)'),
-            TinyEditor::make('work_time_footer')
-                ->columnSpanFull()
-                ->label('Время работы (footer)'),
+            Section::make('Время работы')->schema([
+                TextInput::make('work_time_header')
+                    ->label('Время работы (header)'),
+                TextInput::make('work_time_footer')
+                    ->label('Время работы (footer)'),
+            ])->columns(),
             TinyEditor::make('company_info')
                 ->columnSpanFull()
                 ->label('О компании (footer)'),
