@@ -10,14 +10,13 @@
                             </a>
                         </div>
                         <div class="col-nav col pb-30 col-lg-hide">
-                            <ul class="main-menu row">
-                                <li class="col-auto"><a href="" class="__link"><span class="dashed dash">О магазине</span></a></li>
-                                <li class="col-auto _active"><a href="" class="__link"><span class="dashed dash">Доставка</span></a></li>
-                                <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Оплата</span></a></li>
-                                <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Акции и скидки</span></a></li>
-                                <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Новости</span></a></li>
-                                <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Контакты</span></a></li>
-                            </ul>
+                            @if (isset($slaveMenuItems) && $slaveMenuItems?->isNotEmpty())
+                                <ul class="main-menu row">
+                                    @foreach($slaveMenuItems as $menu)  
+                                        <li class="col-auto @if(request()->is($menu->slug)) _active @endif"><a href="/{{ $menu->slug }}" class="__link"><span class="dashed dash">{{ $menu->title}}</span></a></li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
 

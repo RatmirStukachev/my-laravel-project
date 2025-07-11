@@ -21,7 +21,7 @@ class MenuComposer
                 config('cache.stores.menu'),
             ],
             callback: function () {
-                return SiteMenu::with('children')->isActive()->get();
+                return SiteMenu::isActive()->get();
             });
     }
 
