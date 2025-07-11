@@ -221,7 +221,7 @@
                                                         <div class="row align-items-center sm-gutters">
                                                             @if($phone['phone'])
                                                                 <div class="col-auto col">
-                                                                    <a href="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="color-black nul semibold"><span class="dashed dash">{{ $phone['phone'] }}</span></span></a>
+                                                                    <a href="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="color-black nul semibold"><span class="dashed dash">{{ $phone['phone'] }}</span></a>
                                                                 </div>
                                                                 <div class="col-auto col">
                                                                     <div class="row row-social-icons-list">
@@ -317,9 +317,11 @@
                                                                 <div class="row align-items-center sm-gutters">
                                                                     @if ($phone['phone'])
                                                                         <div class="col-auto col">
-                                                                            <a href="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="color-black nul semibold"><span class="dashed dash">{{ $phone['phone'] }}
-                                                                        <div class="col-auto col">
-                                                                            <div class="row row-social-icons-list">
+                                                                            <a href="{{ zContactsService::getPhoneLink($phone['phone']) }}" class="color-black nul semibold"><span class="dashed dash">{{ $phone['phone'] }}</span></a>
+                                                                        </div>
+                                                                    @endif
+                                                                    <div class="col-auto col">
+                                                                        <div class="row row-social-icons-list">
                                                                                 @if($phone['is_viber'] === true)
                                                                                     <div class="col-auto col">
                                                                                         <a href="{{ zContactsService::getPhoneViberLink($phone['phone']) }}" class="social-colored-icon__link colored vi">
@@ -347,8 +349,7 @@
                                                                                 @endif
                                                                             </div>
                                                                         </div>
-                                                                    @endif
-                                                                </div>
+                                                                    </div>
                                                             </div>
                                                         @endif
                                                     @endforeach
@@ -358,15 +359,17 @@
                                     </div>											
                                 </div>
                             </div>
-                            <div class="col-auto col pb-5">
-                                <div class="row row-social-icons-list align-items-center">
-                                    <div class="col-auto col">
-                                        <a href="" class="social-colored-icon__link colored ig">
-                                            <svg x="0" y="0" viewBox="0 0 20 20"><path d="m15 0h-10c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5v-10c0-2.8-2.2-5-5-5zm3 15c0 1.7-1.3 3-3 3h-10c-1.7 0-3-1.3-3-3v-10c0-1.7 1.3-3 3-3h10c1.7 0 3 1.3 3 3z"></path><path d="m10 5c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"></path><circle cx="15" cy="5" r="1"></circle></svg>
-                                        </a>
+                            @if (isset($contacts->instagram) && $contacts->instagram)
+                                <div class="col-auto col pb-5">
+                                    <div class="row row-social-icons-list align-items-center">
+                                        <div class="col-auto col">
+                                            <a href="{{ zContactsService::getInstagramLink($contacts->instagram) }}" class="social-colored-icon__link colored ig">
+                                                <svg x="0" y="0" viewBox="0 0 20 20"><path d="m15 0h-10c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5v-10c0-2.8-2.2-5-5-5zm3 15c0 1.7-1.3 3-3 3h-10c-1.7 0-3-1.3-3-3v-10c0-1.7 1.3-3 3-3h10c1.7 0 3 1.3 3 3z"></path><path d="m10 5c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"></path><circle cx="15" cy="5" r="1"></circle></svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
