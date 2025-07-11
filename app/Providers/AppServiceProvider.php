@@ -35,17 +35,17 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
-        // Filament::serving(function () {
-        //     Filament::registerNavigationGroups([
-        //         NavigationGroup::make()
-        //             ->label('Заказы'),
-        //         NavigationGroup::make()
-        //             ->label('Магазин'),
-        //         NavigationGroup::make()
-        //             ->label('Контент'),
-        //         NavigationGroup::make()
-        //             ->label('Настройки'),
-        //     ]);
-        // });
+        Filament::serving(function () {
+            Filament::registerNavigationGroups([
+                NavigationGroup::make()
+                    ->label('Заказы'),
+                NavigationGroup::make()
+                    ->label('Магазин'),
+                NavigationGroup::make()
+                    ->label('Контент'),
+                NavigationGroup::make()
+                    ->label('Настройки'),
+            ]);
+        });
     }
 }
