@@ -1993,7 +1993,7 @@
             <div class="row align-items-end mb-20">
                 <div class="col-sm-auto col-12 mb-5">
                     @if(isset($news_title['title']) && $news_title['title'])
-                        <div class="s-name _h2 bold align-center">$news_title['title']</div>
+                        <div class="s-name _h2 bold align-center">{{ $news_title['title'] }}</div>
                     @endif
                 </div>
                 <div class="col-sm-auto col-12 mb-10">
