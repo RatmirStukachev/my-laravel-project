@@ -67,7 +67,7 @@ class NewsResource extends Resource
                                             ->label('Контент')
                                             ->columnSpanFull(),
                                         Forms\Components\FileUpload::make('image')
-                                            ->label('Изображение (1100x250)')
+                                            ->label('Изображение (1200x900)')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('news'),
@@ -106,7 +106,7 @@ class NewsResource extends Resource
                     ->label('Дата')
                     ->searchable()
                     ->formatStateUsing(function ($state) {
-                        return $state ? $state->locale('ru')->translatedFormat('j F Y') : '';
+                        return $state ? $state->format('d.m.Y') : '';
                     }),
                 Tables\Columns\TextInputColumn::make('pos')
                     ->label('Позиция')

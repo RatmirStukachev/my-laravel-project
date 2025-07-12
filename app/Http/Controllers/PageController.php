@@ -34,6 +34,21 @@ class PageController extends Controller
         return view('page', compact('page'));
     }
 
+    public function getNews()
+    {
+        $page = $this->pageService->getPage('news-list');
+        $news = $this->itemService->getNewsList();
+
+        return view('news-list', compact('page', 'news'));
+    }
+
+    public function getOneNews(string $slug)
+    {
+        $page = $this->pageService->getPageOneNews($slug);
+
+        return view('page', compact('page'));
+    }
+
     public function sendCallback(CallBackRequest $request)
     {
         try {

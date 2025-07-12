@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="w-pagination">
+    <div class="w-pagination md-mt-20 mt-30">
         <div class="row sm-gutters">
             @if ($paginator->previousPageUrl())
                 <div class="col-sm-auto col">

@@ -34,11 +34,8 @@ class News extends Model
         'is_active' => 'boolean',
     ];
 
-    /**
-     * Получить отформатированную дату для отображения
-     */
     public function getFormattedDateAttribute(): string
     {
-        return $this->date ? $this->date->locale('ru')->translatedFormat('j F Y') : '';
+        return $this->date ? $this->date->format('d.m.Y') : '';
     }
 }

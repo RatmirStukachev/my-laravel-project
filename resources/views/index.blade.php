@@ -1894,114 +1894,31 @@
         </div>
     </section>
 
-    <section class="s-line s-index-catalog-slider s-items-slider">
-        <div class="container pt-30 pb-60">
-            <div class="row align-items-end mb-20">
-                <div class="col-sm-auto col-12 mb-5">
-                    @if(isset($news_title['title']) && $news_title['title'])
-                        <div class="s-name _h2 bold align-center">{{ $news_title['title'] }}</div>
-                    @endif
-                </div>
-                <div class="col-sm-auto col-12 mb-10">
-                    <div class="_h6 upper align-center">
-                        <a href="" class="color-orange nul"><span class="dashed dash">посмотреть все</span></a>
+    @if ($news?->isNotEmpty())
+        <section class="s-line s-index-catalog-slider s-items-slider">
+            <div class="container pt-30 pb-60">
+                <div class="row align-items-end mb-20">
+                    <div class="col-sm-auto col-12 mb-5">
+                        @if(isset($news_title['title']) && $news_title['title'])
+                            <div class="s-name _h2 bold align-center">{{ $news_title['title'] }}</div>
+                        @endif
                     </div>
-                </div>
-            </div>				
-            <div class="w-news-list">
-                <div class="owl-carousel owl-news-list-slider">
-                    <div class="slide">
-                        <div class="w-news-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-image">
-                                        <div class="image"><img src="assets/content/article-image001.jpg" alt="" class="img block"></div>
-                                    </div>
-                                    <div class="w-bottom">
-                                        <div class="date color-gray">24.01.2025</div>
-                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
-                                        <div class="w-more-link mt-10">
-                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                    <div class="col-sm-auto col-12 mb-10">
+                        <div class="_h6 upper align-center">
+                            <a href="{{ route('news-list') }}" class="color-orange nul"><span class="dashed dash">посмотреть все</span></a>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="w-news-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
-                                    </div>
-                                    <div class="w-bottom">
-                                        <div class="date color-gray">24.01.2025</div>
-                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
-                                        <div class="w-more-link mt-10">
-                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-news-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
-                                    </div>
-                                    <div class="w-bottom">
-                                        <div class="date color-gray">24.01.2025</div>
-                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
-                                        <div class="w-more-link mt-10">
-                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-news-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
-                                    </div>
-                                    <div class="w-bottom">
-                                        <div class="date color-gray">24.01.2025</div>
-                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
-                                        <div class="w-more-link mt-10">
-                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-news-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/544x272" alt="" class="img block"></div>
-                                    </div>
-                                    <div class="w-bottom">
-                                        <div class="date color-gray">24.01.2025</div>
-                                        <div class="name _h6 bold mt-5">Преимущества лазерной резки листового металла профилей</div>
-                                        <div class="w-more-link mt-10">
-                                            <div class="color-orange upper nul"><span class="dashed dash">Подробнее</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                </div>				
+                <div class="w-news-list">
+                    <div class="owl-carousel owl-news-list-slider">
+                        @foreach ($news as $oneNews)
+                            <div class="slide">
+                                @include('items.news')
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

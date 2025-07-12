@@ -1,7 +1,5 @@
 <article class="article">
-    @if (isset($point) && $point->content)
-        {!! $point->content !!}
-    @else
+    @if ($page->content)
         {!! $page->content !!}
     @endif
 </article>
