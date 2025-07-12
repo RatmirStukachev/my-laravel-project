@@ -73,7 +73,7 @@ class SiteMenuResource extends Resource
                     ->label('Название')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                Tables\Columns\TextInputColumn::make('slug')
                     ->label('Ссылка'),
                 Tables\Columns\TextInputColumn::make('pos')
                     ->label('Позиция'),
