@@ -1261,60 +1261,37 @@
         </div>
     </section>
 
-    <section class="s-line s-index-catalog-slider s-items-slider">
-        <div class="container">
-            <div class="w-index-benefits-list-frame">
-                <div class="frame">
-                    <div class="row md-sm-gutters md-gutters">
-                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
-                            <div class="w-index-benefit-list-item w-icon-left">
-                                <div class="icon">
-                                    <img src="assets/content/index-benefit-icon001.svg" alt="" class="img block">
+    @if(isset($second_block['blocks']) && count($second_block['blocks']) > 0)
+        <section class="s-line s-index-catalog-slider s-items-slider">
+            <div class="container">
+                <div class="w-index-benefits-list-frame">
+                    <div class="frame">
+                        <div class="row md-sm-gutters md-gutters">
+                            @foreach($second_block['blocks'] as $block)
+                                <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
+                                    <div class="w-index-benefit-list-item w-icon-left">
+                                        <div class="icon">
+                                            <picture>
+                                                <img src="{{(new zImage($block['svg'], [24, 24], ['contain']))->resize()}}" alt="slide" title="slide" class="img block" loading="lazy">
+                                            </picture>
+                                        </div>
+                                        <div class="text">
+                                            @if ($block['title'])
+                                                <div class="_h6 bold">{{ $block['title'] }}</div>
+                                            @endif
+                                            @if ($block['desc'])
+                                                <div class="description mt-5 color-gray">{{ $block['desc'] }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <div class="_h6 bold">Цены от импортера</div>
-                                    <div class="description mt-5 color-gray">Гарантированное качество за разумные деньги</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
-                            <div class="w-index-benefit-list-item w-icon-left">
-                                <div class="icon">
-                                    <img src="assets/content/index-benefit-icon002.svg" alt="" class="img block">
-                                </div>
-                                <div class="text">
-                                    <div class="_h6 bold">Быстрый кредит</div>
-                                    <div class="description mt-5 color-gray">Помощь в получении и оформлении</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
-                            <div class="w-index-benefit-list-item w-icon-left">
-                                <div class="icon">
-                                    <img src="assets/content/index-benefit-icon003.svg" alt="" class="img block">
-                                </div>
-                                <div class="text">
-                                    <div class="_h6 bold">Бесплатная доставка РБ</div>
-                                    <div class="description mt-5 color-gray">Собственный автопарк для оперативной доставки</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-6 col-12 col md-mb-40 mb-30">
-                            <div class="w-index-benefit-list-item w-icon-left">
-                                <div class="icon">
-                                    <img src="assets/content/index-benefit-icon004.svg" alt="" class="img block">
-                                </div>
-                                <div class="text">
-                                    <div class="_h6 bold">Гарантия на продукцию</div>
-                                    <div class="description mt-5 color-gray">Гарантийные и сервисные обязательства</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <section class="s-line s-index-catalog-slider s-items-slider">
         <div class="container pt-30 pb-60">
