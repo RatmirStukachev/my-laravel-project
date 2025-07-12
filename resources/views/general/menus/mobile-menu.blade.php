@@ -138,7 +138,7 @@
                     @if ((isset($mainMenuItems) && $mainMenuItems?->isNotEmpty()) || (isset($menuCategories) && $menuCategories?->isNotEmpty()))
                         <ul class="ul-mobile-menu default mt-10">
                             @foreach ($mainMenuItems as $menu)
-                                <li class="li-mobile-menu @if(request()->is('/'.$menu->slug)) _active @endif"><a href="/{{ $menu->slug }}" class="mobile-menu__link">{{ $menu->title }}</a></li>
+                                <li class="li-mobile-menu @if(request()->is($menu->slug)) _active @endif"><a href="/{{ $menu->slug }}" class="mobile-menu__link">{{ $menu->title }}</a></li>
                             @endforeach
                             @foreach ($menuCategories as $category)
                                 <li class="li-mobile-menu @if(request()->route('category')?->id == $category->id) _active @endif"><a href="{{ $category->getLink() }}" class="mobile-menu__link">{{ $category->h1 ?: $category->title }}</a></li>
