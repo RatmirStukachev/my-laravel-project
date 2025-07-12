@@ -120,6 +120,12 @@
 
     <section class="s-line s-contacts-map">
         <div class="container">
+            @if (isset($contacts->coords) && $contacts->coords)
+                <script> 
+                    var coordsMap = "{!! $contacts->coords !!}"; 
+                    var coodsAddress = "{!! $contacts->coords_name !!}";
+                </script>
+            @endif
             <div class="bordered-map">
                 <div id="map" class="ymap"></div>
             </div>

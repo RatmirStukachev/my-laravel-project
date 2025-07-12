@@ -55,14 +55,3 @@ select.error + .select2-container .select2-selection {
 .w-catalog-list-item-frame .w-colors-list .color-roll {
     border: 1px solid #f1f1f1;
 }
-
-/* Стили для disabled состояния кнопки "Удалить выбранные" */
-.delete__link.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
-}
-
-.delete__link.disabled .dashed {
-    color: #cccccc;
-}

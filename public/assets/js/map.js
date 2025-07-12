@@ -1,8 +1,27 @@
+const defaultLatitude = 53.855367;
+const defaultLongitude = 27.426311;
+let mapCenterCords = [defaultLatitude, defaultLongitude];
+let placemarkCords = [defaultLatitude, defaultLongitude];
+
+
+if (typeof coordsMap !== 'undefined' && coordsMap && typeof coordsMap === 'string') {
+    const parsed = coordsMap.split(',').map(function(c) { return parseFloat(c.trim()); });
+    if (parsed.length === 2 && !isNaN(parsed[0]) && !isNaN(parsed[1])) {
+        mapCenterCords = parsed;
+        placemarkCords = parsed;
+    } else {
+        console.error('Error parsing coordsMap or invalid format:', coordsMap);
+        // mapCenterCords and placemarkCords remain default
+    }
+}
+
+let cords = [...mapCenterCords];
+
 //map
 ymaps.ready(function () {
     // Создание экземпляра карты и его привязка к созданному контейнеру.
     var myMap = new ymaps.Map('map', {
-            center: [53.855367, 27.426311], // координаты центра карты вынес наверх
+            center: cords, // координаты центра карты вынес наверх
             zoom: 12,
             behaviors: ['zoomControl', 'typeSelector', 'fullscreenControl']
         }, {
@@ -179,8 +198,8 @@ ymaps.ready(function () {
         ),
 
     // Создание метки с пользовательским макетом балуна.
-        myPlacemark = window.myPlacemark = new ymaps.Placemark([53.855367, 27.426311], {
-            balloonName: 'г.Минск, Меньковский тракт 2, офис 45',
+        myPlacemark = window.myPlacemark = new ymaps.Placemark(cords, {
+            balloonName: coodsAddress,
             }, {
                     balloonShadow: false,
                     balloonLayout: MyBalloonLayout,

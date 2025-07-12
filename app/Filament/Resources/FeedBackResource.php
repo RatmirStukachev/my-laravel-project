@@ -33,21 +33,6 @@ class FeedBackResource extends Resource
                     ->label('Имя'),
                 Forms\Components\TextInput::make('phone')
                     ->label('Телефон'),
-                Forms\Components\TextInput::make('email')
-                    ->label('Email'),
-                Forms\Components\TextInput::make('organization')
-                    ->label('Название компании'),
-                Forms\Components\TextInput::make('equipment')
-                    ->label('Оборудование'),
-                Forms\Components\TextInput::make('product_link')
-                    ->label('Ссылка на товар'),
-                Forms\Components\TextInput::make('product_price')
-                    ->label('Цена товара'),
-                Forms\Components\Textarea::make('message')
-                    ->columnSpanFull()
-                    ->label('Сообщение'),
-                Forms\Components\TextInput::make('file')
-                    ->label('Файл (скачать можно по пути /storage/путь_к_файлу)'),
             ]);
     }
 
@@ -55,27 +40,11 @@ class FeedBackResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('organization')
-                    ->label('Название компании')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('equipment')
-                    ->label('Оборудование'),
-                Tables\Columns\TextColumn::make('product_link')
-                    ->label('Ссылка на товар'),
-                Tables\Columns\TextColumn::make('product_price')
-                    ->label('Цена товара'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Имя')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->label('Телефон')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('message')
-                    ->label('Сообщение')
-                    ->wrap()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d.m.Y H:i:s')
