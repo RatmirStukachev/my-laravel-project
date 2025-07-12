@@ -16,6 +16,7 @@ class MainSecondForm
             Section::make('')->schema([
                 Repeater::make('data.blocks')
                     ->label('Блоки')
+                    ->maxItems(4)
                     ->columnSpanFull()
                     ->schema([
                         TextInput::make('title')

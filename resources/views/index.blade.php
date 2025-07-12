@@ -19,7 +19,7 @@
                                                     <div class="description _h6 mt-15">
                                                         {!! $slider->desc !!}
                                                     </div>
-                                                </div>
+                                                @endif
                                                 @if ($slider->link && $slider->link_name)
                                                     <div class="row justify-content-sm-start justify-content-center mt-15">
                                                         <div class="col-auto"><a href="{{ $slider->link }}" class="button block">{{ $slider->link_name }}</a></div>
