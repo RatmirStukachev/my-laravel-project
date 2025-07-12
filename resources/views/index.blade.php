@@ -1862,101 +1862,30 @@
         </section>
     @endif
 
-    <section class="s-line s-index-brands-slider s-items-slider">
-        <div class="container pb-60">
-            @if(isset($brands_title['title']) && $brands_title['title'])
-                <div class="s-name _h2 bold align-sm-left align-center mb-30">{{ $brands_title['title'] }}</div>
-            @endif
-            <div class="w-category-list">
-                <div class="owl-carousel owl-brands-list-slider">
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="assets/content/brand-logo-image001.png" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-brands-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <img src="https://place-hold.it/300x100" alt="" class="img block">
-                            </a>
-                        </div>
+    @if ($brands?->isNotEmpty())
+        <section class="s-line s-index-brands-slider s-items-slider">
+            <div class="container pb-60">
+                @if(isset($brands_title['title']) && $brands_title['title'])
+                    <div class="s-name _h2 bold align-sm-left align-center mb-30">{{ $brands_title['title'] }}</div>
+                @endif
+                <div class="w-category-list">
+                    <div class="owl-carousel owl-brands-list-slider">
+                        @foreach ($nrands as $brand)
+                            <div class="slide">
+                                <div class="w-brands-list-item">
+                                    <a class="block__link color-black nul">
+                                        <picture>
+                                            <img src="{{(new zImage($brand->image, [184, 81], ['contain']))->resize()}}" alt="{{ $brand->title}}" title="{{ $brand->title }}" class="img block" loading="lazy">
+                                        </picture>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 
     <section class="s-line s-index-callback-frame">

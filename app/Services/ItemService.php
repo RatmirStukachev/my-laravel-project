@@ -47,25 +47,11 @@ class ItemService
             ->get();
     }
 
-    
-    public function getAsideArticles()
+    public function getBrandsForIndex()
     {
-        $articles = Article::isActive()
-            ->select('id', 'slug', 'title', 'image', 'created_at')
-            ->where('is_aside_menu', true)
+        return Brand::isActive()
             ->orderByPos()
-            ->limit(3)
             ->get();
-
-        if ($articles->isEmpty()) {
-            $articles = Article::isActive()
-                ->select('id', 'slug', 'title', 'image', 'created_at')
-                ->orderByDesc('created_at')
-                ->limit(3)
-                ->get();
-        }
-
-        return $articles;
     }
 
     public function getSaleHitProducts(Category $category)
@@ -104,28 +90,6 @@ class ItemService
             ->get();
     }
 
-    public function getAsideNews()
-    {
-        return News::isActive()
-            ->select('id', 'slug', 'title', 'image', 'created_at')
-            ->where('date', '<=', now())
-            ->orderBy('pos')
-            ->orderByDesc('created_at')
-            ->limit(3)
-            ->get();
-    }
-
-    public function getFaqs()
-    {
-        return Faq::isActive()
-            ->where(function($query) {
-                $query->whereNull('page')
-                    ->orWhere('page', '');
-            })
-            ->orderByPos()
-            ->get();
-    }
-
     public function getArticles()
     {
         $count = TextService::getSettingValue('content', 'articles_count');
@@ -152,24 +116,6 @@ class ItemService
             ->get();
     }
 
-    public function getFaqsForService()
-    {
-        return Faq::isActive()
-            ->where('page', self::SERVICE_CENTER_PAGE_ID)
-            ->orderByPos()
-            ->get();
-    }
-
-    public function getArticlesForIndex()
-    {
-        return Article::isActive()
-            ->where('created_at', '<=', now())
-            ->orderBy('pos')
-            ->orderByDesc('created_at')
-            ->limit(10)
-            ->get();
-    }
-
     public function getNewsForIndex()
     {
         return News::isActive()
@@ -190,76 +136,12 @@ class ItemService
         return collect();
     }
 
-    public function getCompanyReviews()
-    {
-        $count = TextService::getSettingValue('content', 'reviews_count_company');
-
-        $reviews = Review::isActive()
-            ->where('type', 2)
-            ->orderByPos()
-            ->paginate((int)$count);
-
-        if ($reviews->currentPage() > $reviews->lastPage() && $reviews->lastPage() > 0) {
-            abort(404);
-        }
-
-        return $reviews;
-    }
-
-    public function getPersonalReviews()
-    {
-        $count = TextService::getSettingValue('content', 'reviews_count_company');
-
-        $reviews = Review::isActive()
-            ->where('type', 1)
-            ->orderByPos()
-            ->paginate((int)$count);
-
-        if ($reviews->currentPage() > $reviews->lastPage() && $reviews->lastPage() > 0) {
-            abort(404);
-        }
-
-        return $reviews;
-    }
-
     public function getCategoriesForIndex()
     {
         return Category::isActive()
             ->whereNull('parent_id')
             ->orderByPos()
             ->get();
-    }
-
-    public function getCategoriesForBrand(Brand $brand)
-    {
-        return Category::query()
-            ->select('categories.*')
-            ->distinct()
-            ->where('categories.is_active', true)
-            ->join('products', function($join) use ($brand) {
-                $join->on('categories.id', '=', 'products.category_id')
-                    ->where('products.brand_id', $brand->id);
-            })
-            ->orderBy('categories.pos')
-            ->get();
-    }
-
-    public function getProductsForBrand(Brand $brand)
-    {
-        $count = TextService::getSettingValue('content', 'products_count_brand');
-        return Product::query()
-            ->isActive()
-            ->where('brand_id', $brand->id)
-            ->whereExists(function ($query) {
-                $query->select(DB::raw(1))
-                    ->from('shop_product')
-                    ->join('shops', 'shop_product.shop_id', '=', 'shops.id')
-                    ->whereColumn('shop_product.product_id', 'products.id')
-                    ->where('shops.is_active', true)
-                    ->where('shop_product.count', '>', 0);
-            })
-            ->orderByPos()
-            ->paginate((int)$count);
     }
 
     public function getNewsList()
@@ -285,14 +167,6 @@ class ItemService
             ->orderBy('pos')
             ->orderByDesc('date')
             ->limit(10)
-            ->get();
-    }
-
-    public function getGroupedProducts(Request $request)
-    {
-        return Product::isActive()
-            ->where('group_key', $request->group_key)
-            ->orderBy('group_value')
             ->get();
     }
 

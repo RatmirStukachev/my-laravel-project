@@ -18,6 +18,7 @@ class HomeController extends Controller
         $page = $this->pageService->getPage('/');
         $sliders = $this->itemService->getSliders();
         $categories = $this->itemService->getCategoriesForIndex();
+        $brands = $this->itemService->getBrandsForIndex();
         $news = $this->itemService->getNewsForIndex();
 
         $new_products_title = $this->itemService->getPageBlock(key: 'main_arrivals');
@@ -27,7 +28,7 @@ class HomeController extends Controller
         $brands_title = $this->itemService->getPageBlock(key: 'main_brands');
         $news_title = $this->itemService->getPageBlock(key: 'main_news');
 
-        return view('index', compact('page', 'sliders', 'categories', 'news', 'new_products_title', 'second_block', 
+        return view('index', compact('page', 'sliders', 'categories', 'brands', 'news', 'new_products_title', 'second_block', 
             'popular_products_title', 'slide_block', 'brands_title', 'news_title'));
     }
 }
