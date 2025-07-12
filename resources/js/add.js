@@ -1,5 +1,190 @@
 $(document).ready(function() {
 
+    $(document).on('click', '.btn-to-cart', function () {
+        window.location = '/cart'
+    });
+
+    $(document).on('click', '._js-add-to-cart', function(e) {
+        e.preventDefault();
+
+        let button = $(this);        
+        let productId = button.data('product-id');
+        let count = button.closest('.w-product-page-to-cart-group').find('._js-product-count').val();
+
+        $.ajax({
+            url: '/cart/add',
+            method: 'POST',
+            data: {
+                product_id: productId,
+                count: count,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                $('.cart .count').text(response.cart_count);
+
+                button.addClass('btn-to-cart _active').removeClass('_js-add-to-cart');
+
+                $('.cart-button').text('В корзине');
+            },
+            error: function(xhr) {
+                console.error('Ошибка при добавлении в корзину');
+            }
+        });
+    });
+
+    $(document).on('click', '._js-b-plus', function(e) {
+        e.preventDefault();
+
+        let input = $(this).closest('._js-pcscontrolls').find('input');
+        let availability = input.data('max');
+        let value = parseInt(input.val());
+
+        if (value >= availability) {
+            showValidationPopup('Выбрано максимальное количество', 'info');
+            setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
+            return;
+        }
+
+        value++;
+        input.val(value);
+
+        if (window.location.pathname == '/cart') {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                let productId = input.data('product-id');
+                let count = value;
+                let method = 'PUT';
+                let url = "/cart/update";
+                let send = {
+                    product_id: productId,
+                    count: count,
+                };
+
+                updateCart(url, send, method);
+            }.bind(this), 1000);
+        }
+
+    });
+
+    $(document).on('click', '._js-b-minus', function(e) {
+        e.preventDefault();
+        let input = $(this).closest('._js-pcscontrolls').find('input');
+        let currentValue = parseInt(input.val());
+
+        if (currentValue > 1) {
+            input.val(currentValue - 1);
+        }
+
+        if (window.location.pathname == '/cart') {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                let productId = input.data('product-id');
+                let count = parseInt(input.val());
+                let method = 'PUT';
+                let url = "/cart/update";
+                let send = {
+                    product_id: productId,
+                    count: count,
+                    delivery_id: $('input[name="shop_id"]:checked').val(),
+                    name: $('.cart-name').val(),
+                    surname: $('.cart-surname').val(),
+                    phone: $('.cart-phone').val(),
+                    email: $('.cart-email').val(),
+                    message: $('.cart-message').val(),
+                    flight_number: $('.cart-flight-number').val(),
+                    ticket_number: $('.cart-ticket-number').val(),
+                };
+
+                updateCart(url, send, method);
+            }.bind(this), 1000);
+        }
+    });
+
+    /**
+     * Изменение кол-ва вручную
+     */
+    $(document).on('change', '._js-input-cart', function() {
+        let input = $(this);
+        let value = parseInt(input.val());
+        let availability = input.data('max');
+
+        if (value < 1) {
+            value = 1;
+            input.val(value);
+        }
+
+        if (value > availability) {
+            value = availability;
+            input.val(value);
+        }
+
+        let productId = input.data('product-id');
+        let method = 'PUT';
+        let url = "/cart/update";
+        let send = {
+            product_id: productId,
+            count: parseInt(input.val()),
+            delivery_id: $('._js-delivery:checked').val()
+        };
+
+        updateCart(url, send, method);
+    });
+
+    $(document).on('input', '._js-input-cart, ._js-product-count', function() {
+        // Оставляем только цифры
+        this.value = this.value.replace(/\D/g, '');
+
+        // Проверяем минимальное значение
+        if (this.value < 1 && this.value !== '') {
+            this.value = 1;
+        }
+
+        // Проверяем максимальное значение
+        let max = $(this).data('max');
+        if (parseInt(this.value) > max) {
+            this.value = max;
+        }
+    });
+
+    $(document).on('click', '._js-remove-product-cart', function(e) {
+        e.preventDefault();
+
+        let method = 'DELETE';
+        let url = "/cart/remove";
+        let send = {
+            cart_id: $(this).data('cart-id'),
+            delivery_id: $('._js-delivery:checked').val()
+        };
+
+        updateCart(url, send, method);
+    });
+
+    function updateCart(url, send, method) {
+        $.ajax({
+            type: method,
+            url: url,
+            data: send,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                if(response.success) {
+                    if (!response.totalSum) {
+                        window.location = '/'
+                    }
+
+                    if (window.location.pathname == '/cart') {
+                        $('._js-cart-form').html(response.cartBlockHtml);
+                    }
+
+                    $('.cart .count').text(response.cart_count);
+                }
+            },
+            error: function(xhr) {
+            }
+        });
+    }
+
     $(document).on('input', 'input[name="phone"]', function () {
         // Оставляем только цифры и плюс в начале
         this.value = this.value.replace(/[^\d+]/g, '')

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CategoryController;
@@ -15,6 +16,13 @@ Route::prefix('catalog')->name('catalog.')->group(function () {
     
     Route::get('/{parent:slug}/{category:slug}', [CategoryController::class, 'showLevel2'])
         ->name('level2');
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'getCart'])->name('cart.index');
+    Route::post('/add', [CartController::class, 'addProduct'])->name('cart.add');
+    Route::put('/update', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::delete('/remove', [CartController::class, 'removeCart'])->name('cart.remove');
 });
 
 Route::get('/contacts', [PageController::class, 'getContacts'])->name('contacts');
