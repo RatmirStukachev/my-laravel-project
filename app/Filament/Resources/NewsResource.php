@@ -67,7 +67,7 @@ class NewsResource extends Resource
                                             ->label('Контент')
                                             ->columnSpanFull(),
                                         Forms\Components\FileUpload::make('image')
-                                            ->label('Изображение (1200x900)')
+                                            ->label('Изображение (544x272)')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('news'),

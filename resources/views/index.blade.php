@@ -1870,7 +1870,7 @@
                 @endif
                 <div class="w-category-list">
                     <div class="owl-carousel owl-brands-list-slider">
-                        @foreach ($nrands as $brand)
+                        @foreach ($brands as $brand)
                             <div class="slide">
                                 <div class="w-brands-list-item">
                                     <a class="block__link color-black nul">
