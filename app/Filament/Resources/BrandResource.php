@@ -50,6 +50,8 @@ class BrandResource extends Resource
                                         Forms\Components\Section::make('')->schema([
                                             Forms\Components\TextInput::make('slug')
                                                 ->label('Ссылка')
+                                                ->dehydrated()
+                                                ->hidden()
                                                 ->unique(ignorable: fn ($record) => $record)
                                                 ->validationMessages([
                                                     'unique' => 'Slug должен быть уникальным',
@@ -58,16 +60,16 @@ class BrandResource extends Resource
                                             Forms\Components\TextInput::make('h1')
                                                 ->label('H1')
                                         ]),
-                                        TinyEditor::make('content')
-                                            ->label('Контент')
-                                            ->columnSpanFull(),
-                                        Forms\Components\FileUpload::make('image')
-                                            ->label('Изображение')
-                                            ->image()
-                                            ->columnSpanFull()
-                                            ->directory('brands'),
+                                        // TinyEditor::make('content')
+                                        //     ->label('Контент')
+                                        //     ->columnSpanFull(),
+                                        // Forms\Components\FileUpload::make('image')
+                                        //     ->label('Изображение')
+                                        //     ->image()
+                                        //     ->columnSpanFull()
+                                        //     ->directory('brands'),
                                         Forms\Components\FileUpload::make('svg')
-                                            ->label('Лого 300x150')
+                                            ->label('Лого 184x81')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('brands'),
