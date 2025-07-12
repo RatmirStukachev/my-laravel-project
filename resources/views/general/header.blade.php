@@ -420,17 +420,17 @@
         </div>
     </div>
     <div class="header-bottom">
-        <div class="container">
-            <div class="content">
-                <ul class="main-menu row align-items-center justify-content-between">
-                    <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Бензорезы</span></a></li>
-                    <li class="col-auto _active"><a href="" class="__link"><span class="dashed dash">Электрические резчики</span></a></li>
-                    <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Цепные бензорезы</span></a></li>
-                    <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Аксессуары и принадлежности</span></a></li>
-                    <li class="col-auto"><a href="" class="__link"><span class="dashed dash">Оснастка для бензоинструмента</span></a></li>
-                </ul>
+        @if (isset($menuCategories) && $menuCategories?->isNotEmpty())
+            <div class="container">
+                <div class="content">
+                    <ul class="main-menu row align-items-center justify-content-between">
+                        @foreach ($menuCategories as $category)
+                            <li class="col-auto @if(request()->route('category')?->id == $category->id) _active @endif"><a href="{{ $category->getLink() }}" class="__link"><span class="dashed dash">{{ $category->h1 ?: $category->title }}</span></a></li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 </header>
 <div class="header-empty"></div>

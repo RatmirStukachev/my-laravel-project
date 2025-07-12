@@ -13,6 +13,7 @@ class MenuCategoriesComposer
 
     public function __construct()
     {
+        Cache::forget('menu_categories');
         $this->menuCategories = Cache::flexible(
             key: 'menu_categories',
             ttl: [
@@ -29,6 +30,7 @@ class MenuCategoriesComposer
                         'children.children.parent.parent'
                     ])
                     ->whereNull('parent_id')
+                    ->orderBy('pos')
                     ->get();
             });
     }
