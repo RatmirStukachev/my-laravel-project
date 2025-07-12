@@ -74,67 +74,24 @@ class CategoryResource extends Resource
                                         ])->columns(2),
 
                                         FileUpload::make('image')
-                                            ->label('Изображение (300x300)')
+                                            ->label('Изображение (460x460)')
                                             ->columnSpanFull()
                                             ->image()
-                                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp', 'image/gif'])
                                             ->directory('categories'),
-                                        // FileUpload::make('svg')
-                                        //     ->label('Логотип категории ')
-                                        //     ->columnSpanFull()
-                                        //     ->image()
-                                        //     ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp', 'image/gif'])
-                                        //     ->directory('categories'),
                                         TinyEditor::make('content')
                                             ->label('Контент внизу страницы')
-                                            ->columnSpanFull(),
-                                        Forms\Components\TextInput::make('garantee')
-                                            ->label('Гарантия производителя')
                                             ->columnSpanFull(),
                                         Forms\Components\TextInput::make('pos')
                                             ->label('Позиция (Опционально)')
                                             ->columnSpanFull()
                                             ->default(1000),
                                         Section::make('')->schema([
+                                            Forms\Components\Checkbox::make('is_index')
+                                                ->label('Главная страница'),
                                             Forms\Components\Checkbox::make('is_active')
                                                 ->label('Активно'),
-                                            // Forms\Components\Checkbox::make('is_main')
-                                            //     ->label('Главная страница'),
                                         ])->columnSpan(2),
                                     ]),
-                                Tab::make('Сопутствующие')
-                                    ->schema([
-                                        Forms\Components\Section::make('Сопутствующие товары категорий')
-                                            ->schema([
-                                                Forms\Components\Select::make('follow_categories')
-                                                    ->label('Категории')
-                                                    ->options(Category::getCategoryTree())
-                                                    ->multiple()
-                                                    ->searchable()
-                                                    ->preload()
-                                                    ->optionsLimit(500),
-                                            ]),
-                                ]),
-                                Tab::make('Документация')
-                                    ->schema([
-                                        Forms\Components\Section::make('Сопутствующие товары категорий')
-                                            ->schema([
-                                                FileUpload::make('docs')
-                                                    ->label('Документация (WORD,PDF, PPT, PPTX)')
-                                                    ->directory('documentaion')
-                                                    ->acceptedFileTypes([
-                                                        'application/pdf',
-                                                        'application/msword', // .doc файлы
-                                                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx файлы
-                                                        'application/vnd.ms-powerpoint', // .ppt файлы
-                                                        'application/vnd.openxmlformats-officedocument.presentationml.presentation' // .pptx файлы
-                                                    ]),
-                                                FileUpload::make('certs')
-                                                    ->label('Сертификаты (PDF)')
-                                                    ->directory('documentaion')
-                                                    ->acceptedFileTypes(['application/pdf']),
-                                            ]),
-                                ]),
                                 Tab::make('SEO')
                                     ->schema([
                                         Forms\Components\Section::make('SEO')
@@ -167,6 +124,9 @@ class CategoryResource extends Resource
                     ->wrap()
                     ->label('Родитель')
                     ->searchable(),
+                Tables\Columns\CheckboxColumn::make('is_index')
+                    ->sortable()
+                    ->label('Главная страница'),
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->sortable()
                     ->label('Активно'),
@@ -195,7 +155,7 @@ class CategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // RelationManagers\CharacteristicsRelationManager::class,
+            RelationManagers\CharacteristicsRelationManager::class,
         ];
     }
 

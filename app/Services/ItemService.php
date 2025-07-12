@@ -136,10 +136,19 @@ class ItemService
         return collect();
     }
 
-    public function getCategoriesForIndex()
+    public function getCategoriesForMenu()
     {
         return Category::isActive()
             ->whereNull('parent_id')
+            ->orderByPos()
+            ->get();
+    }
+
+    public function getCategoriesForIndex()
+    {
+        return Category::isActive()
+            ->with('children.parent')
+            ->where('is_index', true)
             ->orderByPos()
             ->get();
     }

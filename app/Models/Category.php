@@ -38,8 +38,7 @@ class Category extends Model
         return match ($this->level) {
             1 => route('catalog.level1', $this),
             2 => route('catalog.level2', [$this->parent, $this]),
-            3 => route('catalog.level3', [$this->parent->parent, $this->parent, $this]),
-            default => route('index'),
+            default => route('catalog.index'),
         };
     }
 

@@ -37,142 +37,38 @@
         </section>
     @endif
 
-    <section class="s-line s-index-category-slider s-items-slider">
-            <div class="container pt-30 pb-0">
-                <div class="w-category-list">
-                <div class="owl-carousel owl-categorys-list-slider">
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Оснастка для бензоинструмента
+    @if($categories?->isNotEmpty())
+        <section class="s-line s-index-category-slider s-items-slider">
+                <div class="container pt-30 pb-0">
+                    <div class="w-category-list">
+                    <div class="owl-carousel owl-categorys-list-slider">
+                        @foreach ($categories as $category)
+                            <div class="slide">
+                                <div class="w-category-list-item">
+                                    <a href="{{ $category->getLink() }}" class="block__link color-black nul">
+                                        <div class="frame">
+                                            <div class="w-title mb-5">
+                                                <div class="title _h6 semibold">
+                                                    {{ $category->h1 ?: $category->title }}
+                                                </div>
+                                            </div>
+                                            <div class="w-image">
+                                                <div class="image">
+                                                    <picture>
+                                                        <img src="{{(new zImage($category->image, [460, 460], ['contain']))->resize()}}" alt="{{ $category->title }}" title="{{ $category->title }}" class="img block" loading="lazy">
+                                                    </picture>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="assets/content/category-image001.png" alt="" class="img block"></div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link color-black nul">
-                                <div class="frame">
-                                    <div class="w-title mb-5">
-                                        <div class="title _h6 semibold">
-                                            Электроинструмент
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <section class="s-line s-index-catalog-slider s-items-slider">
         <div class="container pt-30 pb-60">

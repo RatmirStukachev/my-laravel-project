@@ -385,7 +385,7 @@
                     </a>
                 </div>
                 <div class="col-catalog-btn col pb-10">
-                    <a href="" class="button header-catalog-btn row align-items-center justify-content-center sm-gutters">
+                    <a href="{{ route('catalog.index') }}" class="button header-catalog-btn row align-items-center justify-content-center sm-gutters">
                         <div class="col-auto col">
                             <div class="burger white">
                                 <div class="line"></div>
