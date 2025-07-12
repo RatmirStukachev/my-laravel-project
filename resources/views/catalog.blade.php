@@ -42,4 +42,9 @@
             </div>
         </section>
     @endif
+    @if(!request()->has('page') || request()->input('page') <= 1)
+        <div class="seo-content container pb-20 pt-20">
+            @include('seo.content')
+        </div>
+    @endif
 @endsection
