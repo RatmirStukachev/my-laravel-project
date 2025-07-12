@@ -380,8 +380,8 @@
         <div class="container pt-10">
             <div class="row row-header-middle align-items-center justify-content-between">
                 <div class="col-logo col pb-10">
-                    <a href="" class="logo__link block__link">
-                        <img src="assets/i/perf-by-logo.png" alt="" class="img block">
+                    <a {{ request()->is('/') ? '' : 'href=/' }}  class="logo__link block__link">
+                        <img src="{{ asset('assets/i/perf-by-logo.png') }}" alt="logo" class="img block">
                     </a>
                 </div>
                 <div class="col-catalog-btn col pb-10">

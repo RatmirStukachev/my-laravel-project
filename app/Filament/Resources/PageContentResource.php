@@ -18,11 +18,16 @@ use App\Filament\Resources\PageContentResource\RelationManagers;
 use App\Filament\Resources\PageContentResource\Forms\MainFormForm;
 use App\Filament\Resources\PageContentResource\Forms\MainNewsForm;
 use App\Filament\Resources\PageContentResource\Forms\MainTechForm;
+use App\Filament\Resources\PageContentResource\Forms\MainSlideForm;
 use App\Filament\Resources\PageContentResource\Forms\MainAdviseForm;
 use App\Filament\Resources\PageContentResource\Forms\MainBlocksForm;
+use App\Filament\Resources\PageContentResource\Forms\MainBrandsForm;
 use App\Filament\Resources\PageContentResource\Forms\MainDirectForm;
+use App\Filament\Resources\PageContentResource\Forms\MainSecondForm;
 use App\Filament\Resources\PageContentResource\Forms\AboutSliderForm;
+use App\Filament\Resources\PageContentResource\Forms\MainPopularForm;
 use App\Filament\Resources\PageContentResource\Forms\MainRequestForm;
+use App\Filament\Resources\PageContentResource\Forms\MainArrivalsForm;
 
 
 class PageContentResource extends Resource
@@ -62,10 +67,11 @@ class PageContentResource extends Resource
                 self::$label = PageContentEnum::valueOne($pageContent->key);
 
                 return match ($pageContent->key) {
-                    PageContentEnum::main_tech->name => MainTechForm::get(),
-                    PageContentEnum::main_direct->name => MainDirectForm::get(),
-                    PageContentEnum::main_advise->name => MainAdviseForm::get(),
-                    PageContentEnum::main_request->name => MainRequestForm::get(),
+                    PageContentEnum::main_arrivals->name => MainArrivalsForm::get(),
+                    PageContentEnum::main_second->name => MainSecondForm::get(),
+                    PageContentEnum::main_popular->name => MainPopularForm::get(),
+                    PageContentEnum::main_slide->name => MainSlideForm::get(),
+                    PageContentEnum::main_brands->name => MainBrandsForm::get(),
                     PageContentEnum::main_news->name => MainNewsForm::get(),
                 };
             })->columns(1);

@@ -1,46 +1,30 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="s-line s-index-slider sm-pt-20 pt-0">
-        <div class="owl-carousel owl-index-slider dots-center">
-            <div class="slide">
-                <div class="container">
-                    
-                    <!-- <div class="slider-image" style="background-image: url('https://place-hold.it/1200x312');"> -->
-                        <div class="slider-image" style="background-image: url('assets/content/index-slider001.png');">
-                            <div class="slider-image mobile" style="background-image: url('https://place-hold.it/545x700/319d7a/fff');">
-                                <div class="row row-content align-items-sm-center align-items-start">
-                                    <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
-                                        <div class="content-offset color-white align-sm-left align-center">
-                                            <div class="_h1 bold title">Для тех кто создает</div>
-                                            <div class="description _h6 mt-15">
-                                                <div>Получи изделия за очень короткий срок и отличного качества. </div>
-                                                <div>Используем новейшие технологии. </div>
-                                            </div>
-                                            <div class="row justify-content-sm-start justify-content-center mt-15">
-                                                <div class="col-auto"><a href="" class="button block">Подробнее</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="container">
-                        <div class="slider-image" style="background-image: url('https://place-hold.it/1200x312');">
-                            <div class="slider-image mobile" style="background-image: url('https://place-hold.it/545x700/319d7a/fff');">
-                                <div class="row row-content align-items-sm-center align-items-start">
-                                    <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
-                                        <div class="content-offset color-white align-sm-left align-center">
-                                            <div class="_h1 bold title">Заголовок</div>
-                                            <div class="description _h6 mt-15">
-                                                <div>Описание 1</div>
-                                                <div>Описание 2</div>
-                                            </div>
-                                            <div class="row justify-content-sm-start justify-content-center mt-15">
-                                                <div class="col-auto"><a href="" class="button block">Подробнее</a></div>
+    @if($sliders?->isNotEmpty())
+        <section class="s-line s-index-slider sm-pt-20 pt-0">
+            <div class="owl-carousel owl-index-slider dots-center">
+                @foreach($sliders as $slider)
+                    <div class="slide">
+                        <div class="container">                    
+                            <div class="slider-image" style="background-image: url('{{ (new zImage($slider->image, [1200, 310], ['contain'], true))->resize()   }}');">
+                                <div class="slider-image mobile" style="background-image: url('{{ (new zImage($slider->image_mobile, [545, 700], ['contain'], true))->resize() }}');">
+                                    <div class="row row-content align-items-sm-center align-items-start">
+                                        <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
+                                            <div class="content-offset color-white align-sm-left align-center">
+                                                @if ($slider->title)
+                                                    <div class="_h1 bold title">{{ $slider->title }}</div>
+                                                @endif
+                                                @if ($slider->desc)
+                                                    <div class="description _h6 mt-15">
+                                                        {!! $slider->desc !!}
+                                                    </div>
+                                                </div>
+                                                @if ($slider->link && $slider->link_name)
+                                                    <div class="row justify-content-sm-start justify-content-center mt-15">
+                                                        <div class="col-auto"><a href="{{ $slider->link }}" class="button block">{{ $slider->link_name }}</a></div>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -48,31 +32,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-    </section>
+        </section>
+    @endif
 
     <section class="s-line s-index-category-slider s-items-slider">
             <div class="container pt-30 pb-0">
                 <div class="w-category-list">
-                <!-- <div class="row row-category-list lg-md-gutters sm-gutters">
-                    <div class="col-xxl-20 col-xl-3 col-md-4 col-xxs-6 col-12 col md-mb-20 mb-10">
-                        <div class="w-category-list-item">
-                            <a href="" class="block__link">
-                                <div class="frame">
-                                    <div class="w-title">
-                                        <div class="title _h6 semibold">
-                                            Оснастка для бензоинструмента
-                                        </div>
-                                    </div>
-                                    <div class="w-image">
-                                        <div class="image"><img src="https://place-hold.it/330x220" alt="" class="img block"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="owl-carousel owl-categorys-list-slider">
                     <div class="slide">
                         <div class="w-category-list-item">
@@ -211,7 +178,9 @@
         <div class="container pt-30 pb-60">
             <div class="row align-items-end mb-20">
                 <div class="col-sm-auto col-12 mb-5">
-                    <div class="s-name _h2 bold align-center">Новинки</div>
+                    @if(isset($new_products_title['title']) && $new_products_title['title'])
+                        <div class="s-name _h2 bold align-center">{{ $new_products_title['title'] }}</div>
+                    @endif
                 </div>
                 <div class="col-sm-auto col-12 mb-10">
                     <div class="_h6 upper align-center">
@@ -1351,7 +1320,9 @@
         <div class="container pt-30 pb-60">
             <div class="row align-items-end mb-20">
                 <div class="col-sm-auto col-12 mb-5">
-                    <div class="s-name _h2 bold align-center">Популярные товары</div>
+                    @if(isset($popular_products_title['title']) && $popular_products_title['title'])
+                        <div class="s-name _h2 bold align-center">{{ $popular_products_title['title'] }}</div>
+                    @endif
                 </div>
                 <div class="col-sm-auto col-12 mb-10">
                     <div class="_h6 upper align-center">
@@ -1898,15 +1869,27 @@
         </div>
     </section>
 
-    <section class="s-line s-index-offer-image-link">
-        <div class="container pb-60">
-            <a href="" class="block__link"><img src="assets/content/aljkhsfdgajhsgdjasgd.jpg" class="img block" alt=""></a>
-        </div>
-    </section>
+    @if(isset($slide_block['image']) && $slide_block['image'])
+        <section class="s-line s-index-offer-image-link">
+            <div class="container pb-60">
+                <a @if(isset($slide_block['link']) && $slide_block['link']) href="{{ $slide_block['link'] }}" @endif class="block__link">
+                    <picture>
+                        <img src="{{(new zImage($slide_block['image'], [1360, 285], ['contain']))->resize()}}" alt="slide" title="slide" class="img block" loading="lazy">
+                        @if(env('WEBP'))
+                            <source
+                                srcset="{{(new zImage($slide_block['image'], [1360, 285], ['contain'], true))->resize()}}">
+                        @endif
+                    </picture>
+                </a>
+            </div>
+        </section>
+    @endif
 
     <section class="s-line s-index-brands-slider s-items-slider">
         <div class="container pb-60">
-            <div class="s-name _h2 bold align-sm-left align-center mb-30">Наши бренды</div>
+            @if(isset($brands_title['title']) && $brands_title['title'])
+                <div class="s-name _h2 bold align-sm-left align-center mb-30">{{ $brands_title['title'] }}</div>
+            @endif
             <div class="w-category-list">
                 <div class="owl-carousel owl-brands-list-slider">
                     <div class="slide">
@@ -2001,57 +1984,7 @@
 
     <section class="s-line s-index-callback-frame">
         <div class="container xl-pt-0 xl-pb-30 md-pt-0 md-pb-0 pt-0 pb-0">
-            <div class="w-index-callback-frame color-white">
-                <div class="row row-index-callback-frame align-items-center no-gutters">
-                    <div class="col-decorated-image col">
-                        <div class="image">
-                            <img src="assets/i/index-callback-image.svg" alt="" class="img block">
-                        </div>
-                    </div>
-                    <div class="col-aside-content col">
-                        <div class="decorated-frame">
-                            <svg viewBox="0 0 769 430" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.59022 14.4169C-1.39401 7.67752 3.5504 0 10.921 0H759C764.523 0 769 4.47715 769 10V420C769 425.523 764.523 430 759 430H11.1246C3.70425 430 -1.23397 422.216 1.85034 415.467C17.6965 380.793 55.6681 291.215 57.4024 225.5C59.3298 152.469 18.0165 51.5129 1.59022 14.4169Z" fill="url(#index-callback-content-frame-gradient)"/><defs><linearGradient id="index-callback-content-frame-gradient" x1="382" y1="0" x2="382" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5F00"/><stop offset="1" stop-color="#FF5F00"/></linearGradient></defs></svg>
-                        </div>
-                        <div class="content">
-                            <div class="s-name _h3 semibold lg-mb-15 mb-10 align-md-left align-center">У вас есть вопрос?</div>
-                            <div class="s-name description _h6 lg-mb-10 mb-10">Заполни форму и погрузись в уникальную атмосферу  приключений. Впечатляющая игра актеров, большие локации и увлекательные сюжеты никого не оставят равнодушным.</div>
-                            <div class="row lg-lg-gutters sm-gutters">
-                                <div class="col-sm-6 col-12 col">
-                                    <div class="input input-icon-left person lg-mt-15 mt-10">
-                                        <div class="icon"><svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6982 0.666748C9.83226 0.666748 6.69824 3.80076 6.69824 7.66675C6.69824 11.5327 9.83226 14.6667 13.6982 14.6667C17.5642 14.6667 20.6982 11.5327 20.6982 7.66675C20.6982 3.80076 17.5642 0.666748 13.6982 0.666748Z" fill="#FF985B"/><path d="M25.5252 19.8191C18.1303 15.8894 9.26626 15.8894 1.87133 19.8191C1.14949 20.2027 0.698303 20.9534 0.698303 21.7709V26.6666C0.698303 27.9553 1.74297 28.9999 3.03164 28.9999H24.365C25.6536 28.9999 26.6983 27.9553 26.6983 26.6666V21.7709C26.6983 20.9534 26.2471 20.2027 25.5252 19.8191Z" fill="#FF985B"/></svg></div>
-                                        <input type="text" class="input__default orange" placeholder="Ваше имя *">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-12 col">
-                                    <div class="input input-icon-left phone lg-mt-15 mt-10">
-                                        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.83333 10.3933C6.75333 14.1667 9.84 17.2533 13.62 19.1733L16.5533 16.2333C16.92 15.8667 17.4467 15.76 17.9067 15.9067C19.4 16.4 21.0067 16.6667 22.6667 16.6667C23.4067 16.6667 24 17.26 24 18V22.6667C24 23.4067 23.4067 24 22.6667 24C10.1467 24 0 13.8533 0 1.33333C0 0.593333 0.6 0 1.33333 0H6C6.74 0 7.33333 0.593333 7.33333 1.33333C7.33333 2.99333 7.6 4.6 8.09333 6.09333C8.24 6.55333 8.13333 7.08 7.76667 7.44667L4.83333 10.3933Z" fill="#FF985B"/></svg></div>
-                                        <input type="text" class="input__default orange" placeholder="Номер телефона *">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="custom-selector check xl-mt-25 mt-10">
-                                <label class="label block pointer">
-                                    <div class="input">
-                                        <input type="checkbox" name="checkbox001" class="selector hidden">
-                                        <div class="styled-figure">
-                                            <div class="border">
-                                                <div class="inset-figure"></div>
-                                            </div>
-                                        </div>
-                                        <div class="label label-inner">Согласен на <a href="" class="color-white">обработку персональных данных</a></div>
-                                    </div> 
-                                </label>
-                            </div>
-                            <div class="xl-mt-15 mt-10"><span class="color-red">*</span> поля обязательные для заполнения</div>
-                            <div class="row justify-content-md-end justify-content-center mt-20">
-                                <div class="col-lg-6 col-md-8 col-sm-7 col-12">
-                                    <button class="button transparent white block">Перезвоните мне</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>				
+            @include('feedback.call')				
         </div>
     </section>
 
@@ -2059,7 +1992,9 @@
         <div class="container pt-30 pb-60">
             <div class="row align-items-end mb-20">
                 <div class="col-sm-auto col-12 mb-5">
-                    <div class="s-name _h2 bold align-center">Наши новости</div>
+                    @if(isset($news_title['title']) && $news_title['title'])
+                        <div class="s-name _h2 bold align-center">$news_title['title']</div>
+                    @endif
                 </div>
                 <div class="col-sm-auto col-12 mb-10">
                     <div class="_h6 upper align-center">

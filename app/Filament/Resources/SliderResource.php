@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class SliderResource extends Resource
 {
@@ -27,27 +28,32 @@ class SliderResource extends Resource
         ->schema([
             Forms\Components\TextInput::make('title')
                 ->label('Заголовок слайда')
-                ->required()
                 ->columnSpanFull()
                 ->maxLength(655),
+            TinyEditor::make('desc')
+                ->label('Описание слайда')
+                ->columnSpanFull(),
             Forms\Components\Section::make('')->schema([
                 Forms\Components\FileUpload::make('image')
-                    ->label('Изображение (1410x300)')
+                    ->label('Изображение (1200x310)')
                     ->columnSpanFull()
+                    ->image()
                     ->directory('slider')
                     ->required(),
                 Forms\Components\FileUpload::make('image_mobile')
-                    ->label('Изображение мобайл (575x700)')
+                    ->label('Изображение мобайл (545x700)')
                     ->columnSpanFull()
+                    ->image()
+                    ->required()
                     ->directory('slider'),
             ])->columns(2),
             Forms\Components\Section::make('')->schema([
                 Forms\Components\TextInput::make('link')
                     ->columnSpanFull()
                     ->label('Ссылка слайда'),
-                Forms\Components\ColorPicker::make('color')
+                Forms\Components\TextInput::make('link_name')
                     ->columnSpanFull()
-                    ->label('Цвет слайда'),
+                    ->label('Текст ссылки'),
             ])->columns(2),
             Forms\Components\TextInput::make('pos')
                 ->numeric()
