@@ -1875,7 +1875,7 @@
                                 <div class="w-brands-list-item">
                                     <a class="block__link color-black nul">
                                         <picture>
-                                            <img src="{{(new zImage($brand->image, [184, 81], ['contain']))->resize()}}" alt="{{ $brand->title}}" title="{{ $brand->title }}" class="img block" loading="lazy">
+                                            <img src="{{(new zImage($brand->image, [300, 100], ['contain']))->resize()}}" alt="{{ $brand->title}}" title="{{ $brand->title }}" class="img block" loading="lazy">
                                         </picture>
                                     </a>
                                 </div>

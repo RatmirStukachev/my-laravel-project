@@ -4,7 +4,7 @@
             <div class="w-image">
                 <div class="image">
                     <picture>
-                        <img src="{{(new zImage($oneNews->image, [285, 145], ['contain']))->resize()}}" alt="slide" title="slide" class="img block" loading="lazy">
+                        <img src="{{(new zImage($oneNews->image, [544, 272], ['contain']))->resize()}}" alt="slide" title="slide" class="img block" loading="lazy">
                     </picture>
                 </div>
             </div>

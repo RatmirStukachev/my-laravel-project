@@ -61,7 +61,7 @@ class BrandResource extends Resource
                                                 ->label('H1')
                                         ]),
                                         Forms\Components\FileUpload::make('image')
-                                            ->label('Лого 184x81')
+                                            ->label('Лого 300x100')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('brands'),
