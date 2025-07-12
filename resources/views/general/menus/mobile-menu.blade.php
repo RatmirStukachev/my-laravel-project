@@ -19,7 +19,7 @@
             <div class="w-mobile-menu-group-list">
                 <div class="w-mobile-menu-group-list-item">
                     <div class="w-mobile-menu-offset-item pt-10">
-                        <a href="" class="button header-catalog-btn row align-items-center justify-content-center sm-gutters">
+                        <a href="{{ route('catalog.index') }}" class="button header-catalog-btn row align-items-center justify-content-center sm-gutters">
                             <div class="col-auto col">
                                 <div class="burger white">
                                     <div class="line"></div>
