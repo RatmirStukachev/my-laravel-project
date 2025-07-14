@@ -9,6 +9,7 @@ use App\ViewComposers\MetricsComposer;
 use App\ViewComposers\ContactsComposer;
 use Illuminate\Support\ServiceProvider;
 use Filament\Navigation\NavigationGroup;
+use App\ViewComposers\ProductBlockComposer;
 use App\ViewComposers\MenuCategoriesComposer;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -50,6 +51,10 @@ class ComposerServiceProvider extends ServiceProvider
 
         view()->composer(
             ['*'], ContactsComposer::class,
+        );
+
+        view()->composer(
+            ['product'], ProductBlockComposer::class,
         );
     }
 }
