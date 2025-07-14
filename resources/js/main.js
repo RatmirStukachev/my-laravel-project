@@ -476,19 +476,19 @@ $('.owl-news-list-slider').owlCarousel({
       thumbSlider.find('.owl-item').eq(current).addClass('current');
     });
 //psccontrolls
-    $('._js-pcscontrolls ._js-b-minus').on('click', function (e) {
-        e.preventDefault();
-        var countField = $(this).parents('._js-pcscontrolls').children('.input__default'),
-        rowid = $(countField).attr('data-rowid'),
-        currentCount = parseInt(countField.val(), 10);
-        countField.val(currentCount - 1);
-    });
-    $('._js-pcscontrolls ._js-b-plus').on('click', function (e) {
-        e.preventDefault();
-        var countField = $(this).parents('._js-pcscontrolls').children('.input__default'),
-        rowid = $(countField).attr('data-rowid'),
-        currentCount = parseInt(countField.val(), 10);
-        countField.val(currentCount + 1);
-    });
+    // $('._js-pcscontrolls ._js-b-minus').on('click', function (e) {
+    //     e.preventDefault();
+    //     var countField = $(this).parents('._js-pcscontrolls').children('.input__default'),
+    //     rowid = $(countField).attr('data-rowid'),
+    //     currentCount = parseInt(countField.val(), 10);
+    //     countField.val(currentCount - 1);
+    // });
+    // $('._js-pcscontrolls ._js-b-plus').on('click', function (e) {
+    //     e.preventDefault();
+    //     var countField = $(this).parents('._js-pcscontrolls').children('.input__default'),
+    //     rowid = $(countField).attr('data-rowid'),
+    //     currentCount = parseInt(countField.val(), 10);
+    //     countField.val(currentCount + 1);
+    // });
 });
 

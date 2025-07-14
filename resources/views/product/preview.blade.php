@@ -60,7 +60,7 @@
                                 @endif
                             </div>
                             <div class="w-price">
-                                @if ($page->price)
+                                @if ($product->price)
                                     <div class="_h5 bold">{{ format_price($product->price) }} <span class="_h7">{{ $product->category?->measure ? 'BYN/' . $page->category->measure : 'BYN' }}</span></div>
                                 @else
                                     <div class="_h5 bold">По запросу</div>
