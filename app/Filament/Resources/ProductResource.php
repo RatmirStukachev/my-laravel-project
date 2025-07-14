@@ -61,17 +61,15 @@ class ProductResource extends Resource
                                                 ->required(),
                                         ])->columns(),
                                         Section::make('')->schema([
-                                            Forms\Components\TextInput::make('code')
-                                                ->label('Код товара'),
+                                            Forms\Components\TextInput::make('article')
+                                                ->label('Артикул'),
                                             Forms\Components\TextInput::make('balance')
+                                                ->required()
                                                 ->label('Остаток товара'),
                                         ])->columns(2),
                                         Forms\Components\TextInput::make('h1')
                                             ->columnSpanFull()
                                             ->label('H1'),
-                                        Forms\Components\TextInput::make('search_text')
-                                            ->columnSpanFull()
-                                            ->label('Поисковый запрос (Ключевые слова)'),
                                         Forms\Components\Section::make('')->schema([
                                            Forms\Components\Select::make('category_id')
                                                 ->label('Категория')
@@ -96,12 +94,13 @@ class ProductResource extends Resource
                                         ])->columns(2),
                                         Forms\Components\Section::make('Цены')->schema([
                                             Forms\Components\TextInput::make('price')
+                                                ->required()
                                                 ->label('Цена'),
                                             Forms\Components\TextInput::make('old_price')
                                                 ->label('Старая цена'),
                                         ])->columns(2),
                                         FileUpload::make('image')
-                                            ->label('Главное изображение (585x585)')
+                                            ->label('Главное изображение (510x510)')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('products'),
@@ -112,14 +111,10 @@ class ProductResource extends Resource
                                         Section::make('')->schema([
                                             Forms\Components\Checkbox::make('is_active')
                                                 ->label('Активно'),
-                                            Forms\Components\Checkbox::make('is_choice')
-                                                ->label('Народный выбор'),
                                             Forms\Components\Checkbox::make('is_new')
                                                 ->label('Новинка'),
-                                            Forms\Components\Checkbox::make('is_sale_hit')
-                                                ->label('Хит продаж'),
-                                            Forms\Components\Checkbox::make('is_recommended')
-                                                ->label('Рекомендуемый'),
+                                            Forms\Components\Checkbox::make('is_hit')
+                                                ->label('Хит'),
                                             ])->columnSpan(4),
                                     ]),
                                 Tab::make('Подробное описание')
@@ -127,36 +122,14 @@ class ProductResource extends Resource
                                         TinyEditor::make('desc')
                                             ->label('Описание товара')
                                             ->columnSpanFull(),
-                                        TinyEditor::make('add_desc')
-                                            ->label('Доп описание')
+                                        TinyEditor::make('content')
+                                            ->label('Контент')
                                             ->columnSpanFull(),
-                                        Section::make('Информация об упаковке')->schema([
-                                            Forms\Components\TextInput::make('add_info.unit')
-                                                ->label('Единица товара'),
-                                                Section::make('')->schema([
-                                                    Forms\Components\TextInput::make('add_info.weight_measure')
-                                                        ->label('Вес (единица измерения)'),
-                                                    Forms\Components\TextInput::make('add_info.weight')
-                                                        ->label('Вес (значение)'),
-                                                    Forms\Components\TextInput::make('add_info.length_measure')
-                                                        ->label('Длина (единица измерения)'),
-                                                    Forms\Components\TextInput::make('add_info.length')
-                                                        ->label('Длина (значение)'),
-                                                    Forms\Components\TextInput::make('add_info.width_measure')
-                                                        ->label('Ширина (единица измерения)'),
-                                                    Forms\Components\TextInput::make('add_info.width')
-                                                        ->label('Ширина (значение)'),
-                                                    Forms\Components\TextInput::make('add_info.height_measure')
-                                                        ->label('Высота (единица измерения)'),
-                                                    Forms\Components\TextInput::make('add_info.height')
-                                                        ->label('Высота (значение)'),
-                                                ])->columns(2),
-                                        ])->columns(1),
                                     ]),
                                 Tab::make('Доп Изображения')
                                     ->schema([
                                         FileUpload::make('add_images')
-                                        ->label('Изображение(763x763)')
+                                        ->label('Изображение(510x510)')
                                         ->multiple()
                                         ->image()
                                         ->columnSpanFull()
@@ -187,17 +160,6 @@ class ProductResource extends Resource
                                                     ->columnSpanFull()
                                             ]),
                                     ]),
-                            //     Tab::make('Группировки')
-                            //         ->schema([
-                            //             Forms\Components\Section::make('Группировки')
-                            //                 ->schema([
-                            //                     Forms\Components\Select::make('product_group_id')
-                            //                         ->label('Группа товаров')
-                            //                         ->relationship('productGroup', 'title')
-                            //                         ->searchable()
-                            //                         ->preload()
-                            //                 ]),
-                            // ]),
                                 Tab::make('SEO')
                                     ->schema([
                                         Forms\Components\Section::make('SEO')
@@ -219,7 +181,7 @@ class ProductResource extends Resource
                     ->searchable()
                     ->wrap()
                     ->label('Название'),
-                Tables\Columns\TextColumn::make('code')
+                Tables\Columns\TextColumn::make('article')
                     ->searchable()
                     ->label('Код товара'),
                 Tables\Columns\TextColumn::make('category.title')
@@ -232,14 +194,10 @@ class ProductResource extends Resource
                     ->sortable()
                     ->wrap()
                     ->label('Бренд'),
-                Tables\Columns\CheckboxColumn::make('is_recommended')
-                    ->label('Рекомендуемый'),
-                Tables\Columns\CheckboxColumn::make('is_sale_hit')
+                Tables\Columns\CheckboxColumn::make('is_hit')
                     ->label('Хит продаж'),
                 Tables\Columns\CheckboxColumn::make('is_new')
                     ->label('Новинка'),
-                Tables\Columns\CheckboxColumn::make('is_choice')
-                    ->label('Народный выбор'),
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->sortable()
                     ->label('Активен'),
