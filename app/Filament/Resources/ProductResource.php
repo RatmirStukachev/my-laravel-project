@@ -194,6 +194,8 @@ class ProductResource extends Resource
                     ->sortable()
                     ->wrap()
                     ->label('Бренд'),
+                Tables\Columns\CheckboxColumn::make('is_popular')
+                    ->label('Популярный'),
                 Tables\Columns\CheckboxColumn::make('is_hit')
                     ->label('Хит продаж'),
                 Tables\Columns\CheckboxColumn::make('is_new')
