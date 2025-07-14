@@ -64,6 +64,24 @@ class ItemService
             ->get();
     }
 
+    public function getNewProductsForIndex()
+    {
+        return Product::isActive()
+            ->where('is_new', true)
+            ->orderBy('pos')
+            ->limit(20)
+            ->get();
+    }
+
+    public function getPopularProductsForIndex()
+    {
+        return Product::isActive()
+            ->where('is_popular', true)
+            ->orderBy('pos')
+            ->limit(20)
+            ->get();
+    }
+
     public function getRecommendProducts()
     {
         return Product::isActive()

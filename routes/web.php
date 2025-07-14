@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -17,6 +18,8 @@ Route::prefix('catalog')->name('catalog.')->group(function () {
     Route::get('/{parent:slug}/{category:slug}', [CategoryController::class, 'showLevel2'])
         ->name('level2');
 });
+
+Route::get('/product/{product:slug}', [ProductController::class, 'getProduct'])->name('product');
 
 Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'getCart'])->name('cart.index');

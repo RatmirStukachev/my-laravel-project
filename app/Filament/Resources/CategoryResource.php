@@ -73,6 +73,10 @@ class CategoryResource extends Resource
                                                 ->label('H1'),
                                         ])->columns(2),
 
+                                        Forms\Components\TextInput::make('measure')
+                                            ->label('Единица измерения')
+                                            ->columnSpanFull(),
+
                                         FileUpload::make('image')
                                             ->label('Изображение (460x460)')
                                             ->columnSpanFull()

@@ -100,7 +100,7 @@ class ProductResource extends Resource
                                                 ->label('Старая цена'),
                                         ])->columns(2),
                                         FileUpload::make('image')
-                                            ->label('Главное изображение (510x510)')
+                                            ->label('Главное изображение (435x435)')
                                             ->image()
                                             ->columnSpanFull()
                                             ->directory('products'),
@@ -129,7 +129,7 @@ class ProductResource extends Resource
                                 Tab::make('Доп Изображения')
                                     ->schema([
                                         FileUpload::make('add_images')
-                                        ->label('Изображение(510x510)')
+                                        ->label('Изображение(435x435)')
                                         ->multiple()
                                         ->image()
                                         ->columnSpanFull()

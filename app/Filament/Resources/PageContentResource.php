@@ -28,6 +28,7 @@ use App\Filament\Resources\PageContentResource\Forms\AboutSliderForm;
 use App\Filament\Resources\PageContentResource\Forms\MainPopularForm;
 use App\Filament\Resources\PageContentResource\Forms\MainRequestForm;
 use App\Filament\Resources\PageContentResource\Forms\MainArrivalsForm;
+use App\Filament\Resources\PageContentResource\Forms\ProductDeliveryForm;
 
 
 class PageContentResource extends Resource
@@ -73,6 +74,7 @@ class PageContentResource extends Resource
                     PageContentEnum::main_slide->name => MainSlideForm::get(),
                     PageContentEnum::main_brands->name => MainBrandsForm::get(),
                     PageContentEnum::main_news->name => MainNewsForm::get(),
+                    PageContentEnum::product_delivery->name => ProductDeliveryForm::get(),
                 };
             })->columns(1);
     }
