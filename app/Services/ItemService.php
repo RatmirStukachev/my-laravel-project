@@ -77,6 +77,7 @@ class ItemService
     public function getPopularProductsForIndex()
     {
         return Product::isActive()
+            ->with('category')
             ->where('is_popular', true)
             ->orderBy('pos')
             ->limit(20)

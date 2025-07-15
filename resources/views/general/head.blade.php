@@ -5,6 +5,9 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#FF5F00">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+@php
+    \Illuminate\Support\Facades\Log::debug('CSRF token rendered in head for path ' . request()->path() . ': ' . csrf_token());
+@endphp
 
 @isset($seo)
     <meta property="og:title" content="{{$seo->title}}"/>
