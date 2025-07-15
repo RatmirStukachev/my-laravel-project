@@ -24,11 +24,7 @@ class CartController extends Controller
 
         if ($basket->isEmpty()) {
             return redirect()->route('index');
-        }
-        
-        $hasTravel = $basket->contains(function ($item) {
-            return $item->product->is_travel == true;
-        });
+        }        
 
         return view('cart', compact('page', 'basket', 'summary'));
     }

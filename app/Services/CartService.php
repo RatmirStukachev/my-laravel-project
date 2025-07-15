@@ -141,7 +141,7 @@ class CartService
 
     public function getCartItems()
     {
-        return Cart::with('product')
+        return Cart::with(['product', 'product.category'])
             ->where('user_hash', $this->userHash)
             ->get();
     }

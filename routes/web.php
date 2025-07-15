@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
@@ -27,6 +28,9 @@ Route::prefix('cart')->group(function () {
     Route::put('/update', [CartController::class, 'updateCart'])->name('cart.update');
     Route::delete('/remove', [CartController::class, 'removeCart'])->name('cart.remove');
 });
+
+Route::post('/order/create', [OrderController::class, 'createOrder'])->name('order.create');
+Route::get('/order/success/{order:id}', [OrderController::class, 'getOrderSuccess'])->name('order.success');
 
 Route::get('/contacts', [PageController::class, 'getContacts'])->name('contacts');
 
