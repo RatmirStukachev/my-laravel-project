@@ -43,7 +43,6 @@ class CharacteristicsRelationManager extends RelationManager
                 'characteristics.title', 
                 'category_characteristic.is_active', 
                 'category_characteristic.in_filter', 
-                'category_characteristic.is_main'
             ])
             ->join('category_characteristic', function ($join) use ($category) {
                 $join->on('characteristics.id', '=', 'category_characteristic.characteristic_id')
@@ -68,9 +67,7 @@ class CharacteristicsRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('title')
                     ->label('Название'),
                 Tables\Columns\CheckboxColumn::make('in_filter')
-                    ->label('Фильтр'),
-                Tables\Columns\CheckboxColumn::make('is_main')
-                    ->label('Основная'),             
+                    ->label('Фильтр'),          
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->label('Активна'),             
             ])
@@ -85,8 +82,6 @@ class CharacteristicsRelationManager extends RelationManager
                             ->label('Характеристика'),
                         Forms\Components\Checkbox::make('in_filter')
                             ->label('Фильтр'),
-                        Forms\Components\Checkbox::make('is_main')
-                            ->label('Основная'),
                         Forms\Components\Checkbox::make('is_active')
                             ->label('Активно')
                             ->default(true),
