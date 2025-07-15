@@ -364,7 +364,7 @@
         <div class="frame">
             <div class="row justify-content-start">
                 <div class="col-auto pt-15">
-                    <div class="">{{ $summary['cart_count'] }} товара</div>
+                    <div class="">{{ $summary['cart_count'] }} товаров</div>
                 </div>
             </div>
             <div class="pt-15">
