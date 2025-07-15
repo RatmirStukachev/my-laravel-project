@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+    let timeout = null;
+    
     $(document).on('click', '.btn-to-cart', function () {
         window.location = '/cart'
     });

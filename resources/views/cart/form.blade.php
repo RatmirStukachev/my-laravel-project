@@ -89,7 +89,7 @@
                                                 <div class="w-old-price">
                                                     <div class="row align-items-center sm-gutters">
                                                         <div class="col-auto">
-                                                            <div class="color-orange semibold old-price">{{ format_price($cart->product?->old_price) }}</div>
+                                                            <div class="color-orange semibold old-price">{{ format_price($cart->product?->old_price * $cart->count) }}</div>
                                                         </div>
                                                         <div class="col-auto">
                                                             <div class="old-price-sticker">-{{ discount($cart->product) }}%</div>
@@ -98,7 +98,7 @@
                                                 </div>
                                             @endif
                                             <div class="w-price">
-                                                <div class="_h5 bold">{{ format_price($cart->product?->price) }} <span class="_h7">{{ $cart->product?->category?->measure ? 'BYN/' . $cart->product->category->measure : 'BYN' }}</span></div>
+                                                <div class="_h5 bold">{{ format_price($cart->product?->price * $cart->count) }} <span class="_h7">{{ $cart->product?->category?->measure ? 'BYN/' . $cart->product->category->measure : 'BYN' }}</span></div>
                                             </div>
                                         </div>
                                     </div>
