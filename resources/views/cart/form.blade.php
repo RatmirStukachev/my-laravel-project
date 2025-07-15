@@ -104,20 +104,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-auto mt-5">
-                                    <div class="w-icon-left w-delivery-type-aside-icon mt-10">
-                                        <div class="icon"><svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.0298 8.3678H17.0298V4.3678H3.02979C1.92979 4.3678 1.02979 5.2678 1.02979 6.3678V17.3678H3.02979C3.02979 19.0278 4.36979 20.3678 6.02979 20.3678C7.68979 20.3678 9.02979 19.0278 9.02979 17.3678H15.0298C15.0298 19.0278 16.3698 20.3678 18.0298 20.3678C19.6898 20.3678 21.0298 19.0278 21.0298 17.3678H23.0298V12.3678L20.0298 8.3678ZM19.5298 9.8678L21.4898 12.3678H17.0298V9.8678H19.5298ZM6.02979 18.3678C5.47978 18.3678 5.02979 17.9178 5.02979 17.3678C5.02979 16.8178 5.47978 16.3678 6.02979 16.3678C6.57979 16.3678 7.02979 16.8178 7.02979 17.3678C7.02979 17.9178 6.57979 18.3678 6.02979 18.3678ZM8.24979 15.3678C7.69979 14.7578 6.91979 14.3678 6.02979 14.3678C5.13979 14.3678 4.35979 14.7578 3.80979 15.3678H3.02979V6.3678H15.0298V15.3678H8.24979ZM18.0298 18.3678C17.4798 18.3678 17.0298 17.9178 17.0298 17.3678C17.0298 16.8178 17.4798 16.3678 18.0298 16.3678C18.5798 16.3678 19.0298 16.8178 19.0298 17.3678C19.0298 17.9178 18.5798 18.3678 18.0298 18.3678Z" fill="#CBCBCB"></path></svg></div>
-                                        <div class="text">Курьером: <b>cегодня</b></div>
+                            @if (isset($delivery_block['delivery']) && (!empty($delivery_block['delivery']) || !empty($delivery_block['pickup'])))
+                                <div class="row">
+                                    <div class="col-auto mt-5">
+                                        @if ($delivery_block['delivery'])
+                                            <div class="w-icon-left w-delivery-type-aside-icon mt-10">
+                                                <div class="icon"><svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.0298 8.3678H17.0298V4.3678H3.02979C1.92979 4.3678 1.02979 5.2678 1.02979 6.3678V17.3678H3.02979C3.02979 19.0278 4.36979 20.3678 6.02979 20.3678C7.68979 20.3678 9.02979 19.0278 9.02979 17.3678H15.0298C15.0298 19.0278 16.3698 20.3678 18.0298 20.3678C19.6898 20.3678 21.0298 19.0278 21.0298 17.3678H23.0298V12.3678L20.0298 8.3678ZM19.5298 9.8678L21.4898 12.3678H17.0298V9.8678H19.5298ZM6.02979 18.3678C5.47978 18.3678 5.02979 17.9178 5.02979 17.3678C5.02979 16.8178 5.47978 16.3678 6.02979 16.3678C6.57979 16.3678 7.02979 16.8178 7.02979 17.3678C7.02979 17.9178 6.57979 18.3678 6.02979 18.3678ZM8.24979 15.3678C7.69979 14.7578 6.91979 14.3678 6.02979 14.3678C5.13979 14.3678 4.35979 14.7578 3.80979 15.3678H3.02979V6.3678H15.0298V15.3678H8.24979ZM18.0298 18.3678C17.4798 18.3678 17.0298 17.9178 17.0298 17.3678C17.0298 16.8178 17.4798 16.3678 18.0298 16.3678C18.5798 16.3678 19.0298 16.8178 19.0298 17.3678C19.0298 17.9178 18.5798 18.3678 18.0298 18.3678Z" fill="#CBCBCB"></path></svg></div>
+                                                <div class="text">{{$delivery_block['delivery']  }}</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-auto mt-5">
+                                        @if ($delivery_block['pickup'])
+                                            <div class="w-icon-left w-delivery-type-aside-icon mt-10">
+                                                <div class="icon"><svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 12.5C11.4 12.5 10.5 11.6 10.5 10.5C10.5 9.4 11.4 8.5 12.5 8.5C13.6 8.5 14.5 9.4 14.5 10.5C14.5 11.6 13.6 12.5 12.5 12.5ZM18.5 10.7C18.5 7.07 15.85 4.5 12.5 4.5C9.15 4.5 6.5 7.07 6.5 10.7C6.5 13.04 8.45 16.14 12.5 19.84C16.55 16.14 18.5 13.04 18.5 10.7ZM12.5 2.5C16.7 2.5 20.5 5.72 20.5 10.7C20.5 14.02 17.83 17.95 12.5 22.5C7.17 17.95 4.5 14.02 4.5 10.7C4.5 5.72 8.3 2.5 12.5 2.5Z" fill="#CBCBCB"></path></svg></div>
+                                                <div class="text">{{ $delivery_block['pickup']}}</div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="col-auto mt-5">
-                                    <div class="w-icon-left w-delivery-type-aside-icon mt-10">
-                                        <div class="icon"><svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 12.5C11.4 12.5 10.5 11.6 10.5 10.5C10.5 9.4 11.4 8.5 12.5 8.5C13.6 8.5 14.5 9.4 14.5 10.5C14.5 11.6 13.6 12.5 12.5 12.5ZM18.5 10.7C18.5 7.07 15.85 4.5 12.5 4.5C9.15 4.5 6.5 7.07 6.5 10.7C6.5 13.04 8.45 16.14 12.5 19.84C16.55 16.14 18.5 13.04 18.5 10.7ZM12.5 2.5C16.7 2.5 20.5 5.72 20.5 10.7C20.5 14.02 17.83 17.95 12.5 22.5C7.17 17.95 4.5 14.02 4.5 10.7C4.5 5.72 8.3 2.5 12.5 2.5Z" fill="#CBCBCB"></path></svg></div>
-                                        <div class="text">Самовывоз: <b>20 марта</b></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="col-delete col">
                             <a class="delete-btn fcm _js-remove-product-cart" data-cart-id="{{ $cart->id }}">
@@ -136,31 +142,31 @@
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Фамилия</label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="surname" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Имя <span class="color-red">*</span></label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="name" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Отчество</label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="middle_name" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Номер телефона <span class="color-red">*</span></label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="phone" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">E-mail</label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="email" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
             </div>
@@ -174,13 +180,13 @@
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Ваш город <span class="color-red">*</span></label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="city" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Улица <span class="color-red">*</span></label>
-                        <input type="text" class="input__default gray small" placeholder="">
+                        <input name="street" type="text" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-10">
@@ -188,13 +194,13 @@
                         <div class="col-6 mt-10">
                             <div class="input label-top">
                                 <label class="label block mb-5">Дом <span class="color-red">*</span></label>
-                                <input type="text" class="input__default gray small" placeholder="">
+                                <input name="house" type="text" class="input__default gray small" placeholder="">
                             </div>
                         </div>
                         <div class="col-6 mt-10">
                             <div class="input label-top">
                                 <label class="label block mb-5">Квартира <span class="color-red">*</span></label>
-                                <input type="text" class="input__default gray small" placeholder="">
+                                <input name="flat" type="text" class="input__default gray small" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -204,13 +210,13 @@
                         <div class="col-6 mt-10">
                             <div class="input label-top">
                                 <label class="label block mb-5">Корпус</label>
-                                <input type="text" class="input__default gray small" placeholder="">
+                                <input name="block" type="text" class="input__default gray small" placeholder="">
                             </div>
                         </div>
                         <div class="col-6 mt-10">
                             <div class="input label-top">
                                 <label class="label block mb-5">Этаж <span class="color-red">*</span></label>
-                                <input type="text" class="input__default gray small" placeholder="">
+                                <input name="floor" type="text" class="input__default gray small" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -218,7 +224,7 @@
                 <div class="col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Комментарии</label>
-                        <textarea type="text" class="textarea__default gray small"></textarea>
+                        <textarea name="message" type="text" class="textarea__default gray small"></textarea>
                     </div>
                 </div>
             </div>
@@ -358,7 +364,7 @@
         <div class="frame">
             <div class="row justify-content-start">
                 <div class="col-auto pt-15">
-                    <div class="">2 товара</div>
+                    <div class="">{{ $summary['cart_count'] }} товара</div>
                 </div>
             </div>
             <div class="pt-15">
@@ -366,7 +372,7 @@
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
                 <div class="col-auto pt-5">Стоимость</div>
-                <div class="col-auto pt-5">165,00 BYN</div>
+                <div class="col-auto pt-5">{{ format_price($summary['totalSum']) }}</div>
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
                 <div class="col-auto pt-5">Стоимость доставки</div>
@@ -377,23 +383,23 @@
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h4 bold">
                 <div class="col-auto pt-5">Итого</div>
-                <div class="col-auto pt-5">120,57 <span class="_h6">BYN</span></div>
+                <div class="col-auto pt-5"> <span class="_h6">BYN</span></div>
             </div>
             <div class="custom-selector check pt-15">
                 <label class="label block pointer">
                     <div class="input">
-                        <input type="checkbox" name="checkbox001" class="selector hidden">
+                        <input type="checkbox" name="agree" class="selector hidden">
                         <div class="styled-figure">
                             <div class="border">
                                 <div class="inset-figure"></div>
                             </div>
                         </div>
-                        <div class="label label-inner small-text">Нажимая кнопку «Оформить заказ», я соглашаюсь на <a href="">обработку персональных данных</a> и с <a href="">договором публичной оферты</a></a></div>
+                        <div class="label label-inner small-text">Нажимая кнопку «Оформить заказ», я соглашаюсь на <a @if(\App\Services\Support\TextService::getSettingValue('content', 'privacy')) href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'privacy') ]) }}"@endif >обработку персональных данных</a> и с <a href="">договором публичной оферты</a></a></div>
                     </div> 
                 </label>
             </div>
             <div class="w-button pt-15">
-                <a href="" class="button block green">Оформить заказ</a>
+                <button type="submit" class="button block green">Оформить заказ</button>
             </div>
         </div>
     </div>
