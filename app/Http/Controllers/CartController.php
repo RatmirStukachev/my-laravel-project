@@ -21,12 +21,13 @@ class CartController extends Controller
         $page = $this->pageService->getPage('cart');
         $basket = $this->cartService->getCartItems();
         $summary = $this->cartService->getSummary($request);
+        $productsCanLike = $this->itemService->getProductsCanLike();
 
         if ($basket->isEmpty()) {
             return redirect()->route('index');
         }        
 
-        return view('cart', compact('page', 'basket', 'summary'));
+        return view('cart', compact('page', 'basket', 'summary', 'productsCanLike'));
     }
 
     public function addProduct(Request $request): JsonResponse

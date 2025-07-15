@@ -64,6 +64,16 @@ class ItemService
             ->get();
     }
 
+    public function getProductsCanLike()
+    {
+        return Product::isActive()
+            ->with('category')
+            ->orderBy('pos')
+            ->inRandomOrder()
+            ->limit(20)
+            ->get();
+    }
+
     public function getNewProductsForIndex()
     {
         return Product::isActive()
