@@ -30,8 +30,21 @@ class CategoryController extends Controller
         $page->load(['children', 'children.parent']);
 
         $products = $this->itemService->getProductsForCatalog($category, $request);
+        $categories = $this->itemService->getCategoriesForCatalog();
         $filters = $this->categoryService->getFilters($category);
 
-        return view('category', compact('page', 'category', 'products', 'filters'));
+        return view('category', compact('page', 'category', 'products', 'categories', 'filters'));
+    }
+
+    public function showLevel2(Request $request, Category $parent, Category $category)
+    {
+        $page = $this->pageService->setCategoryPage($category);
+        $page->load(['children', 'children.parent']);
+
+        $products = $this->itemService->getProductsForCatalog($category, $request);
+        $categories = $this->itemService->getCategoriesForCatalog();
+        $filters = $this->categoryService->getFilters($category);
+
+        return view('category', compact('page', 'category', 'products', 'categories', 'filters'));
     }
 }

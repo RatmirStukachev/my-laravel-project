@@ -50,6 +50,7 @@ final class TextService
 
     public static function getSettings()
     {
+        Cache::forget('settings');
         return Cache::flexible(
             key: 'settings',
             ttl: [

@@ -54,19 +54,20 @@ class ItemService
             ->get();
     }
 
-    public function getSaleHitProducts(Category $category)
+    public function getCategoriesForCatalog()
     {
-        return Product::isActive()
-            ->whereIn('category_id', $category->getAllChildrenIds())
-            ->where('is_sale_hit', true)
+        return Category::isActive()
+            ->with('children.parent')
+            ->whereNull('parent_id')
             ->orderBy('pos')
-            ->limit(20)
+            ->orderBy('title')
             ->get();
     }
 
     public function getNewProductsForIndex()
     {
         return Product::isActive()
+            ->with('category')
             ->where('is_new', true)
             ->orderBy('pos')
             ->limit(20)
@@ -165,7 +166,7 @@ class ItemService
     public function getCategoriesForIndex()
     {
         return Category::isActive()
-            ->with('children.parent')
+            ->with(['children.parent', 'parent'])
             ->where('is_index', true)
             ->orderByPos()
             ->get();
@@ -199,14 +200,10 @@ class ItemService
 
     public function getProductsForCatalog(Category $category, Request $request, ?Brand $brand = null)
     {
-        if ($request->count) {
-            session(['products_per_page' => $request->count]);
-        }
-
-        $count = session('products_per_page') ?? TextService::getSettingValue('content', 'products_count');    
+        $count = TextService::getSettingValue('content', 'products_count');    
             
         $products = Product::isActive()
-            ->with('mainCharacteristics')
+            ->with('category')
             ->whereIn('category_id', $category->getAllChildrenIds())
             ->whereRelation('category', 'is_active', '=', true)
             ->when($brand, function($query) use ($brand) {
@@ -221,17 +218,11 @@ class ItemService
             ->when($request->brands, function ($query) use ($request) {
                 $query->whereIn('brand_id', $request->brands);
             })
-            ->when($request->is_promotion, function ($query) {
-                $query->where('old_price', '>', '0');
-            })
             ->when($request->is_new, function ($query) {
                 $query->where('is_new', true);
             })
-            ->when($request->is_in_stock, function ($query) {
-                $query->where('balance', '>', 0);
-            })
-            ->when($request->is_choice, function ($query) {
-                $query->where('is_choice', true);
+            ->when($request->is_popular, function ($query) {
+                $query->where('is_popular', true);
             })
             ->when($request->has('filters'), function ($query) use ($request) {
                 $query->where(function ($query) use ($request) {

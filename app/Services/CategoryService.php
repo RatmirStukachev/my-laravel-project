@@ -88,6 +88,7 @@ class CategoryService
             ->whereIn('products.category_id', $category->getAllChildrenIds())
             ->where('characteristics.type', ChTypeEnum::CHECKBOX)
             ->groupBy('characteristics.id','characteristics.title','characteristics.measure')
+            ->orderBy('characteristics.pos')
             ->orderBy('characteristics.title')
             ->get()
             ->map(function ($characteristic) {

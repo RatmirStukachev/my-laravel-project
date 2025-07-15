@@ -31,6 +31,7 @@ class MenuCategoriesComposer
                     ])
                     ->whereNull('parent_id')
                     ->orderBy('pos')
+                    ->orderBy('title')
                     ->get();
             });
     }

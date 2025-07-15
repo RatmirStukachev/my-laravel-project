@@ -46,6 +46,9 @@ class CharacteristicResource extends Resource
                 Forms\Components\TextInput::make('measure')
                     ->label('Единица измерения')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('pos')
+                    ->label('Позиция (Опционально)')
+                    ->default(1000),
             ])->columns(2),
             // Forms\Components\Section::make('')->schema([
             //     Forms\Components\Checkbox::make('in_filter')

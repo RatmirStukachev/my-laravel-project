@@ -90,6 +90,7 @@ class Product extends Model
         if ($similars->isEmpty()) {
 
             $similars = self::query()
+                ->with('category')
                 ->where('category_id', $this->category_id)
                 ->where('id', '!=', $this->id)
                 ->where('is_active', true)

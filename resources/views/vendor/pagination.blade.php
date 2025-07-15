@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <div class="w-pagination md-mt-20 mt-30">
-        <div class="row sm-gutters">
+        <div class="row sm-gutters justify-content-center align-items-center">
             @if ($paginator->previousPageUrl())
                 <div class="col-sm-auto col">
                     <span class="_arrow _prev"><a
