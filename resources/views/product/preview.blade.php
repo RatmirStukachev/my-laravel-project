@@ -78,7 +78,7 @@
             <div class="col-auto col">
                 <div class="w-controlls pb-5">
                     @if ($product->price > 0 && $product->balance > 0)
-                        <div class="row row-controlls sm-gutters">
+                        <div class="row row-controlls sm-gutters cart-block">
                             <div class="col-pcs col-12 col pb-5">
                                 <div class="_js-pcscontrolls pcscontrolls">
                                     <a class="btn fcm left minus _js-b-minus">

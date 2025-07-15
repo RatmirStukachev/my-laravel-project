@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         let button = $(this);        
         let productId = button.data('product-id');
-        let count = button.closest('.w-product-page-to-cart-group').find('._js-product-count').val();
+        let count = button.closest('.cart-block').find('._js-product-count').val();
 
         $.ajax({
             url: '/cart/add',
