@@ -30,108 +30,30 @@
                             <div class="col-auto col">Каталог</div>
                         </a>
                     </div>
-                    <ul class="ul-mobile-menu default mt-10">
-                        <li class="li-mobile-menu li-dropper _js-li-dropper">
-                            <div class="w-relative-b-dropper">
-                                <a href="" class="mobile-menu__link">Бензорезы</a>
-                                <div class="b-dropper-overlay wide _js-b-dropper"></div>
-                                <div class="b-dropper"></div>
-                            </div>
-                            <div class="inset _js-inset">
-                                <ul class="ul-inset">
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Алмазные диски, чашки алмазные шлифовальные</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Буры, сверла и коронки по бетону</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Насадки</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Оснастка для резки и шлифовки</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Пильные диски и полотна</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Сверла по металлу</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Сверла, фрезы, коронки по дереву и прочим материалам</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="li-mobile-menu li-dropper _js-li-dropper">
-                            <div class="w-relative-b-dropper">
-                                <a href="" class="mobile-menu__link">Электрические резчики</a>
-                                <div class="b-dropper-overlay wide _js-b-dropper"></div>
-                                <div class="b-dropper"></div>
-                            </div>
-                            <div class="inset _js-inset">
-                                <ul class="ul-inset">
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Электрические резчики 2</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Электрические резчики 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="li-mobile-menu li-dropper _js-li-dropper">
-                            <div class="w-relative-b-dropper">
-                                <a href="" class="mobile-menu__link">Цепные бензорезы</a>
-                                <div class="b-dropper-overlay wide _js-b-dropper"></div>
-                                <div class="b-dropper"></div>
-                            </div>
-                            <div class="inset _js-inset">
-                                <ul class="ul-inset">
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Цепные бензорезы 2</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Цепные бензорезы 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="li-mobile-menu li-dropper _js-li-dropper">
-                            <div class="w-relative-b-dropper">
-                                <a href="" class="mobile-menu__link">Аксессуары и принадлежности</a>
-                                <div class="b-dropper-overlay wide _js-b-dropper"></div>
-                                <div class="b-dropper"></div>
-                            </div>
-                            <div class="inset _js-inset">
-                                <ul class="ul-inset">
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Аксессуары и принадлежности 2</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Аксессуары и принадлежности 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="li-mobile-menu li-dropper _js-li-dropper">
-                            <div class="w-relative-b-dropper">
-                                <a href="" class="mobile-menu__link">Оснастка для бензоинструмента</a>
-                                <div class="b-dropper-overlay wide _js-b-dropper"></div>
-                                <div class="b-dropper"></div>
-                            </div>
-                            <div class="inset _js-inset">
-                                <ul class="ul-inset">
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Оснастка для бензоинструмента 2</a>
-                                    </li>
-                                    <li class="li-mobile-menu">
-                                        <a href="" class="mobile-menu__link">Оснастка для бензоинструмента 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+                    @if (isset($menuCategories) && $menuCategories?->isNotEmpty())
+                        <ul class="ul-mobile-menu default mt-10">
+                            @foreach ($menuCategories as $category)
+                                <li class="li-mobile-menu li-dropper _js-li-dropper @if ((request()->route('category')?->id == $category->id) || (request()->route('parent')?->id == $category->id)) _active @endif">
+                                    <div class="w-relative-b-dropper">
+                                        <a href="{{ $category->getLink() }}" class="mobile-menu__link">{{ $category->h1 ?: $category->title }}</a>
+                                        @if ($category->hasChildren())
+                                            <div class="b-dropper-overlay wide _js-b-dropper @if ((request()->route('category')?->id == $category->id) || (request()->route('parent')?->id == $category->id)) _toggled @endif"></div>
+                                            <div class="b-dropper @if ((request()->route('category')?->id == $category->id) || (request()->route('parent')?->id == $category->id)) _toggled @endif"></div>
+                                        @endif
+                                    </div>
+                                    <div class="inset _js-inset" @if ((request()->route('category')?->id == $category->id) || (request()->route('parent')?->id == $category->id)) style="display: block;" @endif">
+                                        <ul class="ul-inset">
+                                            @foreach ($category->children as $child)
+                                                <li class="li-mobile-menu @if (request()->route('category')?->id == $child->id) _active @endif">
+                                                    <a href="{{ $child->getLink() }}" class="mobile-menu__link">{{ $child->h1 ?: $child->title }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <div class="mt-10">
                         <hr>
                     </div>

@@ -24,9 +24,9 @@
                             @if ($categories?->isNotEmpty())
                                 <ul class="ul-catalog-page-aside-nav mb-20 col-xl-hide">
                                     @foreach($categories as $category)
-                                        <li class="li @if (request()->route('category')?->id == $category->id) _active @endif">
+                                        <li class="li @if ((request()->route('category')?->id == $category->id) || (request()->route('parent')?->id == $category->id)) _active @endif">
                                             <a href="{{ $category->getLink()  }}" class="__link">{{ $category->h1 ?: $category->title }}</a></li>
-                                            @if ($category->hasChildren())
+                                            @if ((request()->route('category')?->id == $category->id && $category->hasChildren()) || (request()->route('parent')?->id == $category->id && $category->hasChildren()))
                                                 <div class="inset pt-15 pb-20">
                                                     <ul class="ul-inset">
                                                         @foreach($category->children as $child)
