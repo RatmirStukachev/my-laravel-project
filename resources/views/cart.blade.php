@@ -12,11 +12,13 @@
     <section class="s-line s-cart-page s-gray-bg">
         <div class="container pt-20 pb-60">
             <h1 class="_h1 pagetitle bold mb-20">{{ $page->h1 ?: $page->title }}</h1>
-            <div class="row row-cart-page lg-md-gutters sm-gutters _js-cart-form">
-                @if ($basket->isNotEmpty())
-                    @include('cart.form')
-                @endif
-            </div>			
+            <form class="order-form" action="{{ route('order.create') }}" method="post">
+                <div class="row row-cart-page lg-md-gutters sm-gutters _js-cart-form">
+                    @if ($basket->isNotEmpty())
+                        @include('cart.form')
+                    @endif
+                </div>		
+            </form>
         </div>
     </section>
 
