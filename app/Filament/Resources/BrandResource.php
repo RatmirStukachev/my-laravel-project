@@ -97,6 +97,9 @@ class BrandResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Изображение'),
+                Tables\Columns\TextInputColumn::make('pos')
+                    ->label('Позиция')
+                    ->sortable(),
                 Tables\Columns\CheckboxColumn::make('is_active')
                     ->label('Активно'),
             ])
