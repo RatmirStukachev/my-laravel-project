@@ -44,18 +44,10 @@ class PaymentTypeResource extends Resource
                                 ->label('Описание')
                                 ->maxLength(255),               
                         ])->columns(2),
-                    Forms\Components\Section::make('')
-                        ->schema([
-                            Forms\Components\Select::make('customers')
-                                ->label('Тип клиента')
-                                ->multiple()
-                                ->columnSpanFull()
-                                ->options(collect(CustomerEnum::cases())->pluck('value', 'value')->toArray()),
-                    ])->columns(2),
-                    Forms\Components\FileUpload::make('svg')
-                    ->label('Иконка (svg)')
-                    ->columnSpanFull()
-                    ->acceptedFileTypes(['image/svg+xml']),
+                    // Forms\Components\FileUpload::make('svg')
+                    // ->label('Иконка (svg)')
+                    // ->columnSpanFull()
+                    // ->acceptedFileTypes(['image/svg+xml']),
                     Forms\Components\TextInput::make('pos')
                         ->label('Позиция')
                         ->columnSpanFull(),
@@ -71,9 +63,6 @@ class PaymentTypeResource extends Resource
             ->columns([
                 TextColumn::make('title')
                     ->label('Способ оплаты'),
-                TextColumn::make('customers')
-                    ->label('Тип клиента')
-                    ->wrap(),
                 TextInputColumn::make('pos')
                     ->label('Позиция'),
                 CheckboxColumn::make('is_active')
