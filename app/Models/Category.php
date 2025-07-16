@@ -121,7 +121,7 @@ class Category extends Model
     public function characteristics(): BelongsToMany
     {
         return $this->belongsToMany(Characteristic::class, 'category_characteristic', 'category_id', 'characteristic_id')
-            ->withPivot('in_filter', 'is_active', 'is_main');
+            ->withPivot('in_filter', 'is_active');
     }
 
     public function isNotActive(): bool
