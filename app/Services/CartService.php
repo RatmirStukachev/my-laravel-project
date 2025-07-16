@@ -59,8 +59,6 @@ class CartService
 
     public function updateCart(array $data)
     {
-        $user = auth()->user();
-
         try {
             $cartItem = Cart::where('user_hash', $this->userHash)
                 ->where('product_id', $data['product_id'])
@@ -122,6 +120,8 @@ class CartService
             'page' => $this->pageService->getPage('cart'),
             'basket' => $this->getCartItems(),
             'summary' => $this->getSummary(),
+            'paymentTypes' => $this->getPaymentTypes(),
+            'deliveries' => $this->getDeliveries(),
             'request' => $request,
         ])->render();
 

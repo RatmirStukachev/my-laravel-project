@@ -67,9 +67,9 @@ class OrderResource extends Resource
                                                         Forms\Components\Placeholder::make('payment_info')
                                                             ->label('Способ оплаты')
                                                             ->content(fn ($record) => PaymentType::find($record->payment_type_id)?->title ?? ''),
-                                                        // Forms\Components\TextInput::make('delivery_price')
-                                                        //     ->label('Стоимость доставки')
-                                                        //     ->disabled(),
+                                                        Forms\Components\TextInput::make('delivery_price')
+                                                            ->label('Стоимость доставки')
+                                                            ->disabled(),
                                                     ])->columns(3),
                                                     Forms\Components\Section::make('Адрес доставки')->schema([
                                                         Forms\Components\Placeholder::make('city')
@@ -121,6 +121,10 @@ class OrderResource extends Resource
                     ->searchable(),
                 TextColumn::make('total_amount')
                     ->label('Сумма')
+                    ->money('BYN')
+                    ->sortable(),
+                TextColumn::make('delivery_price')
+                    ->label('Стоимость доставки')
                     ->money('BYN')
                     ->sortable(),
                 TextColumn::make('delivery.title')

@@ -38,10 +38,32 @@ class DeliveryResource extends Resource
                             ->label('Описание')
                             ->maxLength(255),
                     ])->columns(2),
-                // Forms\Components\FileUpload::make('svg')
-                //     ->label('Иконка (svg)')
-                //     ->columnSpanFull()
-                //     ->acceptedFileTypes(['image/svg+xml']),
+                    Forms\Components\Section::make('Диапазоны цен')
+                    ->schema([
+                        Forms\Components\Repeater::make('priceRanges')
+                            ->label('Диапазоны цен')
+                            ->relationship()
+                            ->schema([
+                                Forms\Components\Grid::make(3)
+                                    ->schema([
+                                        Forms\Components\TextInput::make('from_sum')
+                                            ->label('Сумма корзины от')
+                                            ->numeric()
+                                            ->required(),
+                                        Forms\Components\TextInput::make('to_sum')
+                                            ->label('Сумма корзины до')
+                                            ->helperText('Оставьте пустым для максимального значения')
+                                            ->numeric(),
+                                        Forms\Components\TextInput::make('price')
+                                            ->label('Цена доставки')
+                                            ->numeric()
+                                            ->required(),
+                                    ]),
+                            ])
+                            ->orderColumn('pos')
+                            ->defaultItems(1)
+                            ->columnSpanFull(),
+                    ]),
                 Forms\Components\TextInput::make('pos')
                     ->label('Позиция (Опционально)')
                     ->columnSpanFull()

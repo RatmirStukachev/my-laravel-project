@@ -18,4 +18,22 @@ class Delivery extends Model
 
     public $timestamps = false;
 
+    public function priceRanges(): HasMany
+    {
+        return $this->hasMany(DeliveryPriceRange::class)->orderBy('from_sum');
+    }
+
+    public function getActualPrice(float $totalSum): float
+    {
+        $range = $this->priceRanges()
+            ->where('from_sum', '<=', $totalSum)
+            ->where(function ($query) use ($totalSum) {
+                $query->where('to_sum', '>=', $totalSum)
+                    ->orWhereNull('to_sum');
+            })
+            ->first();
+
+        return $range ? $range->price : 0;
+    }
+
 }

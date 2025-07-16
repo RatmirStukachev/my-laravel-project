@@ -7,6 +7,9 @@ $(document).ready(function() {
     // Check initial delivery selection on page load
     checkDeliveryBlock();
     
+    // Update prices on page load
+    updateDeliveryPrice();
+    
     $(document).on('click', '.btn-to-cart', function () {
         window.location = '/cart'
     });
@@ -65,6 +68,13 @@ $(document).ready(function() {
                 let send = {
                     product_id: productId,
                     count: count,
+                    delivery_id: $('._js-delivery:checked').val(),
+                    name: $('input[name="name"]').val(),
+                    surname: $('input[name="surname"]').val(),
+                    middle_name: $('input[name="middle_name"]').val(),
+                    phone: $('input[name="phone"]').val(),
+                    email: $('input[name="email"]').val(),
+                    payment_type_id: $('._js-payment-type:checked').val(),
                 };
 
                 updateCart(url, send, method);
@@ -92,14 +102,13 @@ $(document).ready(function() {
                 let send = {
                     product_id: productId,
                     count: count,
-                    delivery_id: $('input[name="shop_id"]:checked').val(),
-                    name: $('.cart-name').val(),
-                    surname: $('.cart-surname').val(),
-                    phone: $('.cart-phone').val(),
-                    email: $('.cart-email').val(),
-                    message: $('.cart-message').val(),
-                    flight_number: $('.cart-flight-number').val(),
-                    ticket_number: $('.cart-ticket-number').val(),
+                    delivery_id: $('._js-delivery:checked').val(),
+                    name: $('input[name="name"]').val(),
+                    surname: $('input[name="surname"]').val(),
+                    middle_name: $('input[name="middle_name"]').val(),
+                    phone: $('input[name="phone"]').val(),
+                    email: $('input[name="email"]').val(),
+                    payment_type_id: $('._js-payment-type:checked').val(),
                 };
 
                 updateCart(url, send, method);
@@ -160,7 +169,13 @@ $(document).ready(function() {
         let url = "/cart/remove";
         let send = {
             cart_id: $(this).data('cart-id'),
-            delivery_id: $('._js-delivery:checked').val()
+            delivery_id: $('._js-delivery:checked').val(),                               
+            name: $('input[name="name"]').val(),
+            surname: $('input[name="surname"]').val(),
+            middle_name: $('input[name="middle_name"]').val(),
+            phone: $('input[name="phone"]').val(),
+            email: $('input[name="email"]').val(),
+            payment_type_id: $('._js-payment-type:checked').val(),
         };
 
         updateCart(url, send, method);
@@ -182,6 +197,9 @@ $(document).ready(function() {
 
                     if (window.location.pathname == '/cart') {
                         $('._js-cart-form').html(response.cartBlockHtml);
+                        // Reinitialize delivery block and prices after cart update
+                        checkDeliveryBlock();
+                        updateDeliveryPrice();
                     }
 
                     $('.cart .count').text(response.cart_count);
@@ -199,10 +217,18 @@ $(document).ready(function() {
         form.find('.input__default, .textarea__default').removeClass('error');
         form.find('.styled-figure').removeClass('error');
 
+        // Get form data and add delivery price
+        let formData = form.serialize();
+        let selectedDelivery = $('._js-delivery:checked');
+        let deliveryPrice = selectedDelivery.length > 0 ? selectedDelivery.data('delivery-price') : 0;
+        
+        // Add delivery price to form data
+        formData += '&delivery_price=' + encodeURIComponent(deliveryPrice);
+
         $.ajax({
             url: '/order/create',
             type: 'POST',
-            data: form.serialize(),
+            data: formData,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -305,6 +331,7 @@ $(document).ready(function() {
     // Handle delivery option change
     $(document).on('change', '._js-delivery', function() {
         checkDeliveryBlock();
+        updateDeliveryPrice();
     });
 
     function checkDeliveryBlock() {
@@ -315,6 +342,31 @@ $(document).ready(function() {
         } else {
             $('.delivery-block').slideUp(300);
         }
+    }
+
+    function updateDeliveryPrice() {
+        let selectedDelivery = $('._js-delivery:checked');
+        let basePriceText = $('._js-price').text();
+        let basePrice = parseFloat(basePriceText.replace(/[^\d.,]/g, '').replace(',', '.')) || 0;
+        
+        if (selectedDelivery.length > 0) {
+            let deliveryPrice = parseFloat(selectedDelivery.data('delivery-price')) || 0;
+            let totalPrice = basePrice + deliveryPrice;
+            
+            // Update delivery price display
+            $('._js-delivery-price').text(formatPrice(deliveryPrice));
+            
+            // Update total price display
+            $('._js-total-price').text(formatPrice(totalPrice));
+        } else {
+            // No delivery selected
+            $('._js-delivery-price').text('0 BYN');
+            $('._js-total-price').text(formatPrice(basePrice));
+        }
+    }
+
+    function formatPrice(price) {
+        return price.toFixed(2).replace('.', ',') + ' BYN';
     }
 
     function showValidationPopup(messages, type) {

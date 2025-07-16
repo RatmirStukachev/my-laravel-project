@@ -20,6 +20,7 @@ class OrderRequest extends FormRequest
             'phone' => ['required', 'string', 'min:11','max:20'],
             'email' => ['nullable', 'email:filter', 'max:55'],
             'delivery_id' => ['required', Rule::exists(Delivery::class, 'id')],
+            'delivery_price' => ['required', 'numeric', 'min:0'],
             'payment_type_id' => ['required', Rule::exists(PaymentType::class, 'id')],        
             'message' => ['nullable', 'string'],
             'agree' => ['required','accepted'],

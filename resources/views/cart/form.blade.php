@@ -142,31 +142,31 @@
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Фамилия</label>
-                        <input name="surname" type="text" class="input__default gray small" placeholder="">
+                        <input name="surname" type="text" value="{{ request()->input('surname') }}" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Имя <span class="color-red">*</span></label>
-                        <input name="name" type="text" class="input__default gray small" placeholder="">
+                        <input name="name" type="text" value="{{ request()->input('name') }}" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Отчество</label>
-                        <input name="middle_name" type="text" class="input__default gray small" placeholder="">
+                        <input name="middle_name" type="text" value="{{ request()->input('middle_name') }}" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">Номер телефона <span class="color-red">*</span></label>
-                        <input name="phone" type="text" class="input__default gray small" placeholder="">
+                        <input name="phone" type="text" value="{{ request()->input('phone') }}" class="input__default gray small" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-12 mt-20">
                     <div class="input label-top">
                         <label class="label block mb-5">E-mail</label>
-                        <input name="email" type="text" class="input__default gray small" placeholder="">
+                        <input name="email" type="text" value="{{ request()->input('email') }}" class="input__default gray small" placeholder="">
                     </div>
                 </div>
             </div>
@@ -277,6 +277,7 @@
                                             name="delivery_id"
                                             value="{{ $delivery->id }}"
                                             class="selector hidden _js-delivery"
+                                            data-delivery-price="{{ $delivery->getActualPrice($summary['totalSum']) }}"
                                             @if (request()->input('delivery_id') == $delivery->id)
                                                 checked
                                             @endif
@@ -310,18 +311,24 @@
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
                 <div class="col-auto pt-5">Стоимость</div>
-                <div class="col-auto pt-5">{{ format_price($summary['totalSum']) }}</div>
+                <div class="col-auto pt-5 _js-price">{{ format_price($summary['totalSum']) }}</div>
             </div>
-            {{-- <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
+            <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
                 <div class="col-auto pt-5">Стоимость доставки</div>
-                <div class="col-auto pt-5">10 BYN</div>
-            </div> --}}
+                <div class="col-auto pt-5 _js-delivery-price">
+                    @if(isset($currentDelivery) && $currentDelivery)
+                        {{ format_price($currentDelivery->getActualPrice($summary['totalSum'])) }}
+                    @else
+                        0 BYN
+                    @endif
+                </div>
+            </div>
             <div class="pt-15">
                 <hr>
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h4 bold">
                 <div class="col-auto pt-5">Итого</div>
-                <div class="col-auto pt-5">{{ format_price($summary['totalSum']) }}</span></div>
+                <div class="col-auto pt-5 _js-total-price">{{ format_price($summary['totalSum']) }}</span></div>
             </div>
             <div class="custom-selector check pt-15">
                 <label class="label block pointer">
