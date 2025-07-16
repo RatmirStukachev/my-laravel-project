@@ -58,7 +58,7 @@ class OrderService
                 OrderProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $cart->product->id,
-                    'title' => $cart->product->h1,
+                    'title' => $cart->product->title,
                     'article' => $cart->product->article,
                     'price' => $cart->product->price,
                     'count' => $cart->count,

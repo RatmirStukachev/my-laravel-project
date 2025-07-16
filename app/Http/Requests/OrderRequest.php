@@ -11,7 +11,7 @@ class OrderRequest extends FormRequest
 {
     public function rules(): array
     {
-        $deliveryId = (int)$this->input('delivery_type_id');
+        $deliveryId = (int)$this->input('delivery_id');
 
         $rules = [
             'name' => ['required', 'string', 'max:255'],
@@ -19,13 +19,13 @@ class OrderRequest extends FormRequest
             'middle_name' => ['nullable', 'string', 'max:255'],
             'phone' => ['required', 'string', 'min:11','max:20'],
             'email' => ['nullable', 'email:filter', 'max:55'],
-            'delivery_type_id' => ['required', Rule::exists(Delivery::class, 'id')],
+            'delivery_id' => ['required', Rule::exists(Delivery::class, 'id')],
             'payment_type_id' => ['required', Rule::exists(PaymentType::class, 'id')],        
             'message' => ['nullable', 'string'],
             'agree' => ['required','accepted'],
         ];
 
-        if ($deliveryId != Delivery::PICKUP_DELIVERY_ID) {
+        if (in_array($deliveryId, [Delivery::DELIVERY_TO_ADDRESS, Delivery::DELIVERY_TO_CITY])) {
             $rules['city'] = ['required', 'string', 'max:55'];
             $rules['street'] = ['required', 'string', 'max:55'];
             $rules['house'] = ['required', 'string', 'max:55'];
@@ -51,7 +51,14 @@ class OrderRequest extends FormRequest
             'phone.min' => 'Поле "Телефон" должно быть не менее 11 символов.',
             'phone.max' => 'Поле "Телефон" не должно превышать 20 символов.',
             'email.email' => 'Поле "Email" должно быть валидным email адресом.',
-            'agree.accepted' => 'Вы должны согласиться с условиями использования.',
+            'agree.required' => 'Вы должны согласиться с условиями обработки персональных данных.',
+            'agree.accepted' => 'Вы должны согласиться с условиями обработки персональных данных.',
+
+            'delivery_id.required' => 'Поле "Способ доставки" обязательно для заполнения.',
+            'delivery_id.exists' => 'Способ доставки не найден.',
+
+            'payment_type_id.required' => 'Поле "Способ оплаты" обязательно для заполнения.',
+            'payment_type_id.exists' => 'Способ оплаты не найден.',
 
 
             'city.required' => 'Поле "Город" обязательно для заполнения.',
@@ -69,6 +76,7 @@ class OrderRequest extends FormRequest
             'block.string' => 'Поле "Корпус" должно быть строкой.',
             'block.max' => 'Поле "Корпус" не должно превышать 255 символов.',
 
+            'flat.required' => 'Поле "Квартира" обязательно для заполнения.',
             'flat.string' => 'Поле "Квартира" должно быть строкой.',
             'flat.max' => 'Поле "Квартира" не должно превышать 255 символов.',
 

@@ -55,7 +55,7 @@ class OrderProductsRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('title')
                     ->wrap()
                     ->label('Название товара'),
-                Tables\Columns\TextColumn::make('code')
+                Tables\Columns\TextColumn::make('article')
                     ->label('Артикул'),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Цена'),
@@ -92,7 +92,7 @@ class OrderProductsRelationManager extends RelationManager
                                     $product = Product::find($state);
                                     $set('price', $product->price);
                                     $set('title', $product->title);
-                                    $set('code', $product->code);
+                                    $set('article', $product->article);
                                 }
                             }),
                         TextInput::make('count')
@@ -103,7 +103,7 @@ class OrderProductsRelationManager extends RelationManager
                             ->minValue(1),
                         Hidden::make('price'),
                         Hidden::make('title'),
-                        Hidden::make('code'),
+                        Hidden::make('article'),
                     ])
                     ->mutateFormDataUsing(function (array $data): array {
                         $data['total_price'] = $data['price'] * $data['count'];

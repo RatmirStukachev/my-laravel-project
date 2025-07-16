@@ -1,6 +1,12 @@
 $(document).ready(function() {
     let timeout = null;
     
+    // Hide delivery block initially
+    $('.delivery-block').hide();
+    
+    // Check initial delivery selection on page load
+    checkDeliveryBlock();
+    
     $(document).on('click', '.btn-to-cart', function () {
         window.location = '/cart'
     });
@@ -295,6 +301,21 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Handle delivery option change
+    $(document).on('change', '._js-delivery', function() {
+        checkDeliveryBlock();
+    });
+
+    function checkDeliveryBlock() {
+        let selectedDelivery = $('._js-delivery:checked');
+        
+        if (selectedDelivery.length > 0 && selectedDelivery.val() != '1') {
+            $('.delivery-block').slideDown(300);
+        } else {
+            $('.delivery-block').slideUp(300);
+        }
+    }
 
     function showValidationPopup(messages, type) {
         let popup = $('.s-validation');

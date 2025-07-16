@@ -12,6 +12,7 @@ class Delivery extends Model
 
     const PICKUP_DELIVERY_ID = 1;
     const DELIVERY_TO_ADDRESS = 2;
+    const DELIVERY_TO_CITY = 3;
 
     protected $guarded = [];
 

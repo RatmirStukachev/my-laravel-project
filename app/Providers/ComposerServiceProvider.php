@@ -54,7 +54,7 @@ class ComposerServiceProvider extends ServiceProvider
         );
 
         view()->composer(
-            ['product'], ProductBlockComposer::class,
+            ['product', 'cart'], ProductBlockComposer::class,
         );
     }
 }

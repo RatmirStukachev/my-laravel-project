@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Mail\OrderSendMail;
 use Illuminate\Http\Request;
 use App\Services\CartService;
@@ -48,5 +49,10 @@ class OrderController extends Controller
                 'message' => 'Ошибка при создании заказа',
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+    }
+    
+    public function getOrderSuccess(Order $order)
+    {
+        return view('order.success', compact('order'));
     }
 }

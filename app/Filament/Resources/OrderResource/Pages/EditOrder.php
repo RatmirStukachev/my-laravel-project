@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\OrderResource\Pages;
 
-use App\Filament\Resources\OrderResource;
 use Filament\Actions;
+use Livewire\Attributes\On;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\OrderResource;
 
 class EditOrder extends EditRecord
 {
@@ -15,5 +16,11 @@ class EditOrder extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    #[On('refreshProducts')]
+    public function refresh(): void
+    {
+        $this->fillForm();
     }
 }

@@ -49,6 +49,10 @@ class OrderResource extends Resource
                                                         ->disabled(),
                                                     Forms\Components\TextInput::make('name')
                                                         ->label('Имя'),
+                                                    Forms\Components\TextInput::make('surname')
+                                                        ->label('Фамилия'),
+                                                    Forms\Components\TextInput::make('middle_name')
+                                                        ->label('Отчество'),
                                                     Forms\Components\TextInput::make('phone')
                                                         ->label('Телефон')
                                                         ->required(),
@@ -70,43 +74,20 @@ class OrderResource extends Resource
                                                     Forms\Components\Section::make('Адрес доставки')->schema([
                                                         Forms\Components\Placeholder::make('city')
                                                             ->label('Город')
-                                                            ->content(fn ($record) => $record->orderAddress?->city ?? ''),
+                                                            ->content(fn ($record) => $record->city ?? ''),
                                                         Forms\Components\Placeholder::make('street')
                                                             ->label('Улица')
-                                                            ->content(fn ($record) => $record->orderAddress?->street ?? ''),
+                                                            ->content(fn ($record) => $record->street ?? ''),
                                                         Forms\Components\Placeholder::make('house')
                                                             ->label('Дом')
-                                                            ->content(fn ($record) => $record->orderAddress?->house ?? ''),
+                                                            ->content(fn ($record) => $record->house ?? ''),
                                                         Forms\Components\Placeholder::make('block')
                                                             ->label('Корпус')
-                                                            ->content(fn ($record) => $record->orderAddress?->block ?? ''),
+                                                            ->content(fn ($record) => $record->block ?? ''),
                                                         Forms\Components\Placeholder::make('flat')
                                                             ->label('Квартира')
-                                                            ->content(fn ($record) => $record->orderAddress?->flat ?? ''),
-                                                    ])->columns(3),
-                                                    Forms\Components\Section::make('Данные о клиенте')->schema([
-                                                        Forms\Components\Placeholder::make('customer_type')
-                                                            ->label('Тип клиента')
-                                                            ->content(fn ($record) => $record->customer_type ?? ''),
-                                                        Forms\Components\Placeholder::make('company_name')
-                                                            ->label('Название компании')
-                                                            ->content(fn ($record) => $record->company?->company_name ?? ''),
-                                                        // Forms\Components\Placeholder::make('company_unp ')
-                                                        //     ->label('УНП')
-                                                        //     ->content(fn ($record) => $record->company?->unp ?? ''),
-                                                        // Forms\Components\Placeholder::make('legal_address')
-                                                        //     ->label('Юридический адрес')
-                                                        //     ->content(fn ($record) => $record->company?->legal_address ?? ''),
-                                                        // Forms\Components\Placeholder::make('bic')
-                                                        //     ->label('БИК    ')
-                                                        //     ->content(fn ($record) => $record->company?->bic ?? ''),
-                                                        // Forms\Components\Placeholder::make('bank_name')
-                                                        //     ->label('Банк')
-                                                        //     ->content(fn ($record) => $record->company?->bank_name ?? ''),
-                                                        // Forms\Components\Placeholder::make('account_number')
-                                                        //     ->label('Номер счета')
-                                                        //     ->content(fn ($record) => $record->company?->account_number ?? ''),                                   
-                                                    ])->columns(4),
+                                                            ->content(fn ($record) => $record->flat ?? ''),
+                                                    ])->columns(3),                                
                                                     Forms\Components\TextInput::make('total_amount')
                                                         ->label('Сумма заказа')
                                                         ->disabled()
@@ -128,10 +109,7 @@ class OrderResource extends Resource
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->sortable(),
-                TextColumn::make('company.company_name')
-                    ->label('Название компании')
-                    ->searchable(),                    
+                    ->sortable(),                   
                 TextColumn::make('name')
                     ->label('Имя')
                     ->searchable(),

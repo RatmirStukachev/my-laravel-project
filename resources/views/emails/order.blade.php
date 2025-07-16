@@ -5,12 +5,16 @@
     <div style="clear:both"></div>
     <div style="width: 90%; margin: 0 auto; padding-bottom: 5%; font-family: 'Open Sans', sans-serif;">
         <div style="font-size: 18px;">
-            @if(isset($order->company?->company_name    ))
-                <p><strong>Название компании: </strong>{{$order->company->company_name}}</p>
-                <hr>
-            @endif
             @if(isset($order->name))
                 <p><strong>Имя: </strong>{{$order->name}}</p>
+                <hr>
+            @endif
+            @if(isset($order->surname))
+                <p><strong>Фамилия: </strong>{{$order->surname}}</p>
+                <hr>
+            @endif
+            @if(isset($order->middle_name))
+                <p><strong>Отчество: </strong>{{$order->middle_name}}</p>
                 <hr>
             @endif
             @if(isset($order->phone))
@@ -21,28 +25,28 @@
                 <p><strong>Email: </strong>{{$order->email}}</p>
                 <hr>
             @endif
-            @if(isset($order->orderAddress?->city))
-                <p><strong>Город: </strong>{{$order->orderAddress->city}}</p>
+            @if(isset($order->city))
+                <p><strong>Город: </strong>{{$order->city}}</p>
                 <hr>
             @endif
-            @if(isset($order->orderAddress?->street))
-                <p><strong>Улица: </strong>{{$order->orderAddress->street}}</p>
+            @if(isset($order->street))
+                <p><strong>Улица: </strong>{{$order->street}}</p>
                 <hr>
             @endif
-            @if(isset($order->orderAddress?->house))
-                <p><strong>Дом: </strong>{{$order->orderAddress->house}}</p>
+            @if(isset($order->house))
+                <p><strong>Дом: </strong>{{$order->house}}</p>
                 <hr>
             @endif
-            @if(isset($order->orderAddress?->block))
-                <p><strong>Корпус: </strong>{{$order->orderAddress->block}}</p>
+            @if(isset($order->block))
+                <p><strong>Корпус: </strong>{{$order->block}}</p>
                 <hr>
             @endif            
-            @if(isset($order->orderAddress?->floor))
-                <p><strong>Этаж: </strong>{{$order->orderAddress->floor}}</p>
+            @if(isset($order->floor))
+                <p><strong>Этаж: </strong>{{$order->floor}}</p>
                 <hr>
             @endif
-            @if(isset($order->orderAddress?->flat))
-                <p><strong>Квартира: </strong>{{$order->orderAddress->flat}}</p>
+            @if(isset($order->flat))
+                <p><strong>Квартира: </strong>{{$order->flat}}</p>
                 <hr>
             @endif
             @if(isset($order->message))
