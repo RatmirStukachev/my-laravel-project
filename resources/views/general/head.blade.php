@@ -20,6 +20,7 @@
     <meta name="description" content="{{$seo->description}}"/>
     <meta name="title" content="{{$seo->title}}">
 @endisset
+
 @if(isset($_GET['page']))
     <link rel="canonical" href="{{ url(Request::url()) }}" />
 @endif

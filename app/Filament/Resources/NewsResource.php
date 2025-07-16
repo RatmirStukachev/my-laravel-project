@@ -98,9 +98,11 @@ class NewsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('Название')
+                    ->wrap()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->label('Ссылка')
+                    ->wrap()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('date')
                     ->label('Дата')
