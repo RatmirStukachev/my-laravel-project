@@ -85,8 +85,8 @@
                                                 </div>
                                             </div>
                                             <div class="w-price">
-                                                @if ($page->price)
-                                                    <div class="_h3 bold">{{ format_price($page->price) }} <span class="_h7">{{ $page->category?->measure ? 'BYN/' . $page->category->measure : 'BYN' }}</span></div>
+                                                @if ($page->price > 0)
+                                                    <div class="_h3 bold">{{ $page->price }} <span class="_h7">{{ $page->category?->measure ? 'BYN/' . $page->category->measure : 'BYN' }}</span></div>
                                                 @else
                                                     <div class="_h3 bold">По запросу</div>
                                                 @endif

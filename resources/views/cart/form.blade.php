@@ -98,7 +98,7 @@
                                                 </div>
                                             @endif
                                             <div class="w-price">
-                                                <div class="_h5 bold">{{ format_price($cart->product?->price * $cart->count) }} <span class="_h7">{{ $cart->product?->category?->measure ? 'BYN/' . $cart->product->category->measure : 'BYN' }}</span></div>
+                                                <div class="_h5 bold">{{ $cart->product?->price * $cart->count }} <span class="_h7">{{ $cart->product?->category?->measure ? 'BYN/' . $cart->product->category->measure : 'BYN' }}</span></div>
                                             </div>
                                         </div>
                                     </div>
