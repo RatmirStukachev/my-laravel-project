@@ -38,10 +38,10 @@ class DeliveryResource extends Resource
                             ->label('Описание')
                             ->maxLength(255),
                     ])->columns(2),
-                Forms\Components\FileUpload::make('svg')
-                    ->label('Иконка (svg)')
-                    ->columnSpanFull()
-                    ->acceptedFileTypes(['image/svg+xml']),
+                // Forms\Components\FileUpload::make('svg')
+                //     ->label('Иконка (svg)')
+                //     ->columnSpanFull()
+                //     ->acceptedFileTypes(['image/svg+xml']),
                 Forms\Components\TextInput::make('pos')
                     ->label('Позиция (Опционально)')
                     ->columnSpanFull()
