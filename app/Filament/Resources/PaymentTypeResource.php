@@ -50,6 +50,7 @@ class PaymentTypeResource extends Resource
                     // ->acceptedFileTypes(['image/svg+xml']),
                     Forms\Components\TextInput::make('pos')
                         ->label('Позиция')
+                        ->default(1000)
                         ->columnSpanFull(),
                     Forms\Components\Checkbox::make('is_active')
                         ->label('Активно'),                              
