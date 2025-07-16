@@ -5,10 +5,10 @@
         <div class="container pb-60">	
             <div class="align-center pt-40">
                 <div class="w-image number xl-pt-35 pt-20">
-                    <img src="assets/i/404-image001.png" alt="">
+                    <img src="{{ asset('assets/i/404-image001.png') }}" alt="">
                 </div>
                 <div class="w-image title xl-pt-35 pt-20">
-                    <img src="assets/i/404-image002.png" alt="">
+                    <img src="{{ asset('assets/i/404-image002.png') }}" alt="">
                 </div>
                 <div class="w-description _h2 bold xl-pt-35 pt-20">
                     <div>Страница не&nbsp;найдена!</div>

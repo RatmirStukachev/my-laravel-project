@@ -15,6 +15,7 @@ class ContentForm
         return [
             TextInput::make('copyright')->label('Копирайты'),
             TextInput::make('privacy')->label('Ссылка на политику обработки персональных данных'),
+            TextInput::make('public_offerta')->label('Ссылка на публичную оферту'),
             TextInput::make('products_count')->label('Кол-во товаров на странице'),
             TextInput::make('news_count')->label('Кол-во новостей на странице'),
             TextInput::make('articles_count')->label('Кол-во статей на странице'),

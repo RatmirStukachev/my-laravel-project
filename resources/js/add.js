@@ -186,6 +186,57 @@ $(document).ready(function() {
         });
     }
 
+    $(document).on('submit', '.order-form', function(e) {
+        e.preventDefault();
+
+        let form = $(this);
+        form.find('.input__default, .textarea__default').removeClass('error');
+        form.find('.styled-figure').removeClass('error');
+
+        $.ajax({
+            url: '/order/create',
+            type: 'POST',
+            data: form.serialize(),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                if (response.success && response.redirect) {
+                    window.location = response.redirect;
+                }
+            },
+            error: function(xhr) {
+                let errors = xhr.responseJSON?.errors;
+                let errorMessages = [];
+
+                if (errors) {
+                    // Проходим по всем ошибкам
+                    $.each(errors, function(field, messages) {
+                        errorMessages.push(messages[0]);
+
+                        // Подсвечиваем поля с ошибками
+                        if (field === 'delivery_type_id') {
+                            $('._js-delivery-type').closest('.custom-selector').addClass('error');
+                        } else if (field === 'payment_type_id') {
+                            $('._js-payment-type').closest('.custom-selector').addClass('error');
+                        } else if (field === 'agree') {
+                            form.find(`[name="${field}"]`).closest('.custom-selector').find('.styled-figure').addClass('error');
+                        } else {
+                            form.find(`[name="${field}"]`).addClass('error');
+                        }
+                    });
+                }
+
+                showValidationPopup(errorMessages, 'error');
+                setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
+            },
+            complete: function() {
+                submitButton.prop('disabled', false);
+            }
+        });        
+        
+    });
+
     $(document).on('input', 'input[name="phone"]', function () {
         // Оставляем только цифры и плюс в начале
         this.value = this.value.replace(/[^\d+]/g, '')

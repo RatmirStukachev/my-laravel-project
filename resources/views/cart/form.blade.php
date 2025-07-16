@@ -110,7 +110,7 @@
                                         @if ($delivery_block['delivery'])
                                             <div class="w-icon-left w-delivery-type-aside-icon mt-10">
                                                 <div class="icon"><svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.0298 8.3678H17.0298V4.3678H3.02979C1.92979 4.3678 1.02979 5.2678 1.02979 6.3678V17.3678H3.02979C3.02979 19.0278 4.36979 20.3678 6.02979 20.3678C7.68979 20.3678 9.02979 19.0278 9.02979 17.3678H15.0298C15.0298 19.0278 16.3698 20.3678 18.0298 20.3678C19.6898 20.3678 21.0298 19.0278 21.0298 17.3678H23.0298V12.3678L20.0298 8.3678ZM19.5298 9.8678L21.4898 12.3678H17.0298V9.8678H19.5298ZM6.02979 18.3678C5.47978 18.3678 5.02979 17.9178 5.02979 17.3678C5.02979 16.8178 5.47978 16.3678 6.02979 16.3678C6.57979 16.3678 7.02979 16.8178 7.02979 17.3678C7.02979 17.9178 6.57979 18.3678 6.02979 18.3678ZM8.24979 15.3678C7.69979 14.7578 6.91979 14.3678 6.02979 14.3678C5.13979 14.3678 4.35979 14.7578 3.80979 15.3678H3.02979V6.3678H15.0298V15.3678H8.24979ZM18.0298 18.3678C17.4798 18.3678 17.0298 17.9178 17.0298 17.3678C17.0298 16.8178 17.4798 16.3678 18.0298 16.3678C18.5798 16.3678 19.0298 16.8178 19.0298 17.3678C19.0298 17.9178 18.5798 18.3678 18.0298 18.3678Z" fill="#CBCBCB"></path></svg></div>
-                                                <div class="text">{{$delivery_block['delivery']  }}</div>
+                                                <div class="text">{{ $delivery_block['delivery'] }}</div>
                                             </div>
                                         @endif
                                     </div>
@@ -174,187 +174,125 @@
             
             
             
-            
-            <div class="s-name _h3 bold align-sm-left align-center mt-15 mb-20">Адрес доставки</div>
-            <div class="row md-gutters">
-                <div class="col-md-4 col-sm-6 col-12 mt-20">
-                    <div class="input label-top">
-                        <label class="label block mb-5">Ваш город <span class="color-red">*</span></label>
-                        <input name="city" type="text" class="input__default gray small" placeholder="">
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-12 mt-20">
-                    <div class="input label-top">
-                        <label class="label block mb-5">Улица <span class="color-red">*</span></label>
-                        <input name="street" type="text" class="input__default gray small" placeholder="">
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-12 mt-10">
-                    <div class="row sm-gutters">
-                        <div class="col-6 mt-10">
-                            <div class="input label-top">
-                                <label class="label block mb-5">Дом <span class="color-red">*</span></label>
-                                <input name="house" type="text" class="input__default gray small" placeholder="">
-                            </div>
-                        </div>
-                        <div class="col-6 mt-10">
-                            <div class="input label-top">
-                                <label class="label block mb-5">Квартира <span class="color-red">*</span></label>
-                                <input name="flat" type="text" class="input__default gray small" placeholder="">
-                            </div>
+            <div class="delivery-block">                
+                <div class="s-name _h3 bold align-sm-left align-center mt-15 mb-20">Адрес доставки</div>
+                <div class="row md-gutters">
+                    <div class="col-md-4 col-sm-6 col-12 mt-20">
+                        <div class="input label-top">
+                            <label class="label block mb-5">Ваш город <span class="color-red">*</span></label>
+                            <input name="city" type="text" class="input__default gray small" placeholder="">
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-12 mt-10">
-                    <div class="row sm-gutters">
-                        <div class="col-6 mt-10">
-                            <div class="input label-top">
-                                <label class="label block mb-5">Корпус</label>
-                                <input name="block" type="text" class="input__default gray small" placeholder="">
-                            </div>
+                    <div class="col-md-4 col-sm-6 col-12 mt-20">
+                        <div class="input label-top">
+                            <label class="label block mb-5">Улица <span class="color-red">*</span></label>
+                            <input name="street" type="text" class="input__default gray small" placeholder="">
                         </div>
-                        <div class="col-6 mt-10">
-                            <div class="input label-top">
-                                <label class="label block mb-5">Этаж <span class="color-red">*</span></label>
-                                <input name="floor" type="text" class="input__default gray small" placeholder="">
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12 mt-10">
+                        <div class="row sm-gutters">
+                            <div class="col-6 mt-10">
+                                <div class="input label-top">
+                                    <label class="label block mb-5">Дом <span class="color-red">*</span></label>
+                                    <input name="house" type="text" class="input__default gray small" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-10">
+                                <div class="input label-top">
+                                    <label class="label block mb-5">Квартира <span class="color-red">*</span></label>
+                                    <input name="flat" type="text" class="input__default gray small" placeholder="">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 mt-20">
-                    <div class="input label-top">
-                        <label class="label block mb-5">Комментарии</label>
-                        <textarea name="message" type="text" class="textarea__default gray small"></textarea>
+                    <div class="col-md-4 col-sm-6 col-12 mt-10">
+                        <div class="row sm-gutters">
+                            <div class="col-6 mt-10">
+                                <div class="input label-top">
+                                    <label class="label block mb-5">Корпус</label>
+                                    <input name="block" type="text" class="input__default gray small" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-10">
+                                <div class="input label-top">
+                                    <label class="label block mb-5">Этаж <span class="color-red">*</span></label>
+                                    <input name="floor" type="text" class="input__default gray small" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-20">
+                        <div class="input label-top">
+                            <label class="label block mb-5">Комментарии</label>
+                            <textarea name="message" type="text" class="textarea__default gray small"></textarea>
+                        </div>
                     </div>
                 </div>
+                <div class="mt-20"><span class="color-red">*</span> обязательные для заполнения</div>
             </div>
-            <div class="mt-20"><span class="color-red">*</span> обязательные для заполнения</div>
         </div>
     </div>
     <div class="row row-cart-page-pay-and-delivery lg-md-gutters sm-gutters">
         <div class="col-md-6 col-12 col pb-20">
             <div class="w-cart-page-white-frame">
                 <div class="frame">
-                    <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы оплаты</div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio002" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Оплата картой</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio002" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Оплата через систему ЕРИП "Расчет"</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio002" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Оплата наличными</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio002" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Для юр. лиц (счет на оплату)</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio002" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Оплата картой рассрочки</div>
-                            </div> 
-                        </label>
-                    </div>
+                    @if ($paymentTypes->isNotEmpty())
+                        <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы оплаты</div>
+                        @foreach ($paymentTypes as $paymentType)
+                            <div class="custom-selector radio mt-10">
+                                <label class="label block pointer">
+                                    <div class="input">
+                                        <input type="radio" 
+                                            name="payment_type_id"
+                                            value="{{ $paymentType->id }}" 
+                                            class="selector hidden _js-payment-type"
+                                            @if (request()->input('payment_type_id') == $paymentType->id)
+                                                checked
+                                            @endif
+                                            >
+                                        <div class="styled-figure">
+                                            <div class="border">
+                                                <div class="inset-figure"></div>
+                                            </div>
+                                        </div>
+                                        <div class="label label-inner">{{ $paymentType->title }}</div>
+                                    </div> 
+                                </label>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-12 col pb-20">
             <div class="w-cart-page-white-frame">
-                <div class="frame">
-                    <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы доставки</div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio001" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Самовывоз</div>
-                            </div> 
-                        </label>
+                @if ($deliveries->isNotEmpty())
+                    <div class="frame">
+                        <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы доставки</div>
+                        @foreach ($deliveries as $delivery)
+                            <div class="custom-selector radio mt-10">
+                                <label class="label block pointer">
+                                    <div class="input">
+                                        <input type="radio" 
+                                            name="delivery_id"
+                                            value="{{ $delivery->id }}"
+                                            class="selector hidden _js-delivery"
+                                            @if (request()->input('delivery_id') == $delivery->id)
+                                                checked
+                                            @endif
+                                            >
+                                        <div class="styled-figure">
+                                            <div class="border">
+                                                <div class="inset-figure"></div>
+                                            </div>
+                                        </div>
+                                        <div class="label label-inner">{{ $delivery->title }}</div>
+                                    </div> 
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio001" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Доставка по Минску в пределах МКАД</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="custom-selector radio mt-10">
-                        <label class="label block pointer">
-                            <div class="input">
-                                <input type="radio" name="radio001" class="selector hidden">
-                                <div class="styled-figure">
-                                    <div class="border">
-                                        <div class="inset-figure"></div>
-                                    </div>
-                                </div>
-                                <div class="label label-inner">Доставка в регионы Беларуси</div>
-                            </div> 
-                        </label>
-                    </div>
-                    <div class="color-gray small-text mt-20">
-                        <div class="mt-10">Минимальная сумма заказа для любой формы доставки или самовывоза 50 руб. с НДС.</div>
-                        <div class="mt-10">Самовывоз в день заказа  при уcловии оформлении заявки до 12:00, товар можно получить в этот же день с 13.00 до 17.00.</div>
-                        <div class="mt-10">Самовывоз на следующий день Если вы оформили заявку после 12.00, товар можно получить на следующий день по графику работы пункта самовывоза.  <br>
-                        <b>Важно!</b> За заказом можно приезжать только после получения смс-уведомления.</div>
-                        <div class="mt-10">График работы пункта самовывоза: Пн-Пт: 8.30-17.00 Выходные дни: суббота, воскресенье.</div>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -374,16 +312,16 @@
                 <div class="col-auto pt-5">Стоимость</div>
                 <div class="col-auto pt-5">{{ format_price($summary['totalSum']) }}</div>
             </div>
-            <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
+            {{-- <div class="row align-items-center justify-content-between sm-gutters pt-10 _h6">
                 <div class="col-auto pt-5">Стоимость доставки</div>
                 <div class="col-auto pt-5">10 BYN</div>
-            </div>
+            </div> --}}
             <div class="pt-15">
                 <hr>
             </div>
             <div class="row align-items-center justify-content-between sm-gutters pt-10 _h4 bold">
                 <div class="col-auto pt-5">Итого</div>
-                <div class="col-auto pt-5"> <span class="_h6">BYN</span></div>
+                <div class="col-auto pt-5">{{ format_price($summary['totalSum']) }}</span></div>
             </div>
             <div class="custom-selector check pt-15">
                 <label class="label block pointer">
@@ -394,7 +332,7 @@
                                 <div class="inset-figure"></div>
                             </div>
                         </div>
-                        <div class="label label-inner small-text">Нажимая кнопку «Оформить заказ», я соглашаюсь на <a @if(\App\Services\Support\TextService::getSettingValue('content', 'privacy')) href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'privacy') ]) }}"@endif >обработку персональных данных</a> и с <a href="">договором публичной оферты</a></a></div>
+                        <div class="label label-inner small-text">Нажимая кнопку «Оформить заказ», я соглашаюсь на <a @if(\App\Services\Support\TextService::getSettingValue('content', 'privacy')) href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'privacy') ]) }}"@endif >обработку персональных данных</a> и с <a @if(\App\Services\Support\TextService::getSettingValue('content', 'public_offerta')) href="{{ route('page', ['slug' => \App\Services\Support\TextService::getSettingValue('content', 'public_offerta') ]) }}"@endif >договором публичной оферты</a></a></div>
                     </div> 
                 </label>
             </div>

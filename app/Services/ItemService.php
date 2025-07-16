@@ -13,7 +13,9 @@ use App\Models\Article;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\Delivery;
 use App\Models\PageContent;
+use App\Models\PaymentType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
@@ -137,11 +139,16 @@ class ItemService
         return $articles;
     }
 
-    public function getServicesForIndex()
+    public function getDeliveries()
     {
-        return Service::isActive()
-            ->with('children')
-            ->whereNull('parent_id')
+        return Delivery::isActive()
+            ->orderByPos()
+            ->get();
+    }
+
+    public function getPaymentTypes()
+    {
+        return PaymentType::isActive()
             ->orderByPos()
             ->get();
     }
