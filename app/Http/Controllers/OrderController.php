@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Services\Support\TextService;
 use Symfony\Component\HttpFoundation\Response;
 
+use function Illuminate\Support\defer;
+
 class OrderController extends Controller
 {
     public function __construct(
@@ -31,11 +33,15 @@ class OrderController extends Controller
             $emails = array_filter(array_map('trim', explode(',', $emails)));
             
             if ($emails) {
-                Mail::to($emails)->send(new OrderSendMail($order));
+                defer(function () use ($emails, $order) {
+                    Mail::to($emails)->send(new OrderSendMail($order));
+                });
             }
             
             if ($request->email) {
-                Mail::to($request->email)->send(new OrderSendMail($order));
+                defer(function () use ($request, $order) {
+                    Mail::to($request->email)->send(new OrderSendMail($order));
+                });
             }
             
             return response()->json([

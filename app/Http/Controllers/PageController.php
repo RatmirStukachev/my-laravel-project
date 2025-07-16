@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\FeedBack;
 use App\Mail\CallBackMail;
-use Illuminate\Http\Request;
 use App\Services\ItemService;
 use App\Services\PageService;
 use Illuminate\Support\Facades\Log;
@@ -12,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Services\Support\TextService;
 use App\Http\Requests\CallBackRequest;
 use Symfony\Component\HttpFoundation\Response;
+
+use function Illuminate\Support\defer;
 
 class PageController extends Controller
 {
