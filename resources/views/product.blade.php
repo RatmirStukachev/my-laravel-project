@@ -191,27 +191,27 @@
                                     </div>
                                 @endif
                             @endforeach
-                        </div>
-                    @endif
-                    @if ($page->article)
-                        <div class="w-default-dotts-features-item pb-10">
-                            <div class="row sm-gutters align-items-end">
-                                <div class="col-6 col">
-                                    <div class="row no-gutters align-items-end">
-                                        <div class="col-auto col-feature-name">
-                                            Артикул
+                            @if ($page->article)
+                                <div class="w-default-dotts-features-item pb-10">
+                                    <div class="row sm-gutters align-items-end">
+                                        <div class="col-6 col">
+                                            <div class="row no-gutters align-items-end">
+                                                <div class="col-auto col-feature-name">
+                                                    Артикул
+                                                </div>
+                                                <div class="col">
+                                                    <div class="dotts"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="dotts"></div>
+                                        <div class="col-6">
+                                            {{ $page->article}}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    {{ $page->article}}
-                                </div>
-                            </div>
+                            @endif     
                         </div>
-                    @endif     
+                    @endif                    
                 </div>
                 </div>
                 <div class="col-xl-6 col-12 col mb-30">
