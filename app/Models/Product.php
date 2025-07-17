@@ -120,19 +120,18 @@ class Product extends Model
 
         $category = $this->category;
 
-        // Проверяем текущую категорию
-        if (!$category->is_active) {
-            return false;
+        if ($category->isFirstLevel()) {
+            return $category->is_active;
         }
 
-        // Проверяем все родительские категории
-        while ($category->parent) {
-            if (!$category->parent->is_active) {
-                return false;
-            }
-            $category = $category->parent;
+        if ($category->isSecondLevel()) {
+            return $category->parent?->is_active;
         }
 
-        return true;
+        if ($category->isThirdLevel()) {
+            return $category->parent?->parent?->is_active;
+        }
+
+        return false;
     }
 }

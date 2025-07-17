@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\ItemService;
 use App\Services\PageService;
 use App\Services\CategoryService;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends Controller
 {
@@ -26,6 +27,8 @@ class CategoryController extends Controller
 
     public function showLevel1(Request $request, Category $category)
     {
+        abort_if(! $category->isActiveThreeLevels(), Response::HTTP_NOT_FOUND);
+        
         $page = $this->pageService->setCategoryPage($category);
         $page->load(['children', 'children.parent']);
 
@@ -38,6 +41,8 @@ class CategoryController extends Controller
 
     public function showLevel2(Request $request, Category $parent, Category $category)
     {
+        abort_if(! $category->isActiveThreeLevels(), Response::HTTP_NOT_FOUND);
+        
         $page = $this->pageService->setCategoryPage($category);
         $page->load(['children', 'children.parent']);
 

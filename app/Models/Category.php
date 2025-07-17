@@ -247,4 +247,21 @@ class Category extends Model
 
         return $options;
     }
+
+    public function isActiveThreeLevels(): bool
+    {
+        if ($this->isFirstLevel()) {
+            return $this->is_active;
+        }
+
+        if ($this->isSecondLevel()) {
+            return $this->parent?->is_active;
+        }
+
+        if ($this->isThirdLevel()) {
+            return $this->parent?->parent?->is_active;
+        }
+
+        return false;
+    }
 }
