@@ -121,7 +121,7 @@
                                             <button type="submit" class="button block">Найти</button>
                                         </div>
                                         <div class="col-del col">
-                                            <button class="button block clear-filters">Очистить</button>
+                                            <a href="{{ url()->current() }}" class="button block clear-filters">Очистить</a>
                                         </div>
                                     </div>
                                 @endif

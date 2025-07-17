@@ -13,11 +13,9 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::prefix('catalog')->name('catalog.')->group(function () {
     Route::get('/', [CategoryController::class, 'getCatalog'])->name('index');
     
-    Route::get('/{category:slug}', [CategoryController::class, 'showLevel1'])
-        ->name('level1');
+    Route::get('/{category:slug}', [CategoryController::class, 'showLevel1'])->name('level1');
     
-    Route::get('/{parent:slug}/{category:slug}', [CategoryController::class, 'showLevel2'])
-        ->name('level2');
+    Route::get('/{parent:slug}/{category:slug}', [CategoryController::class, 'showLevel2'])->name('level2');
 });
 
 Route::get('/product/{product:slug}', [ProductController::class, 'getProduct'])->name('product');
