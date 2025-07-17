@@ -211,8 +211,7 @@
                                 </div>
                             @endif     
                         </div>
-                    @endif                    
-                </div>
+                    @endif                                    
                 </div>
                 <div class="col-xl-6 col-12 col mb-30">
                     @if ($page->content)
