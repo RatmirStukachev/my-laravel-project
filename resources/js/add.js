@@ -239,18 +239,26 @@ $(document).ready(function() {
             },
             error: function(xhr) {
                 let errors = xhr.responseJSON?.errors;
+                let message = xhr.responseJSON?.message;
                 let errorMessages = [];
-
+    
+                // Обрабатываем общие ошибки (например, от checkAvailability)
+                if (message) {
+                    errorMessages.push(message);
+                }
+    
+                // Обрабатываем ошибки валидации полей
                 if (errors) {
-                    // Проходим по всем ошибкам
                     $.each(errors, function(field, messages) {
                         errorMessages.push(messages[0]);
-
+    
                         // Подсвечиваем поля с ошибками
                         if (field === 'delivery_type_id') {
                             $('._js-delivery-type').closest('.custom-selector').addClass('error');
                         } else if (field === 'payment_type_id') {
                             $('._js-payment-type').closest('.custom-selector').addClass('error');
+                        } else if (field === 'customer') {
+                            $('._js-change-customer').closest('.custom-selector').addClass('error');
                         } else if (field === 'agree') {
                             form.find(`[name="${field}"]`).closest('.custom-selector').find('.styled-figure').addClass('error');
                         } else {
@@ -258,9 +266,12 @@ $(document).ready(function() {
                         }
                     });
                 }
-
-                showValidationPopup(errorMessages, 'error');
-                setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
+    
+                // Показываем ошибки только если они есть
+                if (errorMessages.length > 0) {
+                    showValidationPopup(errorMessages, 'error');
+                    setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
+                }
             },
             complete: function() {
                 submitButton.prop('disabled', false);

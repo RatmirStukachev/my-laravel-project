@@ -27,6 +27,15 @@ class OrderController extends Controller
     public function createOrder(OrderRequest $request)
     {
         try {
+            $this->cartService->checkAvailability();
+        } catch (\Exception $ex) {
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage(),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        
+        try {
             $order = $this->orderService->createOrder($request);
             
             $emails = TextService::getSettingValue('contacts', 'email');

@@ -146,6 +146,16 @@ class CartService
             ->get();
     }
 
+    public function checkAvailability()
+    {
+        $cartItems = $this->getCartItems();
+        foreach ($cartItems as $item) {
+            if ($item->product->balance < $item->count) {
+                throw new \Exception('Изменилось доступное количество товара ' . $item->product->title . '  (доступно ' . $item->product->balance . ')');
+            }
+        }
+    }
+
     public function getDeliveries()
     {
         return Delivery::where('is_active', true)->get();
