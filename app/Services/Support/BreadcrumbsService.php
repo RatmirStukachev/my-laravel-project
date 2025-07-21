@@ -56,14 +56,14 @@ class BreadcrumbsService
             $this->pageCategory($category->parent);
         }
         $this->bread['Каталог'] = '/catalog';
-        $this->bread[$category->title] = '/catalog/' . $category->slug;
+        $this->bread[($category->h1 ?: $category->title)] = '/catalog/' . $category->slug;
         return $this;
     }
 
     public function  pageSubcategory(Category $category)
     {
         $this->pageCategory($category->parent);
-        $this->bread[$category->title] =  end($this->bread) . '/' . $category->slug;
+        $this->bread[($category->h1 ?: $category->title)] =  end($this->bread) . '/' . $category->slug;
         return $this;
     }
 
