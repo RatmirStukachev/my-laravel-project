@@ -57,8 +57,8 @@ class BrandResource extends Resource
                                                     'unique' => 'Slug должен быть уникальным',
                                                 ])
                                                 ->maxLength(255),
-                                            Forms\Components\TextInput::make('h1')
-                                                ->label('H1')
+                                            // Forms\Components\TextInput::make('h1')
+                                            //     ->label('H1')
                                         ]),
                                         Forms\Components\FileUpload::make('image')
                                             ->label('Лого 300x100')
@@ -74,14 +74,14 @@ class BrandResource extends Resource
                                             ->label('Активно')
                                             ->required(),
                                     ]),
-                                Tab::make('SEO')
-                                    ->schema([
-                                        Forms\Components\Section::make('SEO')
-                                            ->schema([
-                                                Forms\Components\Textarea::make('title')->label('Title'),
-                                                Forms\Components\Textarea::make('description')->label('Description'),
-                                            ])->relationship('seo'),
-                                    ]),
+                                // Tab::make('SEO')
+                                //     ->schema([
+                                //         Forms\Components\Section::make('SEO')
+                                //             ->schema([
+                                //                 Forms\Components\Textarea::make('title')->label('Title'),
+                                //                 Forms\Components\Textarea::make('description')->label('Description'),
+                                //             ])->relationship('seo'),
+                                //     ]),
                             ]),
                     ])
                     ->columnSpan(['lg' => 3]),
