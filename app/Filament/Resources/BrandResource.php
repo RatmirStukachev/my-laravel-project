@@ -47,7 +47,7 @@ class BrandResource extends Resource
                                                     $set('slug', Str::slug($state));
                                                 }
                                             }),
-                                        Forms\Components\Section::make('')->schema([
+                                
                                             Forms\Components\TextInput::make('slug')
                                                 ->label('Ссылка')
                                                 ->dehydrated()
@@ -59,7 +59,7 @@ class BrandResource extends Resource
                                                 ->maxLength(255),
                                             // Forms\Components\TextInput::make('h1')
                                             //     ->label('H1')
-                                        ]),
+                                        
                                         Forms\Components\FileUpload::make('image')
                                             ->label('Лого 300x100')
                                             ->image()
