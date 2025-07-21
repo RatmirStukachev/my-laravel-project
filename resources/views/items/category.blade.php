@@ -10,7 +10,7 @@
                 <div class="w-image">
                     <div class="image">
                         <picture>
-                            <img src="{{(new zImage($category->image, [330, 220], ['contain']))->resize()}}" alt="{{ $category->title }}" title="{{ $category->title }}" class="img block" loading="lazy">
+                            <img src="{{(new zImage($category->image, [204, 136], ['contain']))->resize()}}" alt="{{ $category->title }}" title="{{ $category->title }}" class="img block" loading="lazy">
                         </picture>
                     </div>
                 </div>
