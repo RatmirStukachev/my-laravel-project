@@ -285,6 +285,41 @@ $(document).ready(function() {
         this.value = this.value.replace(/[^\d+]/g, '')
             .replace(/(^\+)?([+\d]*)/, '$1$2') // оставляем плюс только в начале
             .replace(/^\+{2,}/, '+'); // убираем лишние плюсы в начале
+        
+        // Применяем маску +375 (XX) XXX-XX-XX
+        let value = this.value;
+        
+        // Если начинается не с +375, добавляем +375
+        if (value && !value.startsWith('+375')) {
+            if (value.startsWith('+')) {
+                value = '+375' + value.substring(1);
+            } else {
+                value = '+375' + value;
+            }
+        }
+        
+        // Применяем маску
+        if (value.startsWith('+375')) {
+            let digits = value.replace(/\D/g, '').substring(3); // убираем 375 и нецифровые символы
+            let masked = '+375';
+            
+            if (digits.length > 0) {
+                masked += ' (' + digits.substring(0, 2);
+                if (digits.length > 2) {
+                    masked += ') ' + digits.substring(2, 5);
+                    if (digits.length > 5) {
+                        masked += '-' + digits.substring(5, 7);
+                        if (digits.length > 7) {
+                            masked += '-' + digits.substring(7, 9);
+                        }
+                    }
+                } else if (digits.length === 2) {
+                    masked += ')';
+                }
+            }
+            
+            this.value = masked;
+        }
     });
     
     // Обработчик для формы обратной связи
@@ -307,6 +342,9 @@ $(document).ready(function() {
                 $('.w-popup').hide();
                 $('.s-popup__background').hide();
                 $('.w-popup').removeClass('animate');
+                form.find('.custom-selector.check').removeClass('_checked');
+                form.find('input[name="agree"]').prop('checked', false);
+
                 showValidationPopup(response.message, 'success');
                 form.find('.input__default').val('');
                 setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
