@@ -132,6 +132,7 @@ class ProductResource extends Resource
                                         ->label('Изображение(435x435)')
                                         ->multiple()
                                         ->image()
+                                        ->reorderable()
                                         ->columnSpanFull()
                                         ->directory('products'),
                                     ]),
