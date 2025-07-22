@@ -43,15 +43,19 @@ class OrderService
                 'count' => $this->cartService->getCartCount(), 
                 'delivery_id' => $request->delivery_id,
                 'payment_type_id' => $request->payment_type_id,
-                'city' => $request->city,
-                'street' => $request->street,
-                'house' => $request->house,
-                'block' => $request->block,
-                'flat' => $request->flat,
-                'floor' => $request->floor,
-                'entrance' => $request->entrance,
-                'message' => $request->message,
             ]);
+
+            if (in_array((int)$request->delivery_id, [Delivery::DELIVERY_TO_ADDRESS, Delivery::DELIVERY_TO_CITY])) {
+                $order->update([
+                    'city' => $request->city,
+                    'street' => $request->street,
+                    'house' => $request->house,
+                    'block' => $request->block,
+                    'flat' => $request->flat,
+                    'floor' => $request->floor,
+                    'entrance' => $request->entrance,
+                ]);
+            }
 
             $basket = $this->cartService->getCartItems();
 
