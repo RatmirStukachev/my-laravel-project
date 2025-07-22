@@ -210,12 +210,23 @@ $(document).ready(function() {
         });
     }
 
-    $(document).on('submit', '.order-form', function(e) {
+    $(document).off('submit', '.order-form').on('submit', '.order-form', function(e) {
         e.preventDefault();
 
         let form = $(this);
+        let submitButton = form.find('button[type="submit"]');
+        
+        // Prevent duplicate submissions
+        if (form.data('submitting')) {
+            return false;
+        }
+        form.data('submitting', true);
+        submitButton.prop('disabled', true);
+        
         form.find('.input__default, .textarea__default').removeClass('error');
         form.find('.styled-figure').removeClass('error');
+        form.find('._js-payment-block').removeClass('error');
+        form.find('._js-delivery-block').removeClass('error');
 
         // Get form data and add delivery price
         let formData = form.serialize();
@@ -241,14 +252,10 @@ $(document).ready(function() {
                 let errors = xhr.responseJSON?.errors;
                 let message = xhr.responseJSON?.message;
                 let errorMessages = [];
-    
-                // Обрабатываем общие ошибки (например, от checkAvailability)
-                if (message) {
-                    errorMessages.push(message);
-                }
-    
-                // Обрабатываем ошибки валидации полей
-                if (errors) {
+                
+                // Prioritize individual errors over summary message
+                if (errors && Object.keys(errors).length > 0) {
+                    // Show individual field errors (more specific and useful)
                     $.each(errors, function(field, messages) {
                         errorMessages.push(messages[0]);
     
@@ -265,15 +272,24 @@ $(document).ready(function() {
                             form.find(`[name="${field}"]`).addClass('error');
                         }
                     });
+                } else if (message) {
+                    // Only use summary message if there are no individual field errors
+                    // (typically for custom exceptions like inventory checks)
+                    errorMessages.push(message);
                 }
-    
+                
                 // Показываем ошибки только если они есть
                 if (errorMessages.length > 0) {
                     showValidationPopup(errorMessages, 'error');
                     setTimeout(function() { $('._js-validation-alert').hide(); }, 3000);
                 }
+                
+                // Reset form state on error
+                form.data('submitting', false);
+                submitButton.prop('disabled', false);
             },
             complete: function() {
+                form.data('submitting', false);
                 submitButton.prop('disabled', false);
             }
         });        
