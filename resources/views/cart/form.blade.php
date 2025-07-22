@@ -3,7 +3,7 @@
         <div class="frame">
             <div class="row justify-content-sm-end justify-content-start">
                 <div class="col-auto sm-pt-15">
-                    <div class="color-gray">{{ $summary['cart_count'] }} товаров</div>
+                    <div class="color-gray">{{ $summary['cart_count'] }} {{ pluralize($summary['cart_count'], ['товар', 'товара', 'товаров']) }}</div>
                 </div>
             </div>
             <div class="pt-15">
@@ -303,7 +303,7 @@
         <div class="frame">
             <div class="row justify-content-start">
                 <div class="col-auto pt-15">
-                    <div class="">{{ $summary['cart_count'] }} товаров</div>
+                    <div class="">{{ $summary['cart_count'] }} {{ pluralize($summary['cart_count'], ['товар', 'товара', 'товаров']) }}</div>
                 </div>
             </div>
             <div class="pt-15">

@@ -36,3 +36,32 @@ if (!function_exists('get_sort_title')) {
         };
     }
 }
+
+if (!function_exists('pluralize')) {
+    /**
+     * Склонение слов в зависимости от числа
+     * 
+     * @param int $number Число
+     * @param array $forms Массив форм: [единственное число, 2-4, 5 и более]
+     * @return string
+     */
+    function pluralize(int $number, array $forms): string
+    {
+        $number = abs($number) % 100;
+        $n1 = $number % 10;
+        
+        if ($number > 10 && $number < 20) {
+            return $forms[2];
+        }
+        
+        if ($n1 > 1 && $n1 < 5) {
+            return $forms[1];
+        }
+        
+        if ($n1 == 1) {
+            return $forms[0];
+        }
+        
+        return $forms[2];
+    }
+}
