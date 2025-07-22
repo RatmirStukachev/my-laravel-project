@@ -151,7 +151,7 @@ class ProductResource extends Resource
                                                             ->where(function ($query) use ($search) {
                                                                 $query->where('title', 'like', "%{$search}%")
                                                                     ->orWhere('h1', 'like', "%{$search}%")
-                                                                    ->orWhere('code', '=', "$search");
+                                                                    ->orWhere('article', '=', "$search");
                                                             })
                                                             ->limit(15)
                                                             ->pluck('title', 'id')
