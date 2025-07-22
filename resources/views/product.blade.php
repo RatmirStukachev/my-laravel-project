@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    @if (isset($delivery_block['delivery']) && (!empty($delivery_block['delivery']) || !empty($delivery_block['pickup'])))
+                    @if (isset($delivery_block['delivery']) && (!empty($delivery_block['delivery']) || !empty($delivery_block['pickup'])) && $page->balance > 0)
                         <div class="w-product-page-aside-price-frame mb-20">
                             <div class="frame">
                                 @if ($delivery_block['title'])
