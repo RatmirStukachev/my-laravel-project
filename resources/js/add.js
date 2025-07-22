@@ -253,10 +253,10 @@ $(document).ready(function() {
                         errorMessages.push(messages[0]);
     
                         // Подсвечиваем поля с ошибками
-                        if (field === 'delivery_type_id') {
-                            $('._js-delivery-type').closest('.custom-selector').addClass('error');
+                        if (field === 'delivery_id') {
+                            $('._js-delivery-block').addClass('error');
                         } else if (field === 'payment_type_id') {
-                            $('._js-payment-type').closest('.custom-selector').addClass('error');
+                            $('._js-payment-block').addClass('error');
                         } else if (field === 'customer') {
                             $('._js-change-customer').closest('.custom-selector').addClass('error');
                         } else if (field === 'agree') {

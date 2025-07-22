@@ -234,7 +234,7 @@
     </div>
     <div class="row row-cart-page-pay-and-delivery lg-md-gutters sm-gutters">
         <div class="col-md-6 col-12 col pb-20">
-            <div class="w-cart-page-white-frame">
+            <div class="w-cart-page-white-frame _js-payment-block">
                 <div class="frame">
                     @if ($paymentTypes->isNotEmpty())
                         <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы оплаты</div>
@@ -264,8 +264,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-12 col pb-20">
-            <div class="w-cart-page-white-frame">
+        <div class="col-md-6 col-12 col pb-20 ">
+            <div class="w-cart-page-white-frame _js-delivery-block">
                 @if ($deliveries->isNotEmpty())
                     <div class="frame">
                         <div class="s-name _h2 bold align-sm-left align-center mt-15 mb-10">Способы доставки</div>
