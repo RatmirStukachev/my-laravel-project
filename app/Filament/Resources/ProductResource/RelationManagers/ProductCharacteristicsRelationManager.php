@@ -31,6 +31,7 @@ class ProductCharacteristicsRelationManager extends RelationManager
         $category = $product->category->getFirstLevel();
 
         return Characteristic::query()
+            ->distinct()
             ->select('characteristics.id', 'characteristics.title', 'characteristics.measure')
             ->join('category_characteristic', function($join) use ($category) {
                 $join->on('characteristics.id', '=', 'category_characteristic.characteristic_id')
@@ -82,9 +83,9 @@ class ProductCharacteristicsRelationManager extends RelationManager
             ->headerActions([])
             ->actions([])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 }
