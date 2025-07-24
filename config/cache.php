@@ -98,6 +98,7 @@ return [
         'categories' => 3000,
         'call_back_form' => 3600,
         'delivery_block' => 3600,
+        'cart_delivery' => 3600,
 
     ],
 

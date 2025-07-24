@@ -292,6 +292,11 @@
                                 </label>
                             </div>
                         @endforeach
+                        @if (isset($cart_delivery['content']) && !empty($cart_delivery['content']))
+                            <div class="color-gray small-text mt-20">
+                                {!! $cart_delivery['content'] !!}
+                            </div>
+                        @endif
                     </div>
                 @endif
             </div>
