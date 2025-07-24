@@ -121,7 +121,9 @@
                                             <button type="submit" class="button block">Найти</button>
                                         </div>
                                         <div class="col-del col">
-                                            <a href="{{ url()->current() }}" class="button block clear-filters">Очистить</a>
+                                            <a href="{{ url()->current() }}" class="button block">
+                                                <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.6665 4.45076V2.7841C3.6665 2.34207 3.8421 1.91815 4.15466 1.60559C4.46722 1.29303 4.89114 1.11743 5.33317 1.11743H8.6665C9.10853 1.11743 9.53245 1.29303 9.84502 1.60559C10.1576 1.91815 10.3332 2.34207 10.3332 2.7841V4.45076M12.8332 4.45076V16.1174C12.8332 16.5595 12.6576 16.9834 12.345 17.2959C12.0325 17.6085 11.6085 17.7841 11.1665 17.7841H2.83317C2.39114 17.7841 1.96722 17.6085 1.65466 17.2959C1.3421 16.9834 1.1665 16.5595 1.1665 16.1174V4.45076H12.8332Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                            </a>
                                         </div>
                                     </div>
                                 @endif
