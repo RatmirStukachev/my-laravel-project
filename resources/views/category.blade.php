@@ -116,7 +116,7 @@
                                     @endforeach
                                 @endif
                                 @if ($filters['characteristics_checkbox']?->isNotEmpty() || $filters['brands']?->isNotEmpty() )
-                                    <div class="row sm-gutters">
+                                    <div class="row row-submit sm-gutters">
                                         <div class="col-submit col">
                                             <button type="submit" class="button block">Найти</button>
                                         </div>
