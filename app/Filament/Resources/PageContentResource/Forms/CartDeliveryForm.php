@@ -12,6 +12,7 @@ class CartDeliveryForm
         return [
             Section::make('')->schema([
                 TinyEditor::make('data.content')
+                    ->columnSpanFull()
                     ->label('Содержимое'),
             ])->columns(3),
         ];
