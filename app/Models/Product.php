@@ -112,6 +112,16 @@ class Product extends Model
         return ($this->old_price - $this->price) > 0;
     }
 
+    public function getCategoryIds(): array
+    {
+        if ($this->category->isFirstLevel()) {
+            return  [$this->category_id];
+        }
+
+
+        return $this->category->getSelfAndAllParentIds();        
+    }
+
     public function isCategoriesActive(): bool
     {
         if (!$this->category) {

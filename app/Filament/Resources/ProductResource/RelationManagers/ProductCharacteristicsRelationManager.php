@@ -27,15 +27,14 @@ class ProductCharacteristicsRelationManager extends RelationManager
     {
         /** @var Product $product */
         $product = $this->getOwnerRecord();
-        
-        $category = $product->category->getFirstLevel();
+        $categoryIds = $product->getCategoryIds();        
 
         return Characteristic::query()
             ->distinct()
             ->select('characteristics.id', 'characteristics.title', 'characteristics.measure')
-            ->join('category_characteristic', function($join) use ($category) {
+            ->join('category_characteristic', function($join) use ($categoryIds) {
                 $join->on('characteristics.id', '=', 'category_characteristic.characteristic_id')
-                    ->whereIn('category_characteristic.category_id', $category?->getAllChildrenIds())
+                    ->whereIn('category_characteristic.category_id', $categoryIds)
                     ->where('category_characteristic.is_active', true);
             });                    
     }
