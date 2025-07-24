@@ -136,6 +136,24 @@
 	border-radius: 12px;
 	overflow: hidden;
 }
+
+.row-submit .col-submit ~ .col-del {
+	flex: 0 0 60px;
+	max-width: 60px;
+}
+
+.row-submit .col-submit ~ .col-del .button {
+	background-color: #cecece;
+	border-color: #cecece;
+	width: 100%;
+	padding: 15px 17px;
+}
+
+.row-submit .col-submit ~ .col-del .button:hover {
+	background-color: #fdc1c1;
+	border-color: #ff9393;
+}
+
 @media (min-width: 576px) {
 	.slider-image.mobile {
 		background-image: none !important;
@@ -1054,18 +1072,6 @@ ul.ul-catalog-page-aside-nav .ul-inset .li._active>.__link {
 	}
 	.row-cart-list-item>.col-content .w-mobile-content-right-offset {
 		padding-right: 30px;
-	}
-
-	.row-submit .col-submit ~ .col-del .button {
-		background-color: #cecece;
-		border-color: #cecece;
-		width: 100%;
-		padding: 15px 17px;
-	}
-	
-	.row-submit .col-submit ~ .col-del .button:hover {
-	background-color: #fdc1c1;
-	border-color: #ff9393;
 	}
 
 	.row-cart-list-item>.col-delete .delete-btn {
