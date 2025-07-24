@@ -38,23 +38,25 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="w-bottom-slider pt-10">
-                            <div class="owl-carousel owl-product-slider-thumb">
-                                @foreach ($page->getAllImages() as $image)
-                                    <div class="slide">
-                                        <div class="w-frame">
-                                            <picture>
-                                                <img src="{{(new zImage($image, [71, 71], ['contain']))->resize()}}" alt="{{ $page->title }}" title="{{ $page->title }}" class="img block" @if (! $loop->first) loading="lazy" @endif/>
-                                                @if(env('WEBP'))
-                                                    <source
-                                                        srcset="{{(new zImage($slide_block['image'], [71, 71], ['contain'], true))->resize()}}">
-                                                @endif
-                                            </picture>
+                        @if (count($page->getAllImages()) > 1)
+                            <div class="w-bottom-slider pt-10">
+                                <div class="owl-carousel owl-product-slider-thumb">
+                                    @foreach ($page->getAllImages() as $image)
+                                        <div class="slide">
+                                            <div class="w-frame">
+                                                <picture>
+                                                    <img src="{{(new zImage($image, [71, 71], ['contain']))->resize()}}" alt="{{ $page->title }}" title="{{ $page->title }}" class="img block" @if (! $loop->first) loading="lazy" @endif/>
+                                                    @if(env('WEBP'))
+                                                        <source
+                                                            srcset="{{(new zImage($slide_block['image'], [71, 71], ['contain'], true))->resize()}}">
+                                                    @endif
+                                                </picture>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-description col-12 col pb-30 order-xl-2 order-3">
