@@ -5,8 +5,8 @@
                 <div class="col-left col-12 col">
                     <div class="row align-items-center justify-content-md-start justify-content-center">
                         <div class="col-logo col pb-30">
-                            <a href="" class="logo__link block__link">
-                                <img src="assets/i/perf-by-logo-f.png" alt="" class="img block">
+                            <a {{ request()->is('/') ? '' : 'href=/' }}  class="logo__link block__link">
+                                <img src="{{ asset('assets/i/perf-by-logo-f.png') }}" alt="" class="img block">
                             </a>
                         </div>
                         <div class="col-nav col pb-30 col-lg-hide">
