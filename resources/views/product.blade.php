@@ -30,7 +30,7 @@
                                                 <img src="{{(new zImage($image, [435, 435], ['contain']))->resize()}}" alt="{{ $page->title }}" title="{{ $page->title }}" class="img block" @if (! $loop->first) loading="lazy" @endif>
                                                 @if(env('WEBP'))
                                                     <source
-                                                        srcset="{{(new zImage($slide_block['image'], [435, 435], ['contain'], true))->resize()}}">
+                                                        srcset="{{(new zImage($image['image'], [435, 435], ['contain'], true))->resize()}}">
                                                 @endif
                                             </picture>
                                         </a>
@@ -48,7 +48,7 @@
                                                     <img src="{{(new zImage($image, [71, 71], ['contain']))->resize()}}" alt="{{ $page->title }}" title="{{ $page->title }}" class="img block" @if (! $loop->first) loading="lazy" @endif/>
                                                     @if(env('WEBP'))
                                                         <source
-                                                            srcset="{{(new zImage($slide_block['image'], [71, 71], ['contain'], true))->resize()}}">
+                                                            srcset="{{(new zImage($image['image'], [71, 71], ['contain'], true))->resize()}}">
                                                     @endif
                                                 </picture>
                                             </div>
