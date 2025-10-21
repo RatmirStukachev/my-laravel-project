@@ -29,7 +29,7 @@ class MenuCategoriesComposer
                         'children.children',
                         'children.children.parent.parent'
                     ])
-                    ->whereNull('parent_id')
+                    ->where('header_menu', 1)
                     ->orderBy('pos')
                     ->orderBy('title')
                     ->get();

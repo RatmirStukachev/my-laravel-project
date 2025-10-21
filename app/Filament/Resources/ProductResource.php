@@ -116,6 +116,11 @@ class ProductResource extends Resource
                                             Forms\Components\Checkbox::make('is_hit')
                                                 ->label('Хит'),
                                             ])->columnSpan(4),
+                                        Section::make('')->schema([
+                                            Forms\Components\TextInput::make('zoomos_id')
+                                                ->label('Zoomos ID'),
+                                        ]),
+                                        
                                     ]),
                                 Tab::make('Подробное описание')
                                     ->schema([

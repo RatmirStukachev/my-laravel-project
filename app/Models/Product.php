@@ -23,7 +23,7 @@ class Product extends Model
 
     public function getAllImages()
     {
-        return array_merge([$this->image], $this->add_images);
+        return array_merge([$this->image], is_null($this->add_images) ? [] : $this->add_images);
     }
 
     public function category(): BelongsTo

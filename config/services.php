@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'zoomos' => [
+        'api_key' => env('ZOOMOS_API_KEY'),
+    ],
+
 ];

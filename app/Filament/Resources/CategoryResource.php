@@ -90,8 +90,10 @@ class CategoryResource extends Resource
                                             ->columnSpanFull()
                                             ->default(1000),
                                         Section::make('')->schema([
+                                            Forms\Components\Checkbox::make('header_menu')
+                                                ->label('В верхнем меню'),
                                             Forms\Components\Checkbox::make('is_index')
-                                                ->label('Главная страница'),
+                                                ->label('Главная страница'),                                                
                                             Forms\Components\Checkbox::make('is_active')
                                                 ->label('Активно'),
                                         ])->columnSpan(2),
@@ -128,6 +130,9 @@ class CategoryResource extends Resource
                     ->wrap()
                     ->label('Родитель')
                     ->searchable(),
+                Tables\Columns\CheckboxColumn::make('header_menu')
+                    ->sortable()
+                    ->label('В верхнем меню'),
                 Tables\Columns\CheckboxColumn::make('is_index')
                     ->sortable()
                     ->label('Главная страница'),
