@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Services\ZoomosImportService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+use App\Services\ZoomosImportService;
 
 class ImportZoomosProducts extends Command
 {
@@ -27,6 +28,7 @@ class ImportZoomosProducts extends Command
         }
 
         $this->info('Starting Zoomos products import...');
+        Log::info('Starting Zoomos products import...');
         $this->newLine();
 
         $progressBar = null;
@@ -45,6 +47,7 @@ class ImportZoomosProducts extends Command
             $this->newLine(2);
         }
 
+        Log::info('Zoomos products import stats', $stats);
         $this->info('Import completed!');
         $this->table(
             ['Metric', 'Count'],
