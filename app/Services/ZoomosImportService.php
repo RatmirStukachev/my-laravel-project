@@ -400,6 +400,14 @@ class ZoomosImportService
             $detailedProductData = $this->fetchProductDetails($productData['id']);
             $description = $detailedProductData['fullDescriptionHTML'] ?? null;
 
+            Log::info('Creating product with details', [
+                'zoomos_id' => $productData['id'],
+                'title' => $title,
+                'has_detailed_data' => !is_null($detailedProductData),
+                'has_description' => !is_null($description),
+                'has_features_blocks' => isset($detailedProductData['details']['featuresBlocks']),
+            ]);
+
             $product = Product::create([
                 'zoomos_id' => $productData['id'],
                 'title' => $title,
@@ -413,8 +421,23 @@ class ZoomosImportService
                 'desc' => $description,
             ]);
 
+            Log::info('Product created successfully', [
+                'product_id' => $product->id,
+                'zoomos_id' => $product->zoomos_id,
+            ]);
+
             if ($detailedProductData && isset($detailedProductData['details']['featuresBlocks'])) {
+                Log::info('Linking characteristics to product', [
+                    'product_id' => $product->id,
+                    'features_blocks_count' => count($detailedProductData['details']['featuresBlocks']),
+                ]);
                 $this->linkProductCharacteristics($product, $detailedProductData['details']['featuresBlocks']);
+            } else {
+                Log::warning('No detailed data or features blocks for product', [
+                    'product_id' => $product->id,
+                    'has_detailed_data' => !is_null($detailedProductData),
+                    'has_features_blocks' => isset($detailedProductData['details']['featuresBlocks']),
+                ]);
             }
 
             $this->productsCreated++;
@@ -821,7 +844,9 @@ class ZoomosImportService
     {
         try {
             $apiKey = config('services.zoomos.api_key');
-            $response = Http::timeout(60)->get("https://api.zoomos.by/item/{$zoomosId}", [
+            $url = "https://api.zoomos.by/item/{$zoomosId}";
+            
+            $response = Http::timeout(60)->get($url, [
                 'key' => $apiKey,
             ]);
 
@@ -836,6 +861,7 @@ class ZoomosImportService
             }
 
             return $response->json();
+
         } catch (\Exception $e) {
             Log::error('Failed to fetch product details', [
                 'zoomos_id' => $zoomosId,
@@ -868,10 +894,6 @@ class ZoomosImportService
                     $characteristic = Characteristic::where('title', $characteristicName)->first();
 
                     if (! $characteristic) {
-                        Log::warning('Characteristic not found for product', [
-                            'product_id' => $product->id,
-                            'characteristic_name' => $characteristicName,
-                        ]);
                         continue;
                     }
 
@@ -884,13 +906,18 @@ class ZoomosImportService
                     }
 
                     if (! empty($cleanValues)) {
-                        $characteristicsToLink[$characteristic->id] = implode(', ', $cleanValues);
+                        $finalValue = implode(', ', $cleanValues);
+                        $characteristicsToLink[$characteristic->id] = $finalValue;
                     }
                 }
             }
 
             if (! empty($characteristicsToLink)) {
-                $product->characteristics()->sync($characteristicsToLink);
+                $product->characteristics()->detach();
+                
+                foreach ($characteristicsToLink as $characteristicId => $value) {
+                    $product->characteristics()->attach($characteristicId, ['value' => $value]);
+                }
             }
         } catch (\Exception $e) {
             Log::error('Failed to link product characteristics', [
@@ -903,8 +930,14 @@ class ZoomosImportService
 
     private function cleanCharacteristicValue(string $value): string
     {
-        // Remove common units of measurement
-        $units = ['ат', 'л/мин', 'мин', 'м', 'Вт', 'кг', 'см', 'мм', 'г', 'л', 'мл', 'шт', 'шт.', 'есть', 'нет'];
+        $units = Characteristic::whereNotNull('measure')
+            ->where('measure', '!=', '')
+            ->distinct()
+            ->pluck('measure')
+            ->toArray();
+        
+        $commonUnits = ['есть', 'нет', 'шт', 'шт.'];
+        $units = array_merge($units, $commonUnits);
         
         $cleanValue = trim($value);
         
