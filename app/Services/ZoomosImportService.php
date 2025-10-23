@@ -936,9 +936,6 @@ class ZoomosImportService
             ->pluck('measure')
             ->toArray();
         
-        $commonUnits = ['есть', 'нет', 'шт', 'шт.'];
-        $units = array_merge($units, $commonUnits);
-        
         $cleanValue = trim($value);
         
         foreach ($units as $unit) {
