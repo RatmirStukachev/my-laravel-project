@@ -951,7 +951,10 @@ class ZoomosImportService
             
             if (str_ends_with($cleanValue, $unit)) {
                 $beforeUnit = substr($cleanValue, 0, -strlen($unit));
-                if (empty($beforeUnit) || !ctype_alpha(substr($beforeUnit, -1))) {
+                
+                if (empty($beforeUnit) || 
+                    substr($beforeUnit, -1) === ' ' || 
+                    is_numeric(substr($beforeUnit, -1))) {
                     $cleanValue = rtrim($beforeUnit);
                 }
             }
