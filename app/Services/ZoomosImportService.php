@@ -936,10 +936,25 @@ class ZoomosImportService
             ->pluck('measure')
             ->toArray();
         
+        $additionalUnits = ['шт', 'шт.', 'ат', 'атм'];
+        $allUnits = array_merge($units, $additionalUnits);
+        
         $cleanValue = trim($value);
         
-        foreach ($units as $unit) {
-            $cleanValue = str_replace($unit, '', $cleanValue);
+        usort($allUnits, function($a, $b) {
+            return strlen($b) - strlen($a);
+        });
+        
+        foreach ($allUnits as $unit) {
+            $unit = trim($unit);
+            if (empty($unit)) continue;
+            
+            if (str_ends_with($cleanValue, $unit)) {
+                $beforeUnit = substr($cleanValue, 0, -strlen($unit));
+                if (empty($beforeUnit) || !ctype_alpha(substr($beforeUnit, -1))) {
+                    $cleanValue = rtrim($beforeUnit);
+                }
+            }
         }
         
         return trim($cleanValue);
