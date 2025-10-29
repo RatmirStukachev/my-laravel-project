@@ -358,7 +358,6 @@ class ZoomosImportService
             $product->update([
                 'price' => $productData['price'] ?? null,
                 'balance' => 99,
-                'is_new' => false,
                 'is_active' => $productData['status'] ?? 0,
             ]);
 
