@@ -112,7 +112,7 @@ class ZoomosImportService
                     zoomosId: (int) ($level2['id'] ?? 0),
                     title: (string) ($level2['name'] ?? ''),
                     slugCandidate: (string) ($level2['linkRewrite'] ?? ''),
-                    parentId: null
+                    parentId: null,
                 );
 
                 if ($localId) {
@@ -357,6 +357,8 @@ class ZoomosImportService
         try {
             $product->update([
                 'price' => $productData['price'] ?? null,
+                'balance' => 99,
+                'is_new' => false,
                 'is_active' => $productData['status'] ?? 0,
             ]);
 
@@ -414,7 +416,7 @@ class ZoomosImportService
                 'slug' => $slug,
                 'price' => $productData['price'] ?? null,
                 'is_active' => $productData['status'] ?? 0,
-                'is_new' => $productData['isNew'] ?? 0,
+                'balance' => 99,
                 'category_id' => $categoryId,
                 'brand_id' => $brandId,
                 'image' => $imagePath,
