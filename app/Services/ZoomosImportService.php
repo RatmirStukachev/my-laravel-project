@@ -80,6 +80,94 @@ class ZoomosImportService
         return $this->getStats();
     }
 
+    public function createMissingProducts(string $apiKey, ?callable $progressCallback = null): array
+    {
+        $this->resetCounters();
+        $this->resetCache();
+
+        $products = $this->fetchProducts($apiKey);
+
+        if (empty($products)) {
+            Log::warning('Zoomos API returned empty products list');
+
+            return [
+                'created' => 0,
+                'skipped' => 0,
+                'total' => 0,
+            ];
+        }
+
+        $totalProducts = count($products);
+        $processed = 0;
+
+        foreach ($products as $productData) {
+            if ($this->shouldSkipProduct($productData)) {
+                $this->productsSkipped++;
+            } else {
+                $zoomosId = $productData['id'];
+                $existing = Product::where('zoomos_id', $zoomosId)->first();
+                if (! $existing) {
+                    $this->createProduct($productData);
+                } else {
+                    $this->updateProductDescAndCharacteristics($existing, (int) $zoomosId);
+                    $this->productsSkipped++;
+                }
+            }
+
+            $processed++;
+            if ($progressCallback) {
+                $progressCallback($processed, $totalProducts);
+            }
+        }
+
+        return [
+            'created' => $this->productsCreated,
+            'skipped' => $this->productsSkipped,
+            'total' => $this->productsCreated + $this->productsSkipped,
+        ];
+    }
+
+    public function updateExistingProducts(string $apiKey, ?callable $progressCallback = null): array
+    {
+        $this->resetCounters();
+        $this->resetCache();
+
+        $products = $this->fetchProducts($apiKey);
+
+        if (empty($products)) {
+            Log::warning('Zoomos API returned empty products list');
+
+            return $this->getStats();
+        }
+
+        $totalProducts = count($products);
+        $processed = 0;
+
+        foreach ($products as $productData) {
+            if ($this->shouldSkipProduct($productData)) {
+                $this->productsSkipped++;
+            } else {
+                $zoomosId = $productData['id'];
+                $product = Product::where('zoomos_id', $zoomosId)->first();
+                if ($product) {
+                    $this->updateProductWithDetails($product, $productData);
+                } else {
+                    $this->productsSkipped++;
+                }
+                $this->processedZoomosIds[] = $zoomosId;
+            }
+
+            $processed++;
+            if ($progressCallback) {
+                $progressCallback($processed, $totalProducts);
+            }
+        }
+
+        $this->deactivateProducts();
+
+        return $this->getStats();
+    }
+
     public function importCategories(string $apiKey): array
     {
         $this->categoriesCreated = 0;
@@ -368,6 +456,11 @@ class ZoomosImportService
                 'message' => $e->getMessage(),
             ]);
         }
+    }
+
+    private function updateProductWithDetails(Product $product, array $productData): void
+    {
+        $this->updateProduct($product, $productData);
     }
 
     private function createProduct(array $productData): void
@@ -877,52 +970,80 @@ class ZoomosImportService
     private function linkProductCharacteristics(Product $product, array $featuresBlocks): void
     {
         try {
-            $characteristicsToLink = [];
-
-            foreach ($featuresBlocks as $block) {
-                if (! isset($block['features']) || ! is_array($block['features'])) {
-                    continue;
-                }
-
-                foreach ($block['features'] as $feature) {
-                    $characteristicName = $feature['name'] ?? '';
-                    $values = $feature['values'] ?? [];
-
-                    if (empty($characteristicName) || empty($values)) {
-                        continue;
-                    }
-
-                    $characteristic = Characteristic::where('title', $characteristicName)->first();
-
-                    if (! $characteristic) {
-                        continue;
-                    }
-
-                    $cleanValues = [];
-                    foreach ($values as $value) {
-                        $cleanValue = $this->cleanCharacteristicValue($value);
-                        if (! empty($cleanValue)) {
-                            $cleanValues[] = $cleanValue;
-                        }
-                    }
-
-                    if (! empty($cleanValues)) {
-                        $finalValue = implode(', ', $cleanValues);
-                        $characteristicsToLink[$characteristic->id] = $finalValue;
-                    }
-                }
-            }
-
-            if (! empty($characteristicsToLink)) {
-                $product->characteristics()->detach();
-                
-                foreach ($characteristicsToLink as $characteristicId => $value) {
-                    $product->characteristics()->attach($characteristicId, ['value' => $value]);
-                }
-            }
+            $this->syncProductCharacteristics($product, $featuresBlocks);
         } catch (\Exception $e) {
             Log::error('Failed to link product characteristics', [
                 'product_id' => $product->id,
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+        }
+    }
+
+    private function syncProductCharacteristics(Product $product, array $featuresBlocks): void
+    {
+        $pivotData = [];
+
+        foreach ($featuresBlocks as $block) {
+            if (! isset($block['features']) || ! is_array($block['features'])) {
+                continue;
+            }
+
+            foreach ($block['features'] as $feature) {
+                $characteristicName = $feature['name'] ?? '';
+                $values = $feature['values'] ?? [];
+
+                if ($characteristicName === '' || empty($values)) {
+                    continue;
+                }
+
+                $characteristic = Characteristic::where('title', $characteristicName)->first();
+                if (! $characteristic) {
+                    continue;
+                }
+
+                $cleanValues = [];
+                foreach ($values as $value) {
+                    $cleanValue = $this->cleanCharacteristicValue((string) $value);
+                    if ($cleanValue !== '') {
+                        $cleanValues[] = $cleanValue;
+                    }
+                }
+
+                if (! empty($cleanValues)) {
+                    $pivotData[$characteristic->id] = ['value' => implode(', ', $cleanValues)];
+                }
+            }
+        }
+
+        $product->characteristics()->sync($pivotData);
+    }
+
+    private function updateProductDescAndCharacteristics(Product $product, int $zoomosId): void
+    {
+        try {
+            $detailedProductData = $this->fetchProductDetails($zoomosId);
+
+            if (! $detailedProductData) {
+                return;
+            }
+
+            $newDesc = (string) ($detailedProductData['fullDescriptionHTML'] ?? '');
+            $currentDesc = (string) ($product->desc ?? '');
+            if ($newDesc !== '' && $newDesc !== $currentDesc) {
+                $product->update(['desc' => $newDesc]);
+            }
+
+            $featuresBlocks = $detailedProductData['details']['featuresBlocks'] ?? [];
+            if (is_array($featuresBlocks)) {
+                $this->syncProductCharacteristics($product, $featuresBlocks);
+            } else {
+                $product->characteristics()->sync([]);
+            }
+        } catch (\Exception $e) {
+            Log::error('Failed to update product desc and characteristics', [
+                'product_id' => $product->id,
+                'zoomos_id' => $zoomosId,
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
