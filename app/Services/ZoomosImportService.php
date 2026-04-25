@@ -48,6 +48,10 @@ class ZoomosImportService
 
     private int $characteristicsSkipped = 0;
 
+    private int $imagesDownloaded = 0;
+
+    private int $imagesSkipped = 0;
+
     public function import(string $apiKey, ?callable $progressCallback = null): array
     {
         $this->resetCounters();
@@ -257,6 +261,7 @@ class ZoomosImportService
         foreach ($brands as $brandData) {
             if ($this->shouldSkipBrand($brandData)) {
                 $this->brandsSkipped++;
+
                 continue;
             }
 
@@ -306,6 +311,97 @@ class ZoomosImportService
             'linked' => $this->characteristicsLinked,
             'skipped' => $this->characteristicsSkipped,
             'processed' => $processed,
+        ];
+    }
+
+    public function downloadMissingImages(string $apiKey, ?callable $progressCallback = null): array
+    {
+        $this->imagesDownloaded = 0;
+        $this->imagesSkipped = 0;
+
+        $productsFromApi = $this->fetchProducts($apiKey);
+
+        if (empty($productsFromApi)) {
+            Log::warning('Zoomos API returned empty products list for missing images import');
+
+            return [
+                'downloaded' => 0,
+                'skipped' => 0,
+                'total' => 0,
+            ];
+        }
+
+        $productsIndex = [];
+        foreach ($productsFromApi as $productData) {
+            if (! isset($productData['id'])) {
+                continue;
+            }
+
+            $productsIndex[(int) $productData['id']] = $productData;
+        }
+
+        $query = Product::whereNull('image')
+            ->whereNotNull('zoomos_id');
+
+        $totalProducts = (int) $query->count();
+        $processed = 0;
+
+        $query->chunkById(100, function ($products) use (&$processed, $totalProducts, $productsIndex, $progressCallback) {
+            foreach ($products as $product) {
+                $zoomosId = (int) $product->zoomos_id;
+
+                if (! $zoomosId || ! isset($productsIndex[$zoomosId])) {
+                    $this->imagesSkipped++;
+                    $processed++;
+
+                    if ($progressCallback) {
+                        $progressCallback($processed, $totalProducts);
+                    }
+
+                    continue;
+                }
+
+                $productData = $productsIndex[$zoomosId];
+                $imageUrl = $productData['image'] ?? null;
+
+                if (empty($imageUrl)) {
+                    $this->imagesSkipped++;
+                    $processed++;
+
+                    if ($progressCallback) {
+                        $progressCallback($processed, $totalProducts);
+                    }
+
+                    continue;
+                }
+
+                $imagePath = $this->downloadImage($imageUrl, $zoomosId);
+
+                if ($imagePath) {
+                    $product->update(['image' => $imagePath]);
+                    $this->imagesDownloaded++;
+                } else {
+                    $this->imagesSkipped++;
+                }
+
+                $processed++;
+
+                if ($progressCallback) {
+                    $progressCallback($processed, $totalProducts);
+                }
+            }
+        });
+
+        Log::info('Zoomos missing images import finished', [
+            'downloaded' => $this->imagesDownloaded,
+            'skipped' => $this->imagesSkipped,
+            'total' => $this->imagesDownloaded + $this->imagesSkipped,
+        ]);
+
+        return [
+            'downloaded' => $this->imagesDownloaded,
+            'skipped' => $this->imagesSkipped,
+            'total' => $this->imagesDownloaded + $this->imagesSkipped,
         ];
     }
 
@@ -442,6 +538,22 @@ class ZoomosImportService
 
     private function updateProduct(Product $product, array $productData): void
     {
+        // $title = $productData['supplierInfo']['model'] ?? 'Unknown Product';
+        $prefix = $productData['typePrefix'] ?? null;
+        $title = $prefix
+            ? $prefix.' '.$productData['model']
+            : $productData['model'];
+
+        if (
+            str_contains($title, 'Startul Auto') ||
+            str_contains($title, 'Домкрат гидравлический')
+        ) {
+            Log::info('Zoomos import matched special product title', [
+                'zoomos_id' => $productData['id'] ?? null,
+                'title' => $title,
+            ]);
+        }
+
         try {
             $product->update([
                 'price' => $productData['price'] ?? null,
@@ -481,7 +593,22 @@ class ZoomosImportService
                 $imagePath = $this->downloadImage($productData['image'], $productData['id']);
             }
 
-            $title = $productData['supplierInfo']['model'] ?? 'Unknown Product';
+            // $title = $productData['supplierInfo']['model'] ?? 'Unknown Product';
+            $prefix = $productData['typePrefix'] ?? null;
+            $title = $prefix
+                ? $prefix.' '.$productData['model']
+                : $productData['model'];
+
+            if (
+                str_contains($title, 'Startul Auto') ||
+                str_contains($title, 'Домкрат гидравлический')
+            ) {
+                Log::info('Zoomos import matched special product title', [
+                    'zoomos_id' => $productData['id'] ?? null,
+                    'title' => $title,
+                ]);
+            }
+
             $slug = Str::slug($title);
 
             $originalSlug = $slug;
@@ -497,8 +624,8 @@ class ZoomosImportService
             Log::info('Creating product with details', [
                 'zoomos_id' => $productData['id'],
                 'title' => $title,
-                'has_detailed_data' => !is_null($detailedProductData),
-                'has_description' => !is_null($description),
+                'has_detailed_data' => ! is_null($detailedProductData),
+                'has_description' => ! is_null($description),
                 'has_features_blocks' => isset($detailedProductData['details']['featuresBlocks']),
             ]);
 
@@ -529,7 +656,7 @@ class ZoomosImportService
             } else {
                 Log::warning('No detailed data or features blocks for product', [
                     'product_id' => $product->id,
-                    'has_detailed_data' => !is_null($detailedProductData),
+                    'has_detailed_data' => ! is_null($detailedProductData),
                     'has_features_blocks' => isset($detailedProductData['details']['featuresBlocks']),
                 ]);
             }
@@ -575,7 +702,7 @@ class ZoomosImportService
                 'zoomos_id' => $zoomosId,
                 'title' => $title,
                 'slug' => $slug,
-                'is_active' => 1,
+                'is_active' => false,
             ]);
 
             $this->categoryCache[$zoomosId] = $category->id;
@@ -587,6 +714,7 @@ class ZoomosImportService
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
+
             return null;
         }
     }
@@ -625,6 +753,7 @@ class ZoomosImportService
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
+
             return null;
         }
     }
@@ -632,7 +761,7 @@ class ZoomosImportService
     private function downloadImage(string $imageUrl, int $productId): ?string
     {
         try {
-            $response = Http::timeout(30)->get($imageUrl);
+            $response = Http::timeout(60)->get($imageUrl);
 
             if (! $response->successful()) {
                 Log::warning('Failed to download image', [
@@ -751,7 +880,7 @@ class ZoomosImportService
                 }
 
                 if (! empty($updates)) {
-                    $category->update($updates + ['is_active' => 1]);
+                    $category->update($updates);
                     $this->categoriesUpdated++;
                 }
 
@@ -765,7 +894,7 @@ class ZoomosImportService
                 'title' => $title,
                 'slug' => $slug,
                 'parent_id' => $parentId,
-                'is_active' => 1,
+                'is_active' => false,
             ]);
 
             $this->categoriesCreated++;
@@ -780,6 +909,7 @@ class ZoomosImportService
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
+
             return null;
         }
     }
@@ -813,14 +943,15 @@ class ZoomosImportService
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
-            return $desiredSlug . '-' . time();
+
+            return $desiredSlug.'-'.time();
         }
     }
 
     private function shouldSkipBrand(array $brandData): bool
     {
         $name = $brandData['name'] ?? '';
-        
+
         return $name === '-' || $name === '?' || $name === '';
     }
 
@@ -829,14 +960,14 @@ class ZoomosImportService
         try {
             $zoomosId = $brandData['id'];
             $name = $brandData['name'] ?? 'Unknown Brand';
-            
-            $title = json_decode('"' . $name . '"');
+
+            $title = json_decode('"'.$name.'"');
 
             $brand = Brand::where('zoomos_id', $zoomosId)->first();
 
             if ($brand) {
                 $updates = [];
-                
+
                 if ($brand->title !== $title) {
                     $updates['title'] = $title;
                 }
@@ -874,6 +1005,7 @@ class ZoomosImportService
 
             if (empty($name) || empty($categoryName)) {
                 $this->characteristicsSkipped++;
+
                 return;
             }
 
@@ -904,6 +1036,7 @@ class ZoomosImportService
                     'category_name' => $categoryName,
                 ]);
                 $this->characteristicsSkipped++;
+
                 return;
             }
 
@@ -939,7 +1072,7 @@ class ZoomosImportService
         try {
             $apiKey = config('services.zoomos.api_key');
             $url = "https://api.zoomos.by/item/{$zoomosId}";
-            
+
             $response = Http::timeout(60)->get($url, [
                 'key' => $apiKey,
             ]);
@@ -1057,31 +1190,33 @@ class ZoomosImportService
             ->distinct()
             ->pluck('measure')
             ->toArray();
-        
+
         $additionalUnits = ['шт', 'шт.', 'ат', 'атм'];
         $allUnits = array_merge($units, $additionalUnits);
-        
+
         $cleanValue = trim($value);
-        
-        usort($allUnits, function($a, $b) {
+
+        usort($allUnits, function ($a, $b) {
             return strlen($b) - strlen($a);
         });
-        
+
         foreach ($allUnits as $unit) {
             $unit = trim($unit);
-            if (empty($unit)) continue;
-            
+            if (empty($unit)) {
+                continue;
+            }
+
             if (str_ends_with($cleanValue, $unit)) {
                 $beforeUnit = substr($cleanValue, 0, -strlen($unit));
-                
-                if (empty($beforeUnit) || 
-                    substr($beforeUnit, -1) === ' ' || 
+
+                if (empty($beforeUnit) ||
+                    substr($beforeUnit, -1) === ' ' ||
                     is_numeric(substr($beforeUnit, -1))) {
                     $cleanValue = rtrim($beforeUnit);
                 }
             }
         }
-        
+
         return trim($cleanValue);
     }
 }
