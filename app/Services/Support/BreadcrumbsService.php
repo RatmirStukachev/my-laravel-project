@@ -127,11 +127,7 @@ class BreadcrumbsService
 
     public function pageProduct(Product $product)
     {
-        $category = $this->resolveVisibleCategory($product->category) ?? $product->category;
-
-        // #region agent log
-        @file_put_contents(base_path('.cursor/debug-a60b13.log'), json_encode(['sessionId' => 'a60b13', 'hypothesisId' => 'H2', 'location' => 'BreadcrumbsService.php:pageProduct', 'message' => 'resolved category for breadcrumbs', 'data' => ['product_id' => $product->id, 'original_cat' => $product->category_id, 'resolved_cat' => $category->id, 'resolved_title' => $category->title, 'level' => $category->level], 'timestamp' => round(microtime(true) * 1000)])."\n", FILE_APPEND);
-        // #endregion
+        $category = $this->resolveVisibleCategory($product->category, $product) ?? $product->category;
 
         match ((int) $category->level) {
             3 => $this->pageLastCategory($category),
@@ -145,7 +141,7 @@ class BreadcrumbsService
         return $this;
     }
 
-    private function resolveVisibleCategory(?Category $sourceCategory): ?Category
+    private function resolveVisibleCategory(?Category $sourceCategory, ?Product $product = null): ?Category
     {
         if (! $sourceCategory) {
             return null;
@@ -155,12 +151,38 @@ class BreadcrumbsService
             return $sourceCategory;
         }
 
-        $mapping = CategoryMapping::query()
+        $mappings = CategoryMapping::query()
             ->where('source_category_id', $sourceCategory->id)
             ->with('visibleCategory')
-            ->first();
+            ->get();
 
-        return $mapping?->visibleCategory;
+        if ($mappings->isEmpty()) {
+            return null;
+        }
+
+        if ($product && $sourceCategory->id === 3) {
+            $productCharacteristics = $product->characteristics()
+                ->whereIn('characteristics.id', [5, 476])
+                ->get();
+
+            $purpose = trim($productCharacteristics->where('id', 476)->first()?->pivot?->value ?? '');
+            $type = trim($productCharacteristics->where('id', 5)->first()?->pivot?->value ?? '');
+
+            $toolPurposes = [
+                'для строительного инструмента',
+                'для строительного инструмента, для садового инструмента',
+            ];
+
+            if (in_array($purpose, $toolPurposes)) {
+                return $mappings->whereIn('visible_category_id', [193, 278])->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
+            }
+
+            if (str_contains($type, 'провода')) {
+                return $mappings->whereIn('visible_category_id', [257, 316])->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
+            }
+        }
+
+        return $mappings->first()->visibleCategory;
     }
 
     public function generate()

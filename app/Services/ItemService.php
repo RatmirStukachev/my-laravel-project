@@ -227,6 +227,11 @@ class ItemService
         $pneumaticValue = 'пневматический';
         $scarificatorValue = 'скарификатор';
 
+        $toolPurposeValues = [
+            'для строительного инструмента',
+            'для строительного инструмента, для садового инструмента',
+        ];
+
         $sourceCategoryIds = $this->getSourceCategoryIdsForVisibleCategory($category);
         $categoryIdsForProducts = $sourceCategoryIds !== [] ? $sourceCategoryIds : $category->getAllChildrenIds();
         $shouldRequireActiveCategory = $sourceCategoryIds === [];
@@ -295,6 +300,24 @@ class ItemService
                 $query->whereHas('characteristics', function ($query) use ($scarificatorValue) {
                     $query->where('characteristics.id', 5)
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
+                });
+            })
+            ->when(in_array((int) $category->id, [193, 278]), function ($query) use ($toolPurposeValues) {
+                $query->whereHas('characteristics', function ($query) use ($toolPurposeValues) {
+                    $query->where('characteristics.id', 476)
+                        ->whereRaw(
+                            'TRIM(product_characteristic.value) IN (?, ?)',
+                            $toolPurposeValues
+                        );
+                });
+            })
+            ->when(in_array((int) $category->id, [257, 316]), function ($query) use ($toolPurposeValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($toolPurposeValues) {
+                    $query->where('characteristics.id', 476)
+                        ->whereRaw(
+                            'TRIM(product_characteristic.value) IN (?, ?)',
+                            $toolPurposeValues
+                        );
                 });
             })
             ->when($request->has('filters'), function ($query) use ($request) {
