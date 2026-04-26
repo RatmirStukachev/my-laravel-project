@@ -12,16 +12,6 @@ use Illuminate\Support\Facades\View;
 
 class BreadcrumbsService
 {
-    private const SOURCE_CATEGORY_SHARED_ID = 3;
-
-    private const TOOL_VISIBLE_CATEGORY_IDS = [193, 278];
-
-    private const CAR_ACCESSORIES_VISIBLE_CATEGORY_IDS = [257, 316];
-
-    private const TYPE_CHARACTERISTIC_ID = 5;
-
-    private const PURPOSE_CHARACTERISTIC_ID = 476;
-
     private $bread = [
         'Главная' => '/',
     ];
@@ -170,13 +160,13 @@ class BreadcrumbsService
             return null;
         }
 
-        if ($product && $sourceCategory->id === self::SOURCE_CATEGORY_SHARED_ID) {
+        if ($product && $sourceCategory->id === 3) {
             $productCharacteristics = $product->characteristics()
-                ->whereIn('characteristics.id', [self::TYPE_CHARACTERISTIC_ID, self::PURPOSE_CHARACTERISTIC_ID])
+                ->whereIn('characteristics.id', [5, 476])
                 ->get();
 
-            $purpose = trim($productCharacteristics->where('id', self::PURPOSE_CHARACTERISTIC_ID)->first()?->pivot?->value ?? '');
-            $type = trim($productCharacteristics->where('id', self::TYPE_CHARACTERISTIC_ID)->first()?->pivot?->value ?? '');
+            $purpose = trim($productCharacteristics->where('id', 476)->first()?->pivot?->value ?? '');
+            $type = trim($productCharacteristics->where('id', 5)->first()?->pivot?->value ?? '');
 
             $toolPurposes = [
                 'для строительного инструмента',
@@ -184,11 +174,11 @@ class BreadcrumbsService
             ];
 
             if (in_array($purpose, $toolPurposes)) {
-                return $mappings->whereIn('visible_category_id', self::TOOL_VISIBLE_CATEGORY_IDS)->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
+                return $mappings->whereIn('visible_category_id', [193, 278])->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
             }
 
             if (str_contains($type, 'провода')) {
-                return $mappings->whereIn('visible_category_id', self::CAR_ACCESSORIES_VISIBLE_CATEGORY_IDS)->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
+                return $mappings->whereIn('visible_category_id', [257, 316])->first()?->visibleCategory ?? $mappings->first()->visibleCategory;
             }
         }
 
