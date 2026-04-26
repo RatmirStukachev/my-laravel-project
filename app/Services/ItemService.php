@@ -226,6 +226,7 @@ class ItemService
 
         $pneumaticValue = 'пневматический';
         $scarificatorValue = 'скарификатор';
+        $starterWiresValue = 'стартовые провода';
 
         $sourceCategoryIds = $this->getSourceCategoryIdsForVisibleCategory($category);
         $categoryIdsForProducts = $sourceCategoryIds !== [] ? $sourceCategoryIds : $category->getAllChildrenIds();
@@ -295,6 +296,18 @@ class ItemService
                 $query->whereHas('characteristics', function ($query) use ($scarificatorValue) {
                     $query->where('characteristics.id', 5)
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
+                });
+            })
+            ->when((int) $category->id === 193, function ($query) use ($starterWiresValue) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($starterWiresValue) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$starterWiresValue]);
+                });
+            })
+            ->when((int) $category->id === 257, function ($query) use ($starterWiresValue) {
+                $query->whereHas('characteristics', function ($query) use ($starterWiresValue) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$starterWiresValue]);
                 });
             })
             ->when($request->has('filters'), function ($query) use ($request) {
