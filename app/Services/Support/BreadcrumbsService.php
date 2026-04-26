@@ -127,7 +127,7 @@ class BreadcrumbsService
 
     public function pageProduct(Product $product)
     {
-        $category = $this->resolveVisibleCategory($product->category, $product) ?? $product->category;
+        $category = $this->resolveVisibleCategory($product->category) ?? $product->category;
 
         // #region agent log
         @file_put_contents(base_path('.cursor/debug-a60b13.log'), json_encode(['sessionId' => 'a60b13', 'hypothesisId' => 'H2', 'location' => 'BreadcrumbsService.php:pageProduct', 'message' => 'resolved category for breadcrumbs', 'data' => ['product_id' => $product->id, 'original_cat' => $product->category_id, 'resolved_cat' => $category->id, 'resolved_title' => $category->title, 'level' => $category->level], 'timestamp' => round(microtime(true) * 1000)])."\n", FILE_APPEND);
@@ -145,7 +145,7 @@ class BreadcrumbsService
         return $this;
     }
 
-    private function resolveVisibleCategory(?Category $sourceCategory, ?Product $product = null): ?Category
+    private function resolveVisibleCategory(?Category $sourceCategory): ?Category
     {
         if (! $sourceCategory) {
             return null;
@@ -153,19 +153,6 @@ class BreadcrumbsService
 
         if ($sourceCategory->is_active) {
             return $sourceCategory;
-        }
-
-        if ($product && (int) $sourceCategory->id === 3) {
-            $isStarterWires = $product->characteristics()
-                ->where('characteristics.id', 5)
-                ->whereRaw('TRIM(product_characteristic.value) = ?', ['стартовые провода'])
-                ->exists();
-
-            if ($isStarterWires) {
-                return Category::find(257);
-            }
-
-            return Category::find(193);
         }
 
         $mapping = CategoryMapping::query()
