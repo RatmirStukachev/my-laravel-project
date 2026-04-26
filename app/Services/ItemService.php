@@ -20,6 +20,12 @@ class ItemService
 {
     const SERVICE_CENTER_PAGE_ID = 3;
 
+    private const TOOL_VISIBLE_CATEGORY_IDS = [193, 278];
+
+    private const CAR_ACCESSORIES_VISIBLE_CATEGORY_IDS = [257, 316];
+
+    private const PURPOSE_CHARACTERISTIC_ID = 476;
+
     public function getPageBlock(string $key): ?array
     {
         $infoArray = PageContent::where('key', $key)->first();
@@ -227,6 +233,11 @@ class ItemService
         $pneumaticValue = 'пневматический';
         $scarificatorValue = 'скарификатор';
 
+        $toolPurposeValues = [
+            'для строительного инструмента',
+            'для строительного инструмента, для садового инструмента',
+        ];
+
         $sourceCategoryIds = $this->getSourceCategoryIdsForVisibleCategory($category);
         $categoryIdsForProducts = $sourceCategoryIds !== [] ? $sourceCategoryIds : $category->getAllChildrenIds();
         $shouldRequireActiveCategory = $sourceCategoryIds === [];
@@ -295,6 +306,24 @@ class ItemService
                 $query->whereHas('characteristics', function ($query) use ($scarificatorValue) {
                     $query->where('characteristics.id', 5)
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
+                });
+            })
+            ->when(in_array((int) $category->id, self::TOOL_VISIBLE_CATEGORY_IDS), function ($query) use ($toolPurposeValues) {
+                $query->whereHas('characteristics', function ($query) use ($toolPurposeValues) {
+                    $query->where('characteristics.id', self::PURPOSE_CHARACTERISTIC_ID)
+                        ->whereRaw(
+                            'TRIM(product_characteristic.value) IN (?, ?)',
+                            $toolPurposeValues
+                        );
+                });
+            })
+            ->when(in_array((int) $category->id, self::CAR_ACCESSORIES_VISIBLE_CATEGORY_IDS), function ($query) use ($toolPurposeValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($toolPurposeValues) {
+                    $query->where('characteristics.id', self::PURPOSE_CHARACTERISTIC_ID)
+                        ->whereRaw(
+                            'TRIM(product_characteristic.value) IN (?, ?)',
+                            $toolPurposeValues
+                        );
                 });
             })
             ->when($request->has('filters'), function ($query) use ($request) {
