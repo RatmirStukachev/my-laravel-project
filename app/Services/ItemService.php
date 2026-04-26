@@ -226,8 +226,6 @@ class ItemService
 
         $pneumaticValue = 'пневматический';
         $scarificatorValue = 'скарификатор';
-        $starterWiresValues = ['стартовые провода', 'пусковые провода'];
-        $constructionPurposeValues = ['для строительного инструмента', 'для строительного инструмента, для садового инструмента'];
 
         $sourceCategoryIds = $this->getSourceCategoryIdsForVisibleCategory($category);
         $categoryIdsForProducts = $sourceCategoryIds !== [] ? $sourceCategoryIds : $category->getAllChildrenIds();
@@ -297,24 +295,6 @@ class ItemService
                 $query->whereHas('characteristics', function ($query) use ($scarificatorValue) {
                     $query->where('characteristics.id', 5)
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
-                });
-            })
-            ->when((int) $category->id === 193, function ($query) use ($starterWiresValues) {
-                $query->whereDoesntHave('characteristics', function ($query) use ($starterWiresValues) {
-                    $query->where('characteristics.id', 5)
-                        ->whereRaw(
-                            'TRIM(product_characteristic.value) IN ('.implode(',', array_fill(0, count($starterWiresValues), '?')).')',
-                            $starterWiresValues
-                        );
-                });
-            })
-            ->when((int) $category->id === 257, function ($query) use ($constructionPurposeValues) {
-                $query->whereDoesntHave('characteristics', function ($query) use ($constructionPurposeValues) {
-                    $query->where('characteristics.id', 476)
-                        ->whereRaw(
-                            'TRIM(product_characteristic.value) IN ('.implode(',', array_fill(0, count($constructionPurposeValues), '?')).')',
-                            $constructionPurposeValues
-                        );
                 });
             })
             ->when($request->has('filters'), function ($query) use ($request) {
