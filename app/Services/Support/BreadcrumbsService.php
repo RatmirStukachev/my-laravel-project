@@ -149,20 +149,30 @@ class BreadcrumbsService
 
         if ($sourceCategory->id === 3 && $product) {
             $isToolCharger = $product->characteristics()
-                ->where('characteristics.id', 476)
-                ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', [
-                    'для строительного инструмента',
-                    'для строительного инструмента, для садового инструмента',
-                ])->exists();
+                ->where(function ($query) {
+                    $query->where(function ($q) {
+                        $q->where('characteristics.id', 476)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', [
+                                'для строительного инструмента',
+                                'для строительного инструмента, для садового инструмента',
+                            ]);
+                    })->orWhere(function ($q) {
+                        $q->where('characteristics.id', 852)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?)', ['18 В', '12 В', '18', '12']);
+                    });
+                })->exists();
 
             $isCarJumpStarter = $product->characteristics()
                 ->where(function ($query) {
                     $query->where(function ($q) {
                         $q->where('characteristics.id', 5)
-                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', ['стартовые провода', 'пуско-зарядное']);
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?)', ['стартовые провода', 'пуско-зарядное', 'пусковые провода']);
                     })->orWhere(function ($q) {
                         $q->where('characteristics.id', 66)
                             ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?)', ['220 В', '230 В', '220', '230']);
+                    })->orWhere(function ($q) {
+                        $q->where('characteristics.id', 850)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?, ?, ?)', ['100 А', '500 А', '700 А', '100', '500', '700']);
                     });
                 })->exists();
 
