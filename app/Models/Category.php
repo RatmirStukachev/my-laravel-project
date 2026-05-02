@@ -235,13 +235,13 @@ class Category extends Model
         $options = [null => 'Категория первого уровня'];
 
         foreach ($categories as $category) {
-            $options[$category->id] = $category->title;
+            $options[$category->id] = "[{$category->id}] " . $category->title;
 
             foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ '.$childCategory->title;
+                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
 
                 foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ '.$grandChildCategory->title;
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
                 }
             }
         }
@@ -260,13 +260,13 @@ class Category extends Model
         $options = [];
 
         foreach ($categories as $category) {
-            $options[$category->id] = $category->title;
+            $options[$category->id] = "[{$category->id}] " . $category->title;
 
             foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ '.$childCategory->title;
+                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
 
                 foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ '.$grandChildCategory->title;
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
                 }
             }
         }
