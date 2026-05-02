@@ -127,11 +127,7 @@ class BreadcrumbsService
 
     public function pageProduct(Product $product)
     {
-        $category = $this->resolveVisibleCategory($product->category) ?? $product->category;
-
-        // #region agent log
-        @file_put_contents(base_path('.cursor/debug-a60b13.log'), json_encode(['sessionId' => 'a60b13', 'hypothesisId' => 'H2', 'location' => 'BreadcrumbsService.php:pageProduct', 'message' => 'resolved category for breadcrumbs', 'data' => ['product_id' => $product->id, 'original_cat' => $product->category_id, 'resolved_cat' => $category->id, 'resolved_title' => $category->title, 'level' => $category->level], 'timestamp' => round(microtime(true) * 1000)])."\n", FILE_APPEND);
-        // #endregion
+        $category = $this->resolveVisibleCategory($product->category, $product) ?? $product->category;
 
         match ((int) $category->level) {
             3 => $this->pageLastCategory($category),
@@ -145,10 +141,48 @@ class BreadcrumbsService
         return $this;
     }
 
-    private function resolveVisibleCategory(?Category $sourceCategory): ?Category
+    private function resolveVisibleCategory(?Category $sourceCategory, ?Product $product = null): ?Category
     {
         if (! $sourceCategory) {
             return null;
+        }
+
+        if ($sourceCategory->id === 3 && $product) {
+            $isToolCharger = $product->characteristics()
+                ->where(function ($query) {
+                    $query->where(function ($q) {
+                        $q->where('characteristics.id', 476)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', [
+                                'для строительного инструмента',
+                                'для строительного инструмента, для садового инструмента',
+                            ]);
+                    })->orWhere(function ($q) {
+                        $q->where('characteristics.id', 852)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?)', ['18 В', '12 В', '18', '12']);
+                    });
+                })->exists();
+
+            $isCarJumpStarter = $product->characteristics()
+                ->where(function ($query) {
+                    $query->where(function ($q) {
+                        $q->where('characteristics.id', 5)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?)', ['стартовые провода', 'пуско-зарядное', 'пусковые провода']);
+                    })->orWhere(function ($q) {
+                        $q->where('characteristics.id', 66)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?)', ['220 В', '230 В', '220', '230']);
+                    })->orWhere(function ($q) {
+                        $q->where('characteristics.id', 850)
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?, ?, ?)', ['100 А', '500 А', '700 А', '100', '500', '700']);
+                    });
+                })->exists();
+
+            if ($isToolCharger) {
+                return Category::find(193);
+            }
+
+            if ($isCarJumpStarter) {
+                return Category::find(257);
+            }
         }
 
         if ($sourceCategory->is_active) {
