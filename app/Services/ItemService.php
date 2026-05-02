@@ -226,6 +226,13 @@ class ItemService
 
         $pneumaticValue = 'пневматический';
         $scarificatorValue = 'скарификатор';
+        $starterWiresValue = 'стартовые провода';
+        $jumpStarterValue = 'пуско-зарядное';
+        $voltageValues = ['220 В', '230 В'];
+        $toolPurposeValues = [
+            'для строительного инструмента',
+            'для строительного инструмента, для садового инструмента',
+        ];
 
         $sourceCategoryIds = $this->getSourceCategoryIdsForVisibleCategory($category);
         $categoryIdsForProducts = $sourceCategoryIds !== [] ? $sourceCategoryIds : $category->getAllChildrenIds();
@@ -297,25 +304,40 @@ class ItemService
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
                 });
             })
-            ->when(in_array((int) $category->id, [193, 278]), function ($query) {
-                $query->whereDoesntHave('characteristics', function ($query) {
+            ->when((int) $category->id === 193, function ($query) use ($starterWiresValue, $jumpStarterValue, $voltageValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($starterWiresValue) {
                     $query->where('characteristics.id', 5)
-                        ->whereRaw('TRIM(product_characteristic.value) = ?', ['стартовые провода']);
-                })->whereDoesntHave('characteristics', function ($query) {
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$starterWiresValue]);
+                })->whereDoesntHave('characteristics', function ($query) use ($jumpStarterValue) {
                     $query->where('characteristics.id', 5)
-                        ->whereRaw('TRIM(product_characteristic.value) = ?', ['пуско-зарядное']);
-                })->whereDoesntHave('characteristics', function ($query) {
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$jumpStarterValue]);
+                })->whereDoesntHave('characteristics', function ($query) use ($voltageValues) {
                     $query->where('characteristics.id', 66)
-                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', ['220 В', '230 В']);
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', $voltageValues);
                 });
             })
-            ->when(in_array((int) $category->id, [257, 316]), function ($query) {
-                $query->whereDoesntHave('characteristics', function ($query) {
+            ->when((int) $category->id === 278, function ($query) use ($starterWiresValue, $jumpStarterValue, $voltageValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($starterWiresValue) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$starterWiresValue]);
+                })->whereDoesntHave('characteristics', function ($query) use ($jumpStarterValue) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', [$jumpStarterValue]);
+                })->whereDoesntHave('characteristics', function ($query) use ($voltageValues) {
+                    $query->where('characteristics.id', 66)
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', $voltageValues);
+                });
+            })
+            ->when((int) $category->id === 257, function ($query) use ($toolPurposeValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($toolPurposeValues) {
                     $query->where('characteristics.id', 476)
-                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', [
-                            'для строительного инструмента',
-                            'для строительного инструмента, для садового инструмента',
-                        ]);
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', $toolPurposeValues);
+                });
+            })
+            ->when((int) $category->id === 316, function ($query) use ($toolPurposeValues) {
+                $query->whereDoesntHave('characteristics', function ($query) use ($toolPurposeValues) {
+                    $query->where('characteristics.id', 476)
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', $toolPurposeValues);
                 });
             })
             ->when($request->has('filters'), function ($query) use ($request) {
