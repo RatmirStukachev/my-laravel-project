@@ -297,6 +297,27 @@ class ItemService
                         ->whereRaw('TRIM(product_characteristic.value) = ?', [$scarificatorValue]);
                 });
             })
+            ->when(in_array((int) $category->id, [193, 278]), function ($query) {
+                $query->whereDoesntHave('characteristics', function ($query) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', ['стартовые провода']);
+                })->whereDoesntHave('characteristics', function ($query) {
+                    $query->where('characteristics.id', 5)
+                        ->whereRaw('TRIM(product_characteristic.value) = ?', ['пуско-зарядное']);
+                })->whereDoesntHave('characteristics', function ($query) {
+                    $query->where('characteristics.id', 66)
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', ['220 В', '230 В']);
+                });
+            })
+            ->when(in_array((int) $category->id, [257, 316]), function ($query) {
+                $query->whereDoesntHave('characteristics', function ($query) {
+                    $query->where('characteristics.id', 476)
+                        ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', [
+                            'для строительного инструмента',
+                            'для строительного инструмента, для садового инструмента',
+                        ]);
+                });
+            })
             ->when($request->has('filters'), function ($query) use ($request) {
                 $query->where(function ($query) use ($request) {
                     foreach ($request->filters as $characteristicId => $values) {
