@@ -162,7 +162,7 @@ class BreadcrumbsService
                             ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', ['стартовые провода', 'пуско-зарядное']);
                     })->orWhere(function ($q) {
                         $q->where('characteristics.id', 66)
-                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?)', ['220 В', '230 В']);
+                            ->whereRaw('TRIM(product_characteristic.value) IN (?, ?, ?, ?)', ['220 В', '230 В', '220', '230']);
                     });
                 })->exists();
 
