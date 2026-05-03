@@ -801,9 +801,7 @@ class ZoomosImportService
     private function deactivateProducts(): void
     {
         try {
-            $deactivatedNull = Product::whereNull('zoomos_id')
-                ->where('is_active', 1)
-                ->update(['is_active' => 0]);
+            $deactivatedNull = 0;
 
             $deactivatedMissing = Product::whereNotNull('zoomos_id')
                 ->whereNotIn('zoomos_id', $this->processedZoomosIds)
