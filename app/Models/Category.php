@@ -62,6 +62,11 @@ class Category extends Model
         return $this->hasOne(self::class, 'id', 'parent_id')->where('is_active', true);
     }
 
+    public function childRaw(): HasMany
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderByPos();
+    }
+
     public function parentRaw(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');
@@ -228,20 +233,20 @@ class Category extends Model
     {
         $categories = self::query()
             ->where('level', 1)
-            ->with(['child', 'child.child'])
+            ->with(['childRaw', 'childRaw.childRaw'])
             ->orderBy('pos')
             ->get();
 
         $options = [null => 'Категория первого уровня'];
 
         foreach ($categories as $category) {
-            $options[$category->id] = "[{$category->id}] " . $category->title;
+            $options[$category->id] = "{$category->id} | " . $category->title;
 
-            foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
+            foreach ($category->childRaw as $childCategory) {
+                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
 
-                foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
+                foreach ($childCategory->childRaw as $grandChildCategory) {
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
                 }
             }
         }
@@ -253,20 +258,20 @@ class Category extends Model
     {
         $categories = self::query()
             ->where('level', 1)
-            ->with(['child', 'child.child'])
+            ->with(['childRaw', 'childRaw.childRaw'])
             ->orderBy('pos')
             ->get();
 
         $options = [];
 
         foreach ($categories as $category) {
-            $options[$category->id] = "[{$category->id}] " . $category->title;
+            $options[$category->id] = "{$category->id} | " . $category->title;
 
-            foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
+            foreach ($category->childRaw as $childCategory) {
+                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
 
-                foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
+                foreach ($childCategory->childRaw as $grandChildCategory) {
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
                 }
             }
         }

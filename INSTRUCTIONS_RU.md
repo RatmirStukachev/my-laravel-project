@@ -1,94 +1,110 @@
-Привет! Я подготовил подробную инструкцию, как сделать так, чтобы в админ-панели при создании товара ты видел ID категорий и мог искать их по этим цифрам.
+Понял тебя! Проблема в том, что категория 79 (Триммеры) на сайте сейчас помечена как **неактивная**, поэтому она вообще не отображается в списке выбора. К тому же, мы добавим вывод ID в формате `ID | Название`, чтобы тебе было удобнее.
 
-Тебе нужно будет изменить два файла.
+Вот обновленная инструкция. Тебе нужно изменить два файла.
 
-### 1. Добавляем ID в список категорий
+### 1. Изменяем модель категорий
 Открой файл: `app/Models/Category.php`
 
-Найди в нем методы `getCategoryTree()` и `getProductCategoryTree()`. Тебе нужно изменить строки, где формируются названия категорий, чтобы перед ними в скобках выводился их ID.
-
-**Что нужно изменить в `getCategoryTree`:**
-Найди этот блок (примерно 235 строка):
+**Шаг 1.1: Добавляем связь для получения всех подкатегорий**
+Найди примерно 60-ю строку (там где `parent()`) и добавь после неё новый метод `childRaw()`:
 ```php
-        foreach ($categories as $category) {
-            $options[$category->id] = $category->title;
+    public function parent(): hasOne
+    {
+        return $this->hasOne(self::class, 'id', 'parent_id')->where('is_active', true);
+    }
 
-            foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ '.$childCategory->title;
-
-                foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ '.$grandChildCategory->title;
-                }
-            }
-        }
+    // Добавь вот это:
+    public function childRaw(): HasMany
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderByPos();
+    }
 ```
 
-И замени его на этот (мы добавили `"[{$category->id}] "` перед названием):
+**Шаг 1.2: Обновляем формирование списка (Tree)**
+Найди методы `getCategoryTree()` и `getProductCategoryTree()` (примерно 230-270 строки). Тебе нужно заменить их код полностью на этот.
+*Обрати внимание: мы заменили `child` на `childRaw`, чтобы подтягивались даже скрытые (неактивные) категории, и добавили вывод ID.*
+
 ```php
+    public static function getCategoryTree(): array
+    {
+        $categories = self::query()
+            ->where('level', 1)
+            ->with(['childRaw', 'childRaw.childRaw'])
+            ->orderBy('pos')
+            ->get();
+
+        $options = [null => 'Категория первого уровня'];
+
         foreach ($categories as $category) {
-            $options[$category->id] = "[{$category->id}] " . $category->title;
+            $options[$category->id] = "{$category->id} | " . $category->title;
 
-            foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
+            foreach ($category->childRaw as $childCategory) {
+                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
 
-                foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
+                foreach ($childCategory->childRaw as $grandChildCategory) {
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
                 }
             }
         }
-```
 
-**Точно так же сделай в методе `getProductCategoryTree`** (примерно 260 строка). Замени цикл на:
-```php
+        return $options;
+    }
+
+    public static function getProductCategoryTree(): array
+    {
+        $categories = self::query()
+            ->where('level', 1)
+            ->with(['childRaw', 'childRaw.childRaw'])
+            ->orderBy('pos')
+            ->get();
+
+        $options = [];
+
         foreach ($categories as $category) {
-            $options[$category->id] = "[{$category->id}] " . $category->title;
+            $options[$category->id] = "{$category->id} | " . $category->title;
 
-            foreach ($category->child as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "[{$childCategory->id}] " . $childCategory->title;
+            foreach ($category->childRaw as $childCategory) {
+                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
 
-                foreach ($childCategory->child as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "[{$grandChildCategory->id}] " . $grandChildCategory->title;
+                foreach ($childCategory->childRaw as $grandChildCategory) {
+                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
                 }
             }
         }
+
+        return $options;
+    }
 ```
 
 ---
 
-### 2. Включаем поиск по цифрам (ID)
+### 2. Обновляем поиск в товарах
 Открой файл: `app/Filament/Resources/ProductResource.php`
 
-Найди описание поля `category_id` (примерно 77 строка). Там есть функция `getSearchResultsUsing`, которая отвечает за поиск.
+Найди настройку поля `category_id` (примерно 77-90 строка). Замени блок `getSearchResultsUsing` на этот:
 
-**Найди этот блок:**
 ```php
+                                           Forms\Components\Select::make('category_id')
+                                                ->label('Категория')
+                                                ->options(Category::getProductCategoryTree())
+                                                ->optionsLimit(500)
+                                                ->required()
                                                 ->getSearchResultsUsing(function (string $search) {
-                                                    // Фильтруем категории по поисковому запросу
-                                                    return collect(Category::getProductCategoryTree())
-                                                        ->filter(function ($categoryName) use ($search) {
-                                                            return mb_stripos($categoryName, $search) !== false;
-                                                        })
-                                                        ->toArray();
-                                                })
-```
-
-**И замени его на этот:**
-```php
-                                                ->getSearchResultsUsing(function (string $search) {
-                                                    // Фильтруем категории по поисковому запросу или ID
+                                                    // Фильтруем категории по названию или по цифрам ID
                                                     return collect(Category::getProductCategoryTree())
                                                         ->filter(function ($categoryName, $categoryId) use ($search) {
-                                                            return mb_stripos($categoryName, $search) !== false || (string)$categoryId === $search;
+                                                            return mb_stripos($categoryName, $search) !== false || mb_stripos((string)$categoryId, $search) !== false;
                                                         })
                                                         ->toArray();
                                                 })
+                                                ->searchable(),
 ```
-*(Здесь мы добавили условие `|| (string)$categoryId === $search`, которое позволяет находить категорию, если ты ввел её точный ID).*
 
 ---
 
-### Что изменится:
-1. Теперь в выпадающем списке категорий ты будешь видеть названия в формате: `[79] Триммеры`.
-2. Если ты введешь в поиске цифру `79`, в результатах сразу появится категория «Триммеры».
+### Что теперь будет:
+1. В выпадающем списке появятся **все** категории, включая неактивные (такие как 79).
+2. Названия будут выглядеть так: `79 | Триммеры`.
+3. В поиске можно будет просто написать `79`, и категория сразу найдется.
 
-Если возникнут вопросы — пиши!
+Теперь ты сможешь выбрать категорию 79 для своего товара, даже если она сейчас скрыта на сайте.

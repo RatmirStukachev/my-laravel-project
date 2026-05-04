@@ -80,7 +80,7 @@ class ProductResource extends Resource
                                                     // Фильтруем категории по поисковому запросу или ID
                                                     return collect(Category::getProductCategoryTree())
                                                         ->filter(function ($categoryName, $categoryId) use ($search) {
-                                                            return mb_stripos($categoryName, $search) !== false || (string)$categoryId === $search;
+                                                            return mb_stripos($categoryName, $search) !== false || mb_stripos((string)$categoryId, $search) !== false;
                                                         })
                                                         ->toArray();
                                                 })
