@@ -118,6 +118,7 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('Название')
+                    ->formatStateUsing(fn ($state, $record) => "{$record->id} | {$state}")
                     ->wrap()
                     ->sortable()
                     ->searchable(),

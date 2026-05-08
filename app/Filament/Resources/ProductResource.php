@@ -77,10 +77,10 @@ class ProductResource extends Resource
                                                 ->optionsLimit(500)
                                                 ->required()
                                                 ->getSearchResultsUsing(function (string $search) {
-                                                    // Фильтруем категории по поисковому запросу
+                                                    // Фильтруем категории по поисковому запросу или ID
                                                     return collect(Category::getProductCategoryTree())
-                                                        ->filter(function ($categoryName) use ($search) {
-                                                            return mb_stripos($categoryName, $search) !== false;
+                                                        ->filter(function ($categoryName, $categoryId) use ($search) {
+                                                            return mb_stripos($categoryName, $search) !== false || mb_stripos((string)$categoryId, $search) !== false;
                                                         })
                                                         ->toArray();
                                                 })
