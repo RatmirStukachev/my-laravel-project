@@ -1,110 +1,38 @@
-Понял тебя! Проблема в том, что категория 79 (Триммеры) на сайте сейчас помечена как **неактивная**, поэтому она вообще не отображается в списке выбора. К тому же, мы добавим вывод ID в формате `ID | Название`, чтобы тебе было удобнее.
+Не переживай, изменения в файлах `app/Models/Category.php`, `app/Filament/Resources/ProductResource.php` и `app/Filament/Resources/CategoryResource.php` затрагивают только **админ-панель**.
 
-Вот обновленная инструкция. Тебе нужно изменить два файла.
+Методы `getCategoryTree` и `getProductCategoryTree` используются только в админке для построения списков выбора (dropdown). На самом сайте (в каталоге, меню или хлебных крошках) используются другие механизмы, так что пользователи сайта никаких изменений не увидят, и структура категорий не нарушится.
 
-### 1. Изменяем модель категорий
-Открой файл: `app/Models/Category.php`
+Вот инструкция, как добавить ID в общий список категорий.
 
-**Шаг 1.1: Добавляем связь для получения всех подкатегорий**
-Найди примерно 60-ю строку (там где `parent()`) и добавь после неё новый метод `childRaw()`:
+### Добавляем ID в список категорий (вкладка "Категории")
+Открой файл: `app/Filament/Resources/CategoryResource.php`
+
+Найди метод `table` (примерно 115 строка). Тебе нужно найти колонку `title` и добавить к ней одну строку `formatStateUsing`.
+
+**Было:**
 ```php
-    public function parent(): hasOne
-    {
-        return $this->hasOne(self::class, 'id', 'parent_id')->where('is_active', true);
-    }
-
-    // Добавь вот это:
-    public function childRaw(): HasMany
-    {
-        return $this->hasMany(self::class, 'parent_id', 'id')->orderByPos();
-    }
+            ->columns([
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Название')
+                    ->wrap()
+                    ->sortable()
+                    ->searchable(),
 ```
 
-**Шаг 1.2: Обновляем формирование списка (Tree)**
-Найди методы `getCategoryTree()` и `getProductCategoryTree()` (примерно 230-270 строки). Тебе нужно заменить их код полностью на этот.
-*Обрати внимание: мы заменили `child` на `childRaw`, чтобы подтягивались даже скрытые (неактивные) категории, и добавили вывод ID.*
-
+**Должно стать:**
 ```php
-    public static function getCategoryTree(): array
-    {
-        $categories = self::query()
-            ->where('level', 1)
-            ->with(['childRaw', 'childRaw.childRaw'])
-            ->orderBy('pos')
-            ->get();
-
-        $options = [null => 'Категория первого уровня'];
-
-        foreach ($categories as $category) {
-            $options[$category->id] = "{$category->id} | " . $category->title;
-
-            foreach ($category->childRaw as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
-
-                foreach ($childCategory->childRaw as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
-                }
-            }
-        }
-
-        return $options;
-    }
-
-    public static function getProductCategoryTree(): array
-    {
-        $categories = self::query()
-            ->where('level', 1)
-            ->with(['childRaw', 'childRaw.childRaw'])
-            ->orderBy('pos')
-            ->get();
-
-        $options = [];
-
-        foreach ($categories as $category) {
-            $options[$category->id] = "{$category->id} | " . $category->title;
-
-            foreach ($category->childRaw as $childCategory) {
-                $options[$childCategory->id] = '⤷ ' . "{$childCategory->id} | " . $childCategory->title;
-
-                foreach ($childCategory->childRaw as $grandChildCategory) {
-                    $options[$grandChildCategory->id] = ' ⤷⤷ ' . "{$grandChildCategory->id} | " . $grandChildCategory->title;
-                }
-            }
-        }
-
-        return $options;
-    }
+            ->columns([
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Название')
+                    ->formatStateUsing(fn ($state, $record) => "{$record->id} | {$state}") // Добавляем эту строку
+                    ->wrap()
+                    ->sortable()
+                    ->searchable(),
 ```
 
----
+### Итого, что мы сделали:
+1. В **модели** (`Category.php`) мы разрешили админке видеть даже скрытые категории и добавили им ID в списках выбора.
+2. В **товарах** (`ProductResource.php`) мы настроили поиск, чтобы он понимал цифры ID.
+3. В **списке категорий** (`CategoryResource.php`) мы добавили вывод ID перед названием.
 
-### 2. Обновляем поиск в товарах
-Открой файл: `app/Filament/Resources/ProductResource.php`
-
-Найди настройку поля `category_id` (примерно 77-90 строка). Замени блок `getSearchResultsUsing` на этот:
-
-```php
-                                           Forms\Components\Select::make('category_id')
-                                                ->label('Категория')
-                                                ->options(Category::getProductCategoryTree())
-                                                ->optionsLimit(500)
-                                                ->required()
-                                                ->getSearchResultsUsing(function (string $search) {
-                                                    // Фильтруем категории по названию или по цифрам ID
-                                                    return collect(Category::getProductCategoryTree())
-                                                        ->filter(function ($categoryName, $categoryId) use ($search) {
-                                                            return mb_stripos($categoryName, $search) !== false || mb_stripos((string)$categoryId, $search) !== false;
-                                                        })
-                                                        ->toArray();
-                                                })
-                                                ->searchable(),
-```
-
----
-
-### Что теперь будет:
-1. В выпадающем списке появятся **все** категории, включая неактивные (такие как 79).
-2. Названия будут выглядеть так: `79 | Триммеры`.
-3. В поиске можно будет просто написать `79`, и категория сразу найдется.
-
-Теперь ты сможешь выбрать категорию 79 для своего товара, даже если она сейчас скрыта на сайте.
+Это максимально безопасные изменения, которые упростят тебе работу с базой данных через админку. Если что-то ещё нужно подправить — обращайся!
