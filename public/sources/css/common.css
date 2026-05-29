@@ -1086,15 +1086,8 @@ ul.ul-catalog-page-aside-nav .ul-inset .li._active>.__link {
 
 @media (max-width: 575px) {
 
-	.s-index-slider .container {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	.s-index-slider .slider-image {
-		border-radius: 0;
-	}
 	.s-index-slider .row-content {
-		min-height: 700px;
+		min-height: 400px;
 	}
 	.s-index-slider .content-offset {
 		padding-left: 15px;
