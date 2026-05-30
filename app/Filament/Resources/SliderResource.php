@@ -41,7 +41,7 @@ class SliderResource extends Resource
                     ->directory('slider')
                     ->required(),
                 Forms\Components\FileUpload::make('image_mobile')
-                    ->label('Изображение мобайл (545x700)')
+                    ->label('Изображение мобайл (545x450)')
                     ->columnSpanFull()
                     ->image()
                     ->required()

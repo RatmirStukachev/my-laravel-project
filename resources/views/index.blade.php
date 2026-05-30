@@ -8,7 +8,7 @@
                     <div class="slide">
                         <div class="container">                    
                             <div class="slider-image" style="background-image: url('{{ (new zImage($slider->image, [1200, 310], ['contain'], true))->resize()   }}');">
-                                <div class="slider-image mobile" style="background-image: url('{{ (new zImage($slider->image_mobile, [545, 700], ['contain'], true))->resize() }}');">
+                                <div class="slider-image mobile" style="background-image: url('{{ (new zImage($slider->image_mobile, [545, 450], ['contain'], true))->resize() }}');">
                                     <div class="row row-content align-items-sm-center align-items-start">
                                         <div class="col-12 sm-pt-20 sm-pb-20 pt-50">
                                             <div class="content-offset color-white align-sm-left align-center">
